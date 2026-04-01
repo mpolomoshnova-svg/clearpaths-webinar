@@ -616,49 +616,23 @@
       </div>
     </div>
 
-    <div class="field">
-      <label>What country do you live in?</label>
-      <div class="select-wrap">
-        <select id="country" onchange="updateStates()">
-          <option value="">Select country</option>
-          <option value="US">United States</option>
-          <option value="RU">Russia</option>
-          <option value="UA">Ukraine</option>
-          <option value="GB">United Kingdom</option>
-          <option value="DE">Germany</option>
-          <option value="CZ" selected>Czech Republic</option>
-          <option value="AU">Australia</option>
-          <option value="CA">Canada</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-    </div>
+  <div class="field">
+  <label>Which state do you live in?</label>
+  <div class="select-wrap">
+    <select id="state">
+      <option value="">Select your state</option>
+      <option>Alabama</option>
+      <option>Alaska</option>
+      <option>Arizona</option>
+      <!-- ... все 50 штатов + Outside the US -->
+    </select>
+  </div>
+</div>
 
-    <div class="field" id="stateField">
-      <label>Which state do you live in?</label>
-      <div class="select-wrap">
-        <select id="state">
-          <option value="">Enter your state</option>
-          <option>California</option>
-          <option>New York</option>
-          <option>Texas</option>
-          <option>Florida</option>
-          <option>Washington</option>
-          <option>Other</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="field">
-      <label>What school is your child currently attending?</label>
-      <div class="select-wrap">
-        <select>
-          <option value="">Enter current school name</option>
-          <option>Home School</option>
-          <option>Other School</option>
-        </select>
-      </div>
-    </div>
+<div class="field">
+  <label>What school is your child currently attending?</label>
+  <input type="text" id="school" placeholder="Enter school name" />
+</div>
 
     <div class="field">
       <label>What year will your child graduate from high school?</label>
@@ -677,14 +651,15 @@
 
     <div class="checkbox-row">
       <input type="checkbox" id="marketing" checked />
-      <label for="marketing">Хочу получать полезные материалы, приглашения на события и актуальные предложения от ClearPaths</label>
+      <label for="marketing">I'd like to receive helpful resources, event invitations, and relevant offers from ClearPaths
+</label>
     </div>
 
     <div class="btn-row">
       <button class="btn-secondary" onclick="goStep1()">Back</button>
       <button class="btn-primary" onclick="submitForm()">Submit</button>
     </div>
-    <p class="privacy-note">Отправляя эту форму, вы соглашаетесь с <a href="#">Политикой конфиденциальности</a> ClearPaths Admissions.</p>
+    <p class="privacy-note">By submitting this form, you agree to the <a href="#">Privacy Policy</a> of ClearPaths Admissions.</p>
     <div class="dots">
       <div class="dot"></div>
       <div class="dot active"></div>
