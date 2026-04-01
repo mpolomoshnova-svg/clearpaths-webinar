@@ -594,27 +594,13 @@
 
   <!-- STEP 2 -->
   <div class="step" id="step2">
-    <div class="field">
-      <label>What is your phone number?</label>
-      <div class="phone-row">
-        <div class="phone-flag">
-          <select id="countryCode" onchange="updateCode(this)">
-            <option value="+1" data-flag="🇺🇸">🇺🇸 +1</option>
-            <option value="+44" data-flag="🇬🇧">🇬🇧 +44</option>
-            <option value="+7" data-flag="🇷🇺">🇷🇺 +7</option>
-            <option value="+380" data-flag="🇺🇦">🇺🇦 +380</option>
-            <option value="+49" data-flag="🇩🇪">🇩🇪 +49</option>
-            <option value="+33" data-flag="🇫🇷">🇫🇷 +33</option>
-            <option value="+86" data-flag="🇨🇳">🇨🇳 +86</option>
-            <option value="+91" data-flag="🇮🇳">🇮🇳 +91</option>
-            <option value="+61" data-flag="🇦🇺">🇦🇺 +61</option>
-            <option value="+420" data-flag="🇨🇿" selected>🇨🇿 +420</option>
-          </select>
-        </div>
-        <span class="phone-code" id="phoneCodeDisplay">+420</span>
-        <input type="tel" placeholder="01234567" />
-      </div>
-    </div>
+    <<div class="field">
+  <label>What is your phone number?</label>
+  <div class="phone-row">
+    <div class="phone-flag" style="cursor:default;">🇺🇸 +1</div>
+    <input type="tel" id="phone" placeholder="(555) 000-0000" maxlength="14" oninput="formatPhone(this)" />
+  </div>
+</div>
 
   <div class="field">
   <label>Which state do you live in?</label>
@@ -624,7 +610,54 @@
       <option>Alabama</option>
       <option>Alaska</option>
       <option>Arizona</option>
-      <!-- ... все 50 штатов + Outside the US -->
+      <option>Arkansas</option>
+      <option>California</option>
+      <option>Colorado</option>
+      <option>Connecticut</option>
+      <option>Delaware</option>
+      <option>Florida</option>
+      <option>Georgia</option>
+      <option>Hawaii</option>
+      <option>Idaho</option>
+      <option>Illinois</option>
+      <option>Indiana</option>
+      <option>Iowa</option>
+      <option>Kansas</option>
+      <option>Kentucky</option>
+      <option>Louisiana</option>
+      <option>Maine</option>
+      <option>Maryland</option>
+      <option>Massachusetts</option>
+      <option>Michigan</option>
+      <option>Minnesota</option>
+      <option>Mississippi</option>
+      <option>Missouri</option>
+      <option>Montana</option>
+      <option>Nebraska</option>
+      <option>Nevada</option>
+      <option>New Hampshire</option>
+      <option>New Jersey</option>
+      <option>New Mexico</option>
+      <option>New York</option>
+      <option>North Carolina</option>
+      <option>North Dakota</option>
+      <option>Ohio</option>
+      <option>Oklahoma</option>
+      <option>Oregon</option>
+      <option>Pennsylvania</option>
+      <option>Rhode Island</option>
+      <option>South Carolina</option>
+      <option>South Dakota</option>
+      <option>Tennessee</option>
+      <option>Texas</option>
+      <option>Utah</option>
+      <option>Vermont</option>
+      <option>Virginia</option>
+      <option>Washington</option>
+      <option>West Virginia</option>
+      <option>Wisconsin</option>
+      <option>Wyoming</option>
+      <option>Outside the US</option>
     </select>
   </div>
 </div>
@@ -820,17 +853,13 @@
   function submitForm() {
     alert('Thank you for registering! Check your email for confirmation.');
   }
-
-  function updateCode(sel) {
-    const code = sel.value;
-    document.getElementById('phoneCodeDisplay').textContent = code;
-  }
-
-  function updateStates() {
-    const country = document.getElementById('country').value;
-    document.getElementById('stateField').style.display = country === 'US' ? 'block' : 'none';
-  }
-  updateStates();
+  function formatPhone(input) {
+  let val = input.value.replace(/\D/g, '').slice(0, 10);
+  if (val.length <= 3) val = val;
+  else if (val.length <= 6) val = '(' + val.slice(0,3) + ') ' + val.slice(3);
+  else val = '(' + val.slice(0,3) + ') ' + val.slice(3,6) + '-' + val.slice(6);
+  input.value = val;
+}
 </script>
 </body>
 </html>
