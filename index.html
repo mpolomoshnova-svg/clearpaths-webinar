@@ -885,8 +885,9 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
   }).catch(() => {});
+    fbq('track', 'Lead');
 
-  alert('Thank you for registering! Check your email for confirmation.');
+  window.location.href = 'https://chat.whatsapp.com/JGNjksDQ8a9J72Y2zHCeQy?mode=gi_t';
 }
   function formatPhone(input) {
   let val = input.value.replace(/\D/g, '').slice(0, 10);
