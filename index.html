@@ -851,8 +851,23 @@
   }
 
   function submitForm() {
-    alert('Thank you for registering! Check your email for confirmation.');
-  }
+  const data = {
+    firstName: document.getElementById('firstName').value,
+    lastName:  document.getElementById('lastName').value,
+    email:     document.getElementById('email').value,
+    phone:     document.getElementById('phone').value,
+    state:     document.getElementById('state').value,
+    role:      document.querySelector('.toggle-btn.active')?.textContent || ''
+  };
+
+  fetch('https://hook.eu1.make.com/ocb9kaampigdics4gk26tby8w4tmc9kt', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).catch(() => {});
+
+  alert('Thank you for registering! Check your email for confirmation.');
+}
   function formatPhone(input) {
   let val = input.value.replace(/\D/g, '').slice(0, 10);
   if (val.length <= 3) val = val;
