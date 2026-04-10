@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valerie — UC Admissions Profile</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#0f172a;--navy-light:#1e293b;--navy-mid:#334155;
+    --slate:#64748b;--slate-light:#94a3b8;
+    --white:#fff;--off-white:#f8fafc;--gray-50:#f1f5f9;--gray-100:#e2e8f0;--gray-200:#cbd5e1;
+    --gold:#f59e0b;--gold-light:#fbbf24;
+    --green:#10b981;--green-bg:rgba(16,185,129,0.08);--green-border:rgba(16,185,129,0.2);
+    --red:#ef4444;--red-bg:rgba(239,68,68,0.06);--red-border:rgba(239,68,68,0.15);
+    --blue:#3b82f6;--blue-bg:rgba(59,130,246,0.06);--blue-border:rgba(59,130,246,0.15);
+    --amber-bg:rgba(245,158,11,0.06);--amber-border:rgba(245,158,11,0.15);
+    --violet:#7c3aed;--violet-bg:rgba(124,58,237,0.06);--violet-border:rgba(124,58,237,0.15);
+    --radius:12px;--radius-sm:8px;--radius-lg:16px;
+  }
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--off-white);color:var(--navy);line-height:1.65;-webkit-font-smoothing:antialiased}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#0f172a 0%,#312e81 50%,#5b21b6 100%);color:#fff;padding:3.5rem 2rem 3rem;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-40%;right:-15%;width:550px;height:550px;background:radial-gradient(circle,rgba(251,191,36,0.08),transparent 70%);pointer-events:none}
+  .hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(124,58,237,0.12),transparent 70%);pointer-events:none}
+  .hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1}
+  .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);padding:6px 14px;border-radius:100px;font-size:.75rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-bottom:1.25rem}
+  .hero h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;line-height:1.2;margin-bottom:.5rem}
+  .hero h1 span{color:#c4b5fd}
+  .hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.7);font-weight:300}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1)}
+  .hm-item{display:flex;flex-direction:column;gap:2px}
+  .hm-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.8px;color:rgba(255,255,255,0.45);font-weight:500}
+  .hm-value{font-size:1rem;font-weight:600;color:#fff}
+
+  .main{max-width:800px;margin:0 auto;padding:2rem 1.5rem 4rem}
+
+  .callout{background:linear-gradient(135deg,var(--violet-bg),rgba(124,58,237,0.02));border:1px solid var(--violet-border);border-left:3px solid var(--violet);border-radius:var(--radius);padding:1.15rem 1.35rem;margin-bottom:2.5rem;font-size:.92rem;color:var(--navy-light);line-height:1.7}
+  .callout strong{color:var(--navy)}
+
+  .section{margin-bottom:2.75rem}
+  .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:2px solid var(--gray-100)}
+  .si{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+  .si.blue{background:var(--blue-bg)}.si.green{background:var(--green-bg)}.si.gold{background:var(--amber-bg)}.si.red{background:var(--red-bg)}.si.violet{background:var(--violet-bg)}
+  .st{font-size:1.2rem;font-weight:700;color:var(--navy)}
+
+  .tw{border:1px solid var(--gray-100);border-radius:var(--radius);overflow:hidden;margin-bottom:1.25rem}
+  table{width:100%;border-collapse:collapse;font-size:.88rem}
+  thead{background:var(--gray-50)}
+  th{text-align:left;padding:.7rem 1rem;font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;color:var(--slate);border-bottom:1px solid var(--gray-100)}
+  td{padding:.75rem 1rem;border-bottom:1px solid var(--gray-50);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:rgba(59,130,246,0.02)}
+  .tl{font-weight:600;color:var(--navy);white-space:nowrap}
+
+  .tag{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;font-size:.78rem;font-weight:600;white-space:nowrap}
+  .tag-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
+  .tag-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+  .tag-amber{background:var(--amber-bg);color:var(--gold);border:1px solid var(--amber-border)}
+  .tag-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)}
+
+  .ic{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius);padding:1.15rem 1.35rem;margin-bottom:1.25rem}
+  .ic h4{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+  .ic p{font-size:.88rem;color:var(--navy-mid);line-height:1.7}
+  .ic strong{color:var(--navy)}
+
+  .ec-grid{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.25rem}
+  .ec{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid var(--gray-100);border-radius:var(--radius);padding:1rem 1.25rem;transition:box-shadow .2s}
+  .ec:hover{box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+  .ec-n{width:32px;height:32px;border-radius:8px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0}
+  .ec-i{flex:1}
+  .ec-name{font-weight:600;font-size:.92rem;color:var(--navy)}
+  .ec-role{font-size:.8rem;color:var(--slate);margin-top:1px}
+  .ec-sig{font-size:.78rem;color:var(--slate-light);font-style:italic}
+
+  .hl{background:linear-gradient(135deg,var(--green-bg),rgba(16,185,129,0.03));border:1px solid var(--green-border);border-left:3px solid var(--green);border-radius:var(--radius);padding:1.15rem 1.35rem;margin:1.25rem 0}
+  .hl h4{font-size:.9rem;font-weight:700;color:#065f46;margin-bottom:.5rem}
+  .hl p,.hl li{font-size:.88rem;color:var(--navy-mid);line-height:1.7}
+
+  .warn{background:linear-gradient(135deg,var(--amber-bg),rgba(245,158,11,0.02));border:1px solid var(--amber-border);border-left:3px solid var(--gold);border-radius:var(--radius);padding:1.15rem 1.35rem;margin:1.25rem 0}
+  .warn h4{font-size:.9rem;font-weight:700;color:#92400e;margin-bottom:.5rem}
+  .warn p{font-size:.88rem;color:var(--navy-mid);line-height:1.7}
+
+  .qc{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:1.75rem;margin:1.5rem 0;position:relative;overflow:hidden}
+  .qc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--violet),#c4b5fd)}
+  .qc .ql{font-size:.7rem;text-transform:uppercase;letter-spacing:.8px;color:var(--violet);font-weight:600;margin-bottom:.5rem}
+  .qc .qt{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--navy);line-height:1.5;font-style:italic;margin-bottom:1rem}
+  .qc .qa{font-size:.9rem;color:var(--navy-mid);line-height:1.75}
+  .qc .qa strong{color:var(--navy)}
+
+  .steps{counter-reset:step;margin:1rem 0}
+  .step{display:flex;gap:1rem;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--gray-50)}
+  .step:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .step-n{counter-increment:step;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;margin-top:2px}
+  .step-n::before{content:counter(step)}
+  .step-c h5{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
+  .step-c p{font-size:.85rem;color:var(--navy-mid);line-height:1.65}
+
+  .sl{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.25rem}
+  .sch{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid var(--gray-100);border-radius:var(--radius);padding:.9rem 1.15rem}
+  .sr{width:52px;height:52px;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;font-size:1rem;line-height:1}
+  .sr span{font-size:.6rem;font-weight:500;opacity:.7;margin-top:2px}
+  .sr.reach{background:var(--red-bg);color:var(--red)}
+  .sr.target{background:var(--green-bg);color:var(--green)}
+  .sr.safety{background:var(--blue-bg);color:var(--blue)}
+  .s-i{flex:1}
+  .s-name{font-weight:700;font-size:.92rem;color:var(--navy)}
+  .s-fit{font-size:.8rem;color:var(--slate);margin-top:2px;line-height:1.5}
+
+  .sg{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.25rem}
+  .sc{background:#fff;border:1px solid var(--gray-100);border-radius:var(--radius);padding:1.1rem 1.2rem}
+  .sc .scl{font-size:.7rem;text-transform:uppercase;letter-spacing:.6px;color:var(--slate);font-weight:600;margin-bottom:.6rem}
+  .sc .scs{font-size:.83rem;color:var(--navy);font-weight:500;margin-bottom:.5rem;line-height:1.5}
+  .sc .scg{font-size:.82rem;color:var(--slate);line-height:1.5}
+  .sc .scg::before{content:'🎯 ';font-size:.75rem}
+
+  .cta{background:linear-gradient(135deg,#0f172a,#312e81);border-radius:var(--radius-lg);padding:2.25rem 2rem;color:#fff;text-align:center;margin-top:1.5rem;position:relative;overflow:hidden}
+  .cta::before{content:'';position:absolute;top:-50%;right:-30%;width:300px;height:300px;background:radial-gradient(circle,rgba(124,58,237,0.12),transparent 70%);pointer-events:none}
+  .cta h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:.5rem;position:relative}
+  .cta .cs{color:rgba(255,255,255,0.65);font-size:.9rem;margin-bottom:1.5rem;position:relative}
+  .cta-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--violet),#a78bfa);color:#fff;font-weight:700;font-size:.95rem;padding:.85rem 2.25rem;border-radius:100px;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;position:relative;text-decoration:none}
+  .cta-btn:hover{transform:translateY(-1px);box-shadow:0 8px 25px rgba(124,58,237,0.35)}
+  .cta-p{color:rgba(255,255,255,0.45);font-size:.8rem;margin-top:.75rem;position:relative}
+  .cta-note{color:rgba(255,255,255,0.5);font-size:.78rem;font-style:italic;margin-top:1.25rem;position:relative;line-height:1.5;max-width:500px;margin-left:auto;margin-right:auto}
+
+  .footer{text-align:center;padding:2rem 1.5rem;font-size:.75rem;color:var(--slate-light);border-top:1px solid var(--gray-100);max-width:800px;margin:0 auto}
+
+  @media(max-width:640px){
+    .hero{padding:2.5rem 1.25rem 2rem}.hero h1{font-size:1.75rem}.hero-meta{gap:1rem}
+    .main{padding:1.5rem 1.15rem 3rem}.sg{grid-template-columns:1fr}
+    .cta{padding:1.75rem 1.5rem}.sch{flex-direction:column;align-items:flex-start;gap:.6rem}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🎓 Complimentary Assessment</div>
+    <h1>UC Admissions Profile<br><span>Valerie</span></h1>
+    <p class="hero-sub">Prepared for Margarita · April 2026</p>
+    <div class="hero-meta">
+      <div class="hm-item"><span class="hm-label">Student</span><span class="hm-value">Valerie</span></div>
+      <div class="hm-item"><span class="hm-label">Grade</span><span class="hm-value">10th (Sophomore)</span></div>
+      <div class="hm-item"><span class="hm-label">State</span><span class="hm-value">California</span></div>
+      <div class="hm-item"><span class="hm-label">Applications Open</span><span class="hm-value">~18 months</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="callout">
+    Valerie is in 10th grade with <strong>strong academics</strong> — 3.8–4.0 GPA and 6–8 AP/Honors classes. That puts her ahead of most applicants. The next 18 months will determine whether her application tells a <strong>compelling story</strong> beyond the numbers, and that's where the right strategy makes all the difference.
+  </div>
+
+  <!-- ACADEMICS -->
+  <div class="section">
+    <div class="section-header"><div class="si blue">📚</div><div class="st">Academics Snapshot</div></div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Category</th><th>Profile</th><th>Assessment</th></tr></thead>
+        <tbody>
+          <tr><td class="tl">Unweighted GPA</td><td>3.8 – 4.0</td><td><span class="tag tag-green">✅ Excellent</span> Competitive at all UC campuses</td></tr>
+          <tr><td class="tl">AP / Honors</td><td>6 – 8</td><td><span class="tag tag-green">✅ Strong Rigor</span> Demonstrates academic challenge</td></tr>
+          <tr><td class="tl">SAT / ACT</td><td>Not sure</td><td><span class="tag tag-blue">⏳ Needs Plan</span> Recommend deciding this spring; PSAT if not taken</td></tr>
+          <tr><td class="tl">Dual Enrollment</td><td>Planning to</td><td><span class="tag tag-blue">⏳ Good Idea</span> Summer or junior year — adds rigor + college-level signal</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ic">
+      <h4>Bottom Line</h4>
+      <p>Valerie's academics are a <strong>genuine strength</strong>. A 3.8–4.0 GPA with 6–8 AP/Honors classes puts her in a competitive position for every UC campus on her list, including UCLA and UCSD. The dual enrollment plan will further strengthen this. Academically, Valerie is where she needs to be — the question now is <strong>what the rest of the application says about who she is</strong>.</p>
+    </div>
+  </div>
+
+  <!-- ECs -->
+  <div class="section">
+    <div class="section-header"><div class="si green">🏆</div><div class="st">Extracurricular Profile</div></div>
+    <div class="ec-grid">
+      <div class="ec">
+        <div class="ec-n">1</div>
+        <div class="ec-i"><div class="ec-name">Music Academy</div><div class="ec-role">Student</div></div>
+        <div class="ec-sig">Arts + Discipline + Dedication</div>
+      </div>
+      <div class="ec">
+        <div class="ec-n">2</div>
+        <div class="ec-i"><div class="ec-name">Golf Team</div><div class="ec-role">Team Member</div></div>
+        <div class="ec-sig">Athletics + Commitment</div>
+      </div>
+      <div class="ec">
+        <div class="ec-n">3</div>
+        <div class="ec-i"><div class="ec-name">Volunteer Work</div><div class="ec-role">Planning to start</div></div>
+        <div class="ec-sig">Community Service (not yet active)</div>
+      </div>
+    </div>
+
+    <div class="warn">
+      <h4>⚠️ Leadership: Not Yet · Personal Project: Not Yet · Volunteering: Not Yet Started</h4>
+      <p>Valerie has two solid foundation activities — Music Academy shows artistic dedication, and Golf Team shows athletic commitment. However, there are three important gaps: <strong>no leadership roles, no personal project, and the volunteering hasn't started yet</strong>. With 18 months until applications, there's time to address all three — but the window to build meaningful depth is closing.</p>
+    </div>
+
+    <div class="ic">
+      <h4>What We See</h4>
+      <p>Valerie's profile right now tells admissions readers: <strong>"strong student, getting started on activities."</strong> For UCLA and UCSD, that's not enough — those campuses see thousands of applicants with similar GPAs. What's missing is a <strong>narrative</strong> — a thread that connects her activities and shows who Valerie is beyond the classroom. The great news: Music Academy + Golf is an unusual and interesting combination. With the right strategy, these become the foundation of a distinctive story rather than two unrelated items on a list.</p>
+    </div>
+  </div>
+
+  <!-- QUESTION -->
+  <div class="section">
+    <div class="section-header"><div class="si gold">💬</div><div class="st">Your Question Answered</div></div>
+    <div class="qc">
+      <div class="ql">You Asked</div>
+      <div class="qt">"What kind of strategy would you help her build in order to have a successful application process?"</div>
+      <div class="qa">Great question — and it tells us you're thinking about this the right way. A successful application isn't about last-minute essay writing. It's about <strong>building a profile over the next 18 months</strong> so that when application season arrives, the essays practically write themselves.</div>
+    </div>
+
+    <h4 style="font-size:.95rem;font-weight:700;color:var(--navy);margin:1.5rem 0 .75rem">The 5 Pillars of a Winning UC Strategy:</h4>
+    <div class="steps">
+      <div class="step"><div class="step-n"></div><div class="step-c"><h5>Academic Positioning</h5><p>Continue the AP trajectory into junior and senior year. Add dual enrollment. Develop a SAT/ACT plan — a strong test score combined with Valerie's GPA creates a powerful academic foundation. We map out exactly which courses and when.</p></div></div>
+      <div class="step"><div class="step-n"></div><div class="step-c"><h5>Extracurricular Deepening</h5><p>Shift from "participating" to "leading and creating." Take on a leadership role in Music Academy or Golf. Launch the volunteer work with intention — not generic hours, but a focused initiative Valerie can own and grow.</p></div></div>
+      <div class="step"><div class="step-n"></div><div class="step-c"><h5>Personal Project / Initiative</h5><p>This is what separates accepted students at UCLA and UCSD from rejected ones with the same GPA. A music-related community project, a golf instruction program for underserved youth, or something entirely different — we help Valerie design and launch it.</p></div></div>
+      <div class="step"><div class="step-n"></div><div class="step-c"><h5>School List Calibration</h5><p>Build a balanced list of 6–8 schools across reach, target, and safety — calibrated for Valerie's specific profile, financial aid options, and programs of interest. No guesswork.</p></div></div>
+      <div class="step"><div class="step-n"></div><div class="step-c"><h5>Personal Insight Questions (PIQs)</h5><p>UC applications require 4 PIQ essays. These are where Valerie's story comes alive. We start brainstorming early so the essays reflect real experiences — not manufactured last-minute content.</p></div></div>
+    </div>
+
+    <div class="hl">
+      <h4>💡 The Key Insight</h4>
+      <p>The best applications don't come from students who did the most things — they come from students who <strong>did meaningful things with intention</strong>. Valerie doesn't need 10 activities. She needs 4–5 connected experiences that tell a clear story about what she cares about and how she shows up in the world. That's what we build together.</p>
+    </div>
+  </div>
+
+  <!-- SCHOOLS -->
+  <div class="section">
+    <div class="section-header"><div class="si red">🎯</div><div class="st">School List Assessment</div></div>
+    <div class="sl">
+      <div class="sch"><div class="sr reach">~9%<span>admit</span></div><div class="s-i"><div class="s-name">UCLA</div><div class="s-fit">🔴 High Reach — GPA is competitive but UC's most selective campus. Needs strong ECs, leadership, and standout PIQs.</div></div></div>
+      <div class="sch"><div class="sr target">~26%<span>admit</span></div><div class="s-i"><div class="s-name">UC Santa Barbara</div><div class="s-fit">🟢 Target-Reach — Very achievable with Valerie's academics. Strong programs and beautiful campus.</div></div></div>
+      <div class="sch"><div class="sr target">~25%<span>admit</span></div><div class="s-i"><div class="s-name">UC San Diego</div><div class="s-fit">🟢 Target-Reach — Competitive but realistic. Excellent research opportunities and campus life.</div></div></div>
+      <div class="sch"><div class="sr target">~45%<span>admit</span></div><div class="s-i"><div class="s-name">UC Davis</div><div class="s-fit">🟢 Strong Target — Very likely with this academic profile. Great community feel and strong programs.</div></div></div>
+      <div class="sch"><div class="sr safety">~70%<span>admit</span></div><div class="s-i"><div class="s-name">Cal State Northridge</div><div class="s-fit">🟢 Safety — Smart inclusion. Strong programs and scholarship opportunities for high-GPA students.</div></div></div>
+    </div>
+    <div class="ic">
+      <h4>Assessment</h4>
+      <p>This is a <strong>well-balanced list</strong> — one of the best we've seen. You have a reach (UCLA), two target-reaches (UCSB, UCSD), a strong target (Davis), and a safety (CSUN). The key to making UCLA realistic is building the extracurricular profile over the next 18 months. For financial aid, CSUN and UC Davis tend to have the strongest merit scholarship options for high-GPA California students. We'd also suggest exploring <strong>UC Irvine (~29%)</strong> as an additional target — strong programs and good scholarship opportunities.</p>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-header"><div class="si blue">📊</div><div class="st">Strengths & Opportunities</div></div>
+    <div class="sg">
+      <div class="sc"><div class="scl">Academics</div><div class="scs">✅ 3.8–4.0 GPA, 6–8 APs — excellent foundation</div><div class="scg">Continue AP rigor; add dual enrollment; create SAT/ACT plan</div></div>
+      <div class="sc"><div class="scl">Extracurriculars</div><div class="scs">✅ Music Academy + Golf — unique combination</div><div class="scg">Add leadership roles; start volunteering with focus; launch a personal project</div></div>
+      <div class="sc"><div class="scl">School List</div><div class="scs">✅ Well-balanced: reach / target / safety</div><div class="scg">Consider adding UC Irvine; research merit scholarship options</div></div>
+      <div class="sc"><div class="scl">Financial Aid</div><div class="scs">✅ Concern identified early — that's smart</div><div class="scg">Map merit scholarships; explore CSUN and Davis aid; consider private options</div></div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- PACKAGE SELL -->
+  <!-- ============================================ -->
+
+  <div class="section">
+    <div class="section-header"><div class="si gold">🚀</div><div class="st">Your Next Step</div></div>
+    <div style="background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius);padding:1.15rem 1.35rem;margin-bottom:1.5rem">
+      <p style="font-size:.88rem;color:var(--navy-mid);line-height:1.7">You asked exactly the right question: <em>"What strategy would you help her build?"</em> This assessment shows you the picture. The strategy is the plan to change it. The families who get the best outcomes don't just know the gaps — they have <strong>someone building the roadmap and keeping them accountable every step of the way</strong>.</p>
+    </div>
+  </div>
+
+  <!-- PACKAGE CARD -->
+  <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem">
+    <div style="background:#fff;border:2px solid var(--violet);border-radius:var(--radius-lg);padding:0;overflow:hidden">
+      <div style="background:linear-gradient(90deg,var(--violet),#a78bfa);padding:6px 16px;display:flex;align-items:center;justify-content:space-between">
+        <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#fff">✦ Recommended for Valerie</span>
+        <span style="font-size:.72rem;font-weight:600;color:rgba(255,255,255,0.8)">Most Popular</span>
+      </div>
+      <div style="padding:1.5rem 1.5rem 1.25rem">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:.15rem">UC Launchpad</h3>
+        <p style="font-size:.82rem;color:var(--slate);margin-bottom:1.25rem">Complete application strategy for sophomores & juniors — from profile building to submit</p>
+
+        <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:.25rem">
+          <span style="font-size:2rem;font-weight:800;color:var(--navy)">$1,497</span>
+          <span style="font-size:.85rem;color:var(--slate);text-decoration:line-through">$6,500 avg</span>
+        </div>
+        <p style="font-size:.82rem;color:var(--green);font-weight:600;margin-bottom:1.25rem">or 3 payments of $499/month</p>
+
+        <div style="display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.5rem">
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--violet);flex-shrink:0">✓</span><span><strong>Kick-Off Strategy Session</strong> — 60-min deep dive into Valerie's profile and the 5-pillar plan</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--violet);flex-shrink:0">✓</span><span><strong>Course Planning</strong> — junior + senior year AP selection + dual enrollment strategy</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--violet);flex-shrink:0">✓</span><span><strong>School List Build</strong> — reach/target/safety with financial aid and merit scholarship projections</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--violet);flex-shrink:0">✓</span><span><strong>EC Strategy & Positioning</strong> — how to build leadership, volunteer focus, and describe activities for max impact</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--violet);flex-shrink:0">✓</span><span><strong>Personal Project Brainstorm</strong> — design an initiative that stands out on the application</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--violet);flex-shrink:0">✓</span><span><strong>PIQ Essay Support</strong> — 4 Personal Insight Questions: brainstorm + 2 rounds of edits each</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--violet);flex-shrink:0">✓</span><span><strong>Monthly Strategy Check-Ins</strong> — 2 × 30-min sessions to keep on track</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--violet);flex-shrink:0">✓</span><span><strong>Final Application Review</strong> — full review before you hit submit</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--violet);flex-shrink:0">✓</span><span><strong>Scholarship Roadmap</strong> — merit aid targets + key deadlines</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--violet);flex-shrink:0">✓</span><span><strong>Unlimited Email Support</strong> — throughout the program</span></div>
+        </div>
+
+        <div style="text-align:center">
+          <a href="https://buy.stripe.com/28E00j5iS39dgA0dEPeEq1A" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--violet),#a78bfa);color:#fff;font-weight:700;font-size:.95rem;padding:.85rem 2.25rem;border-radius:100px;text-decoration:none;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 8px 25px rgba(124,58,237,0.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">Start with a Strategy Session →</a>
+          <p style="font-size:.78rem;color:var(--slate);margin-top:.65rem">Book your $297 Strategy Session — it applies as credit toward the package</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY THIS PRICE -->
+  <div style="background:linear-gradient(135deg,var(--violet-bg),rgba(124,58,237,0.02));border:1px solid var(--violet-border);border-radius:var(--radius);padding:1.25rem 1.35rem;margin-bottom:1.5rem">
+    <h4 style="font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:.65rem">Why families choose this over $6,500+ consulting</h4>
+    <div style="display:flex;flex-direction:column;gap:.5rem">
+      <p style="font-size:.85rem;color:var(--navy-mid);line-height:1.65"><strong>We specialize in UC admissions.</strong> No Ivy League overhead. Our advisors know the UC system — PIQs, holistic review, campus culture, and what each admissions office values.</p>
+      <p style="font-size:.85rem;color:var(--navy-mid);line-height:1.65"><strong>The math:</strong> UC tuition for California residents is ~$15,000/year. Out-of-state or private runs $30,000–$45,000/year — over $120,000 more across four years. Our entire program costs less than the tuition difference of a single month. And with the right strategy, Valerie may qualify for merit scholarships that offset far more than the package cost.</p>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div style="background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius);padding:1.25rem 1.35rem;margin-bottom:1.5rem">
+    <h4 style="font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:.85rem">How to Get Started</h4>
+    <div style="display:flex;flex-direction:column;gap:.85rem">
+      <div style="display:flex;gap:.85rem;align-items:flex-start">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">1</div>
+        <div><strong style="font-size:.87rem;color:var(--navy)">Book Your Strategy Session ($297)</strong><p style="font-size:.82rem;color:var(--slate);margin-top:2px">60 minutes with your advisor. Walk through Valerie's profile in detail, build the 5-pillar plan, and get 3 immediate action items.</p></div>
+      </div>
+      <div style="display:flex;gap:.85rem;align-items:flex-start">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">2</div>
+        <div><strong style="font-size:.87rem;color:var(--navy)">Choose Your Package</strong><p style="font-size:.82rem;color:var(--slate);margin-top:2px">Your $297 applies as credit if you continue. No pressure — many families leave the session with enough direction to start on their own.</p></div>
+      </div>
+      <div style="display:flex;gap:.85rem;align-items:flex-start">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">3</div>
+        <div><strong style="font-size:.87rem;color:var(--navy)">Start Building</strong><p style="font-size:.82rem;color:var(--slate);margin-top:2px">Your advisor builds the plan and walks alongside Valerie — from EC strategy and course selection through application submit.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- URGENCY -->
+  <div style="background:linear-gradient(135deg,#fef3c7,#fffbeb);border:1px solid #fde68a;border-radius:var(--radius);padding:1.35rem 1.5rem;margin-bottom:1.5rem">
+    <h4 style="font-size:.95rem;font-weight:700;color:#92400e;margin-bottom:.5rem;display:flex;align-items:center;gap:8px">⚡ Why Now Matters for Valerie</h4>
+    <p style="font-size:.88rem;color:#78350f;line-height:1.7"><strong>Junior year course selection is happening now.</strong> The classes Valerie chooses in the next few weeks will appear directly on her UC application. Volunteering and leadership positions also take time to build — starting this summer means 18 months of depth instead of 6.</p>
+    <p style="font-size:.88rem;color:#78350f;line-height:1.7;margin-top:.65rem">We work with a limited number of families per cycle to ensure quality. <strong>Spots for Fall 2027 applicants are filling now.</strong></p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>Give Valerie the Strategy You Asked About</h3>
+    <p class="cs">Start with a $297 Strategy Session — it applies as credit if you continue</p>
+    <a href="https://buy.stripe.com/28E00j5iS39dgA0dEPeEq1A" class="cta-btn">Book Strategy Session — $297 →</a>
+    <p class="cta-p">60 minutes · $297 (credited toward any package) · Zoom</p>
+    <p class="cta-note">Questions? Reply to this email or text us anytime. We're here to help — no pressure, just honest guidance for Valerie's journey.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  This assessment was prepared by your admissions advisor based on the information you provided.<br>
+  All information is confidential. · © 2026
+</div>
+
+</body>
+</html>
