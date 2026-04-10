@@ -20,9 +20,8 @@ export default async (req, context) => {
       );
     }
 
-    // PORTAL_CLIENTS is a JSON array stored as one env var in Netlify:
-    // [{"email":"...","password":"...","dashboard":"valerie","name":"Margarita"}, ...]
-    const clients = JSON.parse(Netlify.env.get("PORTAL_CLIENTS") || "[]");
+    // PORTAL_CLIENTS is a JSON array stored as one env var in Netlify
+    const clients = JSON.parse(process.env.PORTAL_CLIENTS || "[]");
 
     const client = clients.find(
       (c) =>
@@ -31,7 +30,6 @@ export default async (req, context) => {
     );
 
     if (!client) {
-      // Constant-ish delay to slow brute force a little
       await new Promise((r) => setTimeout(r, 400));
       return new Response(
         JSON.stringify({ error: "Invalid email or password" }),
@@ -39,8 +37,7 @@ export default async (req, context) => {
       );
     }
 
-    // Simple signed token: base64(email:dashboard:timestamp:hmac)
-    const secret = Netlify.env.get("PORTAL_SECRET") || "change-me-in-env-vars";
+    const secret = process.env.PORTAL_SECRET || "change-me-in-env-vars";
     const payload = `${client.email}:${client.dashboard}:${Date.now()}`;
     const sig = await hmac(secret, payload);
     const token = btoa(`${payload}:${sig}`);
