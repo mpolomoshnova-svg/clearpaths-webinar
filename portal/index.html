@@ -180,8 +180,11 @@ async function showDashboard(sessionData) {
 
     const html = await res.text();
 
+    // Inject base target so all links (incl. Stripe) open in a new tab
+    const modifiedHtml = html.replace('<head>', '<head><base target="_blank">');
+
     // Write HTML into iframe using srcdoc
-    document.getElementById('dashFrame').srcdoc = html;
+    document.getElementById('dashFrame').srcdoc = modifiedHtml;
 
   } catch (err) {
     dashView.innerHTML = `
