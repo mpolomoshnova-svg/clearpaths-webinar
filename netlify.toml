@@ -14,3 +14,9 @@
   from = "/portal"
   to = "/portal/index.html"
   status = 200
+
+# Serve the feedback page
+[[redirects]]
+  from = "/feedback"
+  to = "/feedback/index.html"
+  status = 200

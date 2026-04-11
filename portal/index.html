@@ -35,6 +35,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8fafc;color:#0f172a;m
 .dash-header{background:#0f172a;color:#fff;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
 .dash-header .welcome{font-size:.9rem;color:rgba(255,255,255,.7)}
 .dash-header .welcome strong{color:#fff}
+.dash-header .feedback-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.85);padding:6px 16px;border-radius:8px;font-size:.8rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.dash-header .feedback-btn:hover{background:rgba(255,255,255,.18)}
 .dash-header .logout{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff;padding:6px 16px;border-radius:8px;font-size:.8rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s}
 .dash-header .logout:hover{background:rgba(255,255,255,.2)}
 .dash-frame{flex:1;border:none;width:100%;min-height:calc(100vh - 56px)}
@@ -80,6 +82,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8fafc;color:#0f172a;m
 <div class="dashboard-wrap" id="dashView">
   <div class="dash-header">
     <div class="welcome">Welcome, <strong id="clientName">—</strong></div>
+    <a class="feedback-btn" id="feedbackLink" href="/feedback/" target="_blank">✦ Leave Feedback</a>
     <button class="logout" onclick="handleLogout()">Sign Out</button>
   </div>
   <iframe class="dash-frame" id="dashFrame" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation"></iframe>
@@ -163,6 +166,8 @@ async function showDashboard(sessionData) {
   const dashView = document.getElementById('dashView');
   dashView.classList.add('active');
   document.getElementById('clientName').textContent = sessionData.name;
+  const fl = document.getElementById('feedbackLink');
+  if (fl) fl.href = '/feedback/?name=' + encodeURIComponent(sessionData.name);
 
   // Fetch dashboard HTML
   try {
@@ -190,7 +195,8 @@ async function showDashboard(sessionData) {
     dashView.innerHTML = `
       <div class="dash-header">
         <div class="welcome">Welcome, <strong>${sessionData.name}</strong></div>
-        <button class="logout" onclick="handleLogout()">Sign Out</button>
+        <a class="feedback-btn" id="feedbackLink" href="/feedback/" target="_blank">✦ Leave Feedback</a>
+    <button class="logout" onclick="handleLogout()">Sign Out</button>
       </div>
       <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:2rem">
         <div style="text-align:center">
