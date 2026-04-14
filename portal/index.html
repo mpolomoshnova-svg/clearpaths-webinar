@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Client Portal — Admissions Strategy</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:#f8fafc;color:#0f172a;min-height:100vh;display:flex;flex-direction:column}
+
+/* LOGIN VIEW */
+.login-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem;background:linear-gradient(135deg,#0f172a,#1e1b4b 50%,#5b21b6)}
+.login-card{background:#fff;border-radius:20px;padding:2.5rem;max-width:420px;width:100%;box-shadow:0 25px 60px rgba(0,0,0,.3)}
+.login-card .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#0f172a;text-align:center;margin-bottom:.25rem}
+.login-card .logo span{color:#7c3aed}
+.login-card .sub{text-align:center;font-size:.85rem;color:#64748b;margin-bottom:2rem}
+.field{margin-bottom:1.15rem}
+.field label{display:block;font-size:.78rem;font-weight:600;color:#334155;margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.5px}
+.field input{width:100%;padding:.75rem 1rem;border:1.5px solid #e2e8f0;border-radius:10px;font-size:.9rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s;background:#f8fafc}
+.field input:focus{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.1);background:#fff}
+.field input::placeholder{color:#94a3b8}
+.btn{width:100%;padding:.85rem;background:linear-gradient(135deg,#7c3aed,#a78bfa);color:#fff;border:none;border-radius:10px;font-size:.92rem;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s;margin-top:.5rem}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 25px rgba(124,58,237,.35)}
+.btn:active{transform:translateY(0)}
+.btn:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
+.error{background:#fef2f2;border:1px solid #fecaca;color:#dc2626;border-radius:8px;padding:.65rem 1rem;font-size:.82rem;margin-bottom:1rem;display:none;text-align:center}
+.error.show{display:block}
+.lock-icon{text-align:center;margin-bottom:1.25rem;font-size:2rem}
+.footer-text{text-align:center;margin-top:1.5rem;font-size:.75rem;color:#94a3b8}
+
+/* DASHBOARD VIEW */
+.dashboard-wrap{display:none;min-height:100vh;flex-direction:column}
+.dashboard-wrap.active{display:flex}
+.dash-header{background:#0f172a;color:#fff;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.dash-header .welcome{font-size:.9rem;color:rgba(255,255,255,.7)}
+.dash-header .welcome strong{color:#fff}
+.dash-header .feedback-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.85);padding:6px 16px;border-radius:8px;font-size:.8rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.dash-header .feedback-btn:hover{background:rgba(255,255,255,.18)}
+.dash-header .logout{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff;padding:6px 16px;border-radius:8px;font-size:.8rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s}
+.dash-header .logout:hover{background:rgba(255,255,255,.2)}
+.dash-frame{flex:1;border:none;width:100%;min-height:calc(100vh - 56px)}
+
+/* LOADING */
+.spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* MOBILE */
+@media(max-width:480px){
+  .login-card{padding:1.75rem 1.5rem;margin:1rem}
+  .dash-header{padding:.75rem 1rem;flex-wrap:wrap;gap:.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN VIEW -->
+<div class="login-wrap" id="loginView">
+  <div class="login-card">
+    <div class="lock-icon">🎓</div>
+    <div class="logo">Client <span>Portal</span></div>
+    <p class="sub">Access your personalized admissions strategy report</p>
+
+    <div class="error" id="errorMsg"></div>
+
+    <div class="field">
+      <label>Email Address</label>
+      <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password">
+    </div>
+    <button class="btn" id="loginBtn" onclick="handleLogin()">
+      Sign In
+    </button>
+    <p class="footer-text">Need help? Contact your admissions advisor.</p>
+  </div>
+</div>
+
+<!-- DASHBOARD VIEW -->
+<div class="dashboard-wrap" id="dashView">
+  <div class="dash-header">
+    <div class="welcome">Welcome, <strong id="clientName">—</strong></div>
+    <a class="feedback-btn" id="feedbackLink" href="/feedback/" target="_blank">✦ Leave Feedback</a>
+    <button class="logout" onclick="handleLogout()">Sign Out</button>
+  </div>
+  <iframe class="dash-frame" id="dashFrame" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation"></iframe>
+</div>
+
+<script>
+// Check for existing session on load
+(function() {
+  const session = localStorage.getItem('portal_session');
+  if (session) {
+    try {
+      const data = JSON.parse(session);
+      // Check if token is less than 24h old
+      const tokenParts = atob(data.token).split(':');
+      const tokenAge = Date.now() - parseInt(tokenParts[2]);
+      if (tokenAge < 24 * 60 * 60 * 1000) {
+        showDashboard(data);
+        return;
+      }
+    } catch(e) {}
+    localStorage.removeItem('portal_session');
+  }
+})();
+
+// Handle Enter key
+document.getElementById('password').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') handleLogin();
+});
+document.getElementById('email').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') document.getElementById('password').focus();
+});
+
+async function handleLogin() {
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const btn = document.getElementById('loginBtn');
+  const errorEl = document.getElementById('errorMsg');
+
+  // Validate
+  if (!email || !password) {
+    errorEl.textContent = 'Please enter your email and password.';
+    errorEl.classList.add('show');
+    return;
+  }
+
+  // Loading state
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Signing in...';
+  errorEl.classList.remove('show');
+
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || 'Login failed');
+    }
+
+    // Save session
+    localStorage.setItem('portal_session', JSON.stringify(data));
+
+    // Show dashboard
+    showDashboard(data);
+
+  } catch (err) {
+    errorEl.textContent = err.message || 'Invalid email or password. Please try again.';
+    errorEl.classList.add('show');
+    btn.disabled = false;
+    btn.innerHTML = 'Sign In';
+  }
+}
+
+async function showDashboard(sessionData) {
+  // Hide login, show dashboard
+  document.getElementById('loginView').style.display = 'none';
+  const dashView = document.getElementById('dashView');
+  dashView.classList.add('active');
+  document.getElementById('clientName').textContent = sessionData.name;
+  const fl = document.getElementById('feedbackLink');
+  if (fl) fl.href = '/feedback/?name=' + encodeURIComponent(sessionData.name);
+
+  // Fetch dashboard HTML
+  try {
+    const res = await fetch('/api/dashboard', {
+      headers: { 'Authorization': 'Bearer ' + sessionData.token }
+    });
+
+    if (!res.ok) {
+      if (res.status === 401) {
+        handleLogout();
+        return;
+      }
+      throw new Error('Failed to load dashboard');
+    }
+
+    const html = await res.text();
+
+    // Inject base target so all links (incl. Stripe) open in a new tab
+    const modifiedHtml = html.replace('<head>', '<head><base target="_blank">');
+
+    // Write HTML into iframe using srcdoc
+    document.getElementById('dashFrame').srcdoc = modifiedHtml;
+
+  } catch (err) {
+    dashView.innerHTML = `
+      <div class="dash-header">
+        <div class="welcome">Welcome, <strong>${sessionData.name}</strong></div>
+        <a class="feedback-btn" id="feedbackLink" href="/feedback/" target="_blank">✦ Leave Feedback</a>
+    <button class="logout" onclick="handleLogout()">Sign Out</button>
+      </div>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:2rem">
+        <div style="text-align:center">
+          <p style="font-size:1.1rem;font-weight:600;margin-bottom:.5rem">Unable to load your report</p>
+          <p style="color:#64748b;font-size:.9rem">Please try again or contact your advisor.</p>
+          <button class="btn" style="max-width:200px;margin:1rem auto 0" onclick="location.reload()">Retry</button>
+        </div>
+      </div>`;
+  }
+}
+
+function handleLogout() {
+  localStorage.removeItem('portal_session');
+  location.reload();
+}
+</script>
+
+</body>
+</html>

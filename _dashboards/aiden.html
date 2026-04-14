@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aiden — UC Admissions Profile</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  :root{
+    --navy:#0f172a;--navy-light:#1e293b;--navy-mid:#334155;
+    --slate:#64748b;--slate-light:#94a3b8;
+    --white:#ffffff;--off-white:#f8fafc;--gray-50:#f1f5f9;--gray-100:#e2e8f0;--gray-200:#cbd5e1;
+    --gold:#f59e0b;--gold-light:#fbbf24;
+    --green:#10b981;--green-bg:rgba(16,185,129,0.08);--green-border:rgba(16,185,129,0.2);
+    --red:#ef4444;--red-bg:rgba(239,68,68,0.06);--red-border:rgba(239,68,68,0.15);
+    --blue:#3b82f6;--blue-bg:rgba(59,130,246,0.06);--blue-border:rgba(59,130,246,0.15);
+    --amber-bg:rgba(245,158,11,0.06);--amber-border:rgba(245,158,11,0.15);
+    --teal:#14b8a6;--teal-bg:rgba(20,184,166,0.06);--teal-border:rgba(20,184,166,0.15);
+    --purple:#8b5cf6;--purple-bg:rgba(139,92,246,0.06);--purple-border:rgba(139,92,246,0.15);
+    --radius:12px;--radius-sm:8px;--radius-lg:16px;
+  }
+
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:var(--off-white);color:var(--navy);
+    line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(135deg,#0f172a 0%,#1a3347 40%,#065f46 100%);
+    color:white;padding:3.5rem 2rem 3rem;position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;top:-40%;right:-15%;width:550px;height:550px;
+    background:radial-gradient(circle,rgba(16,185,129,0.1) 0%,transparent 70%);
+    pointer-events:none;
+  }
+  .hero::after{
+    content:'';position:absolute;bottom:-30%;left:-10%;width:400px;height:400px;
+    background:radial-gradient(circle,rgba(251,191,36,0.08) 0%,transparent 70%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.15);
+    padding:6px 14px;border-radius:100px;font-size:.75rem;
+    font-weight:500;letter-spacing:.5px;text-transform:uppercase;
+    color:rgba(255,255,255,0.85);margin-bottom:1.25rem;
+  }
+  .hero h1{
+    font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;
+    line-height:1.2;margin-bottom:.5rem;
+  }
+  .hero h1 span{color:#6ee7b7}
+  .hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.7);font-weight:300}
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:1.75rem;
+    padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);
+  }
+  .hero-meta-item{display:flex;flex-direction:column;gap:2px}
+  .hero-meta-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.8px;color:rgba(255,255,255,0.45);font-weight:500}
+  .hero-meta-value{font-size:1rem;font-weight:600;color:white}
+
+  /* MAIN */
+  .main{max-width:800px;margin:0 auto;padding:2rem 1.5rem 4rem}
+
+  /* CALLOUT */
+  .callout{
+    background:linear-gradient(135deg,var(--teal-bg),rgba(20,184,166,0.02));
+    border:1px solid var(--teal-border);border-left:3px solid var(--teal);
+    border-radius:var(--radius);padding:1.15rem 1.35rem;margin-bottom:2.5rem;
+    font-size:.92rem;color:var(--navy-light);line-height:1.7;
+  }
+  .callout strong{color:var(--navy)}
+
+  /* SECTION */
+  .section{margin-bottom:2.75rem}
+  .section-header{
+    display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;
+    padding-bottom:.75rem;border-bottom:2px solid var(--gray-100);
+  }
+  .section-icon{
+    width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    font-size:1.1rem;flex-shrink:0;
+  }
+  .section-icon.blue{background:var(--blue-bg)}
+  .section-icon.green{background:var(--green-bg)}
+  .section-icon.gold{background:var(--amber-bg)}
+  .section-icon.purple{background:var(--purple-bg)}
+  .section-icon.red{background:var(--red-bg)}
+  .section-icon.teal{background:var(--teal-bg)}
+  .section-title{font-size:1.2rem;font-weight:700;color:var(--navy)}
+
+  /* TABLE */
+  .table-wrap{border:1px solid var(--gray-100);border-radius:var(--radius);overflow:hidden;margin-bottom:1.25rem}
+  table{width:100%;border-collapse:collapse;font-size:.88rem}
+  thead{background:var(--gray-50)}
+  th{text-align:left;padding:.7rem 1rem;font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;color:var(--slate);border-bottom:1px solid var(--gray-100)}
+  td{padding:.75rem 1rem;border-bottom:1px solid var(--gray-50);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:rgba(59,130,246,0.02)}
+  .td-label{font-weight:600;color:var(--navy);white-space:nowrap}
+
+  /* TAGS */
+  .tag{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;font-size:.78rem;font-weight:600;white-space:nowrap}
+  .tag-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
+  .tag-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+  .tag-amber{background:var(--amber-bg);color:var(--gold);border:1px solid var(--amber-border)}
+  .tag-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)}
+
+  /* INSIGHT CARD */
+  .insight-card{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius);padding:1.15rem 1.35rem;margin-bottom:1.25rem}
+  .insight-card h4{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+  .insight-card p{font-size:.88rem;color:var(--navy-mid);line-height:1.7}
+  .insight-card strong{color:var(--navy)}
+
+  /* EC CARDS */
+  .ec-grid{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.25rem}
+  .ec-card{display:flex;align-items:center;gap:1rem;background:white;border:1px solid var(--gray-100);border-radius:var(--radius);padding:1rem 1.25rem;transition:box-shadow .2s}
+  .ec-card:hover{box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+  .ec-num{width:32px;height:32px;border-radius:8px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0}
+  .ec-info{flex:1}
+  .ec-name{font-weight:600;font-size:.92rem;color:var(--navy)}
+  .ec-role{font-size:.8rem;color:var(--slate);margin-top:1px}
+  .ec-signal{font-size:.78rem;color:var(--slate-light);font-style:italic}
+
+  /* HIGHLIGHT */
+  .highlight{
+    background:linear-gradient(135deg,var(--green-bg),rgba(16,185,129,0.03));
+    border:1px solid var(--green-border);border-left:3px solid var(--green);
+    border-radius:var(--radius);padding:1.15rem 1.35rem;margin:1.25rem 0;
+  }
+  .highlight h4{font-size:.9rem;font-weight:700;color:#065f46;margin-bottom:.5rem}
+  .highlight p,.highlight li{font-size:.88rem;color:var(--navy-mid);line-height:1.7}
+  .highlight ul{padding-left:1.25rem;margin-top:.5rem}
+  .highlight li{margin-bottom:.35rem}
+
+  /* WARNING */
+  .warning{
+    background:linear-gradient(135deg,var(--amber-bg),rgba(245,158,11,0.02));
+    border:1px solid var(--amber-border);border-left:3px solid var(--gold);
+    border-radius:var(--radius);padding:1.15rem 1.35rem;margin:1.25rem 0;
+  }
+  .warning h4{font-size:.9rem;font-weight:700;color:#92400e;margin-bottom:.5rem}
+  .warning p{font-size:.88rem;color:var(--navy-mid);line-height:1.7}
+
+  /* QUESTION CARD */
+  .question-card{
+    background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg);
+    padding:1.75rem;margin:1.5rem 0;position:relative;overflow:hidden;
+  }
+  .question-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),#6ee7b7)}
+  .question-card .q-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.8px;color:var(--teal);font-weight:600;margin-bottom:.5rem}
+  .question-card .q-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--navy);line-height:1.5;font-style:italic;margin-bottom:1rem}
+  .question-card .q-answer{font-size:.9rem;color:var(--navy-mid);line-height:1.75}
+  .question-card .q-answer strong{color:var(--navy)}
+
+  /* EC CATEGORY CARDS */
+  .cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1.25rem 0}
+  .cat-card{background:white;border:1px solid var(--gray-100);border-radius:var(--radius);padding:1.1rem 1.2rem;position:relative;overflow:hidden}
+  .cat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+  .cat-card.c1::before{background:var(--red)}
+  .cat-card.c2::before{background:var(--blue)}
+  .cat-card.c3::before{background:var(--green)}
+  .cat-card.c4::before{background:var(--purple-bg);background:#8b5cf6}
+  .cat-card h5{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:.35rem;display:flex;align-items:center;gap:6px}
+  .cat-card p{font-size:.82rem;color:var(--slate);line-height:1.55}
+
+  /* SCHOOL CARDS */
+  .school-list{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.25rem}
+  .school{display:flex;align-items:center;gap:1rem;background:white;border:1px solid var(--gray-100);border-radius:var(--radius);padding:.9rem 1.15rem}
+  .school-rate{width:52px;height:52px;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;font-size:1rem;line-height:1}
+  .school-rate span{font-size:.6rem;font-weight:500;opacity:.7;margin-top:2px}
+  .school-rate.reach{background:var(--red-bg);color:var(--red)}
+  .school-rate.target{background:var(--green-bg);color:var(--green)}
+  .school-rate.safety{background:var(--blue-bg);color:var(--blue)}
+  .school-info{flex:1}
+  .school-name{font-weight:700;font-size:.92rem;color:var(--navy)}
+  .school-fit{font-size:.8rem;color:var(--slate);margin-top:2px;line-height:1.5}
+
+  /* SUMMARY GRID */
+  .summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.25rem}
+  .summary-card{background:white;border:1px solid var(--gray-100);border-radius:var(--radius);padding:1.1rem 1.2rem}
+  .summary-card .sc-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.6px;color:var(--slate);font-weight:600;margin-bottom:.6rem}
+  .summary-card .sc-strength{font-size:.83rem;color:var(--navy);font-weight:500;margin-bottom:.5rem;line-height:1.5}
+  .summary-card .sc-growth{font-size:.82rem;color:var(--slate);line-height:1.5}
+  .summary-card .sc-growth::before{content:'🎯 ';font-size:.75rem}
+
+  /* TIMELINE */
+  .timeline{margin:1.5rem 0}
+  .tl-item{display:flex;gap:1rem;position:relative;padding-bottom:1.5rem}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item:not(:last-child)::after{content:'';position:absolute;left:15px;top:34px;bottom:0;width:2px;background:var(--gray-100)}
+  .tl-dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem;z-index:1}
+  .tl-dot.now{background:#065f46;color:white;font-size:.7rem;font-weight:700}
+  .tl-dot.future{background:var(--gray-100);color:var(--slate)}
+  .tl-content h5{font-size:.88rem;font-weight:600;color:var(--navy);margin-bottom:.15rem}
+  .tl-content p{font-size:.82rem;color:var(--slate);line-height:1.55}
+  .tl-content .tl-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;color:var(--slate-light);font-weight:500}
+
+  /* CTA */
+  .cta{
+    background:linear-gradient(135deg,#0f172a,#1a3347,#065f46);
+    border-radius:var(--radius-lg);padding:2.25rem 2rem;color:white;
+    text-align:center;margin-top:2.5rem;position:relative;overflow:hidden;
+  }
+  .cta::before{content:'';position:absolute;top:-50%;right:-30%;width:300px;height:300px;background:radial-gradient(circle,rgba(16,185,129,0.12),transparent 70%);pointer-events:none}
+  .cta h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:.5rem;position:relative}
+  .cta .cta-sub{color:rgba(255,255,255,0.65);font-size:.9rem;margin-bottom:1.5rem;position:relative}
+  .cta-features{display:flex;flex-direction:column;gap:.5rem;max-width:480px;margin:0 auto 1.75rem;text-align:left;position:relative}
+  .cta-feat{display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:rgba(255,255,255,0.85);line-height:1.5}
+  .cta-feat .check{color:#6ee7b7;flex-shrink:0;margin-top:1px}
+  .cta-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:linear-gradient(135deg,#10b981,#6ee7b7);
+    color:var(--navy);font-weight:700;font-size:.95rem;
+    padding:.85rem 2.25rem;border-radius:100px;border:none;cursor:pointer;
+    transition:transform .15s,box-shadow .15s;position:relative;text-decoration:none;
+  }
+  .cta-btn:hover{transform:translateY(-1px);box-shadow:0 8px 25px rgba(16,185,129,0.3)}
+  .cta-price{color:rgba(255,255,255,0.45);font-size:.8rem;margin-top:.75rem;position:relative}
+  .cta-note{color:rgba(255,255,255,0.5);font-size:.78rem;font-style:italic;margin-top:1.25rem;position:relative;line-height:1.5;max-width:500px;margin-left:auto;margin-right:auto}
+
+  /* FOOTER */
+  .footer{text-align:center;padding:2rem 1.5rem;font-size:.75rem;color:var(--slate-light);border-top:1px solid var(--gray-100);max-width:800px;margin:0 auto}
+
+  @media(max-width:640px){
+    .hero{padding:2.5rem 1.25rem 2rem}
+    .hero h1{font-size:1.75rem}
+    .hero-meta{gap:1rem}
+    .main{padding:1.5rem 1.15rem 3rem}
+    .summary-grid,.cat-grid{grid-template-columns:1fr}
+    .cta{padding:1.75rem 1.5rem}
+    .school{flex-direction:column;align-items:flex-start;gap:.6rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🎓 Complimentary Assessment</div>
+    <h1>UC Admissions Profile<br><span>Aiden</span></h1>
+    <p class="hero-sub">Prepared for Bita · April 2026</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="hero-meta-label">Student</span><span class="hero-meta-value">Aiden</span></div>
+      <div class="hero-meta-item"><span class="hero-meta-label">Grade</span><span class="hero-meta-value">9th (Freshman)</span></div>
+      <div class="hero-meta-item"><span class="hero-meta-label">State</span><span class="hero-meta-value">California</span></div>
+      <div class="hero-meta-item"><span class="hero-meta-label">Interest</span><span class="hero-meta-value">Pre-Med</span></div>
+      <div class="hero-meta-item"><span class="hero-meta-label">Applications Open</span><span class="hero-meta-value">~3 years</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <div class="callout">
+    Starting in 9th grade gives Aiden the most valuable advantage in college admissions: <strong>time</strong>. Students who begin building their profile as freshmen have significantly more options and stronger outcomes than those who start in 11th grade. <strong>Three full years</strong> to build a competitive, distinctive profile.
+  </div>
+
+  <!-- ACADEMICS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon blue">📚</div>
+      <div class="section-title">Academics Snapshot</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Category</th><th>Profile</th><th>Assessment</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="td-label">Unweighted GPA</td>
+            <td>4.0</td>
+            <td><span class="tag tag-green">✅ Excellent</span> Top academic tier</td>
+          </tr>
+          <tr>
+            <td class="td-label">AP / Honors</td>
+            <td>6 – 8</td>
+            <td><span class="tag tag-green">✅ Strong</span> Well above average rigor for a freshman</td>
+          </tr>
+          <tr>
+            <td class="td-label">SAT / ACT</td>
+            <td>Planning to</td>
+            <td><span class="tag tag-blue">⏳ On Track</span> PSAT sophomore year, SAT fall of junior year</td>
+          </tr>
+          <tr>
+            <td class="td-label">Dual Enrollment</td>
+            <td>Already enrolled</td>
+            <td><span class="tag tag-green">✅ Excellent</span> Demonstrates initiative — valued by UCs</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="insight-card">
+      <h4>Bottom Line</h4>
+      <p>Aiden's academics are <strong>outstanding</strong> — 4.0 GPA, heavy AP/Honors load, and dual enrollment in 9th grade. This puts him in the top academic tier for UC applicants. However, UCLA and Berkeley admit thousands of students with perfect GPAs. Academics alone won't be the differentiator. The key question is: <strong>what makes Aiden stand out beyond the numbers?</strong></p>
+    </div>
+  </div>
+
+  <!-- EXTRACURRICULARS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon green">🏆</div>
+      <div class="section-title">Extracurricular Profile</div>
+    </div>
+
+    <div class="ec-grid">
+      <div class="ec-card">
+        <div class="ec-num">1</div>
+        <div class="ec-info">
+          <div class="ec-name">Tutoring at Middle School</div>
+          <div class="ec-role">Participant</div>
+        </div>
+        <div class="ec-signal">Education + Service</div>
+      </div>
+      <div class="ec-card">
+        <div class="ec-num">2</div>
+        <div class="ec-info">
+          <div class="ec-name">Violin</div>
+          <div class="ec-role">Player</div>
+        </div>
+        <div class="ec-signal">Arts + Discipline</div>
+      </div>
+      <div class="ec-card">
+        <div class="ec-num">3</div>
+        <div class="ec-info">
+          <div class="ec-name">Club Helping the Homeless</div>
+          <div class="ec-role">Member</div>
+        </div>
+        <div class="ec-signal">Community Service</div>
+      </div>
+    </div>
+
+    <div class="warning">
+      <h4>⚠️ Leadership: Not Yet &nbsp;·&nbsp; Personal Project: Not Yet</h4>
+      <p>Aiden has a solid starting foundation but lacks <strong>leadership roles</strong> and a <strong>personal project</strong>. The good news? In 9th grade, this is completely normal — and with three years ahead, there's ample time to develop both. These are the two areas that will have the biggest impact on his applications.</p>
+    </div>
+
+    <div class="insight-card">
+      <h4>What We See</h4>
+      <p>Aiden has three activities showing he's community-minded and well-rounded. The opportunity is in <strong>focus and depth</strong>. UC admissions readers look for a "spike" — a clear area where a student goes deeper than everyone else. Right now, these activities are in three different directions. For a student aiming at the <strong>medical field</strong>, the most impactful next step is connecting them through a <strong>health and community impact theme</strong>.</p>
+    </div>
+  </div>
+
+  <!-- YOUR QUESTION -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon gold">💬</div>
+      <div class="section-title">Your Question Answered</div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-label">You Asked</div>
+      <div class="q-text">"If my son is trying to get into the medical field, what extracurriculars would be best for him to do?"</div>
+      <div class="q-answer">
+        UC admissions readers look for four categories in a pre-med applicant. Starting in 9th grade, Aiden can build all four — and some of his <strong>existing activities</strong> can be repositioned to fit this theme.
+      </div>
+    </div>
+
+    <div class="cat-grid">
+      <div class="cat-card c1">
+        <h5>🏥 Clinical Exposure</h5>
+        <p>Hospital volunteering, shadowing a physician, EMT certification (available in 11th grade). Shows genuine interest in medicine — not just the idea of it.</p>
+      </div>
+      <div class="cat-card c2">
+        <h5>🔬 Research Experience</h5>
+        <p>Many university labs accept high school students after 10th grade for summer programs. A published abstract or poster is a major differentiator.</p>
+      </div>
+      <div class="cat-card c3">
+        <h5>🤝 Community Health Impact</h5>
+        <p>Aiden's homeless outreach has massive potential here. Expanding it to focus on health — free screenings, hygiene kits, health education — transforms participation into leadership.</p>
+      </div>
+      <div class="cat-card c4">
+        <h5>🧬 Academic Competitions</h5>
+        <p>Biology Olympiad, HOSA (Health Occupations Students of America), or a Science Fair project with a health/biology focus reinforces academic commitment.</p>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <h4>💡 The Key Insight</h4>
+      <p>UC admissions readers don't just want to see <em>what</em> a student did — they want to see <strong>the story it tells</strong>. A student with 10 random activities is less compelling than a student with 4–5 connected activities that show genuine passion, deepening commitment, and real impact.</p>
+    </div>
+
+    <h4 style="font-size:.95rem;font-weight:700;color:var(--navy);margin:1.5rem 0 .5rem">How Aiden's Current Activities Can Be Repositioned:</h4>
+
+    <div class="ec-grid" style="margin-top:.75rem">
+      <div class="ec-card">
+        <div class="ec-num" style="background:var(--teal);font-size:.75rem">→</div>
+        <div class="ec-info">
+          <div class="ec-name">Tutoring → Leadership Program</div>
+          <div class="ec-role">Name the program, recruit volunteers, track impact numbers. Transforms a participation activity into a leadership-driven initiative.</div>
+        </div>
+      </div>
+      <div class="ec-card">
+        <div class="ec-num" style="background:var(--teal);font-size:.75rem">→</div>
+        <div class="ec-info">
+          <div class="ec-name">Homeless Outreach → Health Equity Initiative</div>
+          <div class="ec-role">Add a health focus: organize free screenings, build hygiene kits, run health education workshops. This ties directly to the pre-med narrative.</div>
+        </div>
+      </div>
+      <div class="ec-card">
+        <div class="ec-num" style="background:var(--teal);font-size:.75rem">→</div>
+        <div class="ec-info">
+          <div class="ec-name">Violin → Well-Rounded Signal</div>
+          <div class="ec-role">Continue as a personal passion. Shows depth and discipline. Not everything needs to be pre-med — it shows Aiden is a whole person.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHOOL LIST -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon red">🎯</div>
+      <div class="section-title">School List Assessment</div>
+    </div>
+
+    <div class="school-list">
+      <div class="school">
+        <div class="school-rate reach">~9%<span>admit</span></div>
+        <div class="school-info">
+          <div class="school-name">UCLA</div>
+          <div class="school-fit">🔴 High Reach — 4.0 GPA is baseline here, not an advantage. Strong ECs + Personal Insight Questions are essential.</div>
+        </div>
+      </div>
+      <div class="school">
+        <div class="school-rate reach">~11%<span>admit</span></div>
+        <div class="school-info">
+          <div class="school-name">UC Berkeley</div>
+          <div class="school-fit">🔴 High Reach — Extremely competitive for pre-med / biology. Needs a distinctive, focused profile.</div>
+        </div>
+      </div>
+      <div class="school">
+        <div class="school-rate target">~25%<span>admit</span></div>
+        <div class="school-info">
+          <div class="school-name">UC San Diego</div>
+          <div class="school-fit">🟢 Target-Reach — Excellent pre-med programs. Very realistic with a focused EC profile over 3 years.</div>
+        </div>
+      </div>
+      <div class="school">
+        <div class="school-rate safety">~71%<span>admit</span></div>
+        <div class="school-info">
+          <div class="school-name">UC Santa Cruz</div>
+          <div class="school-fit">🟢 Safety — Strong option with good biology programs and supportive campus.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning">
+      <h4>📋 Recommendations for the School List</h4>
+      <p>The list is currently <strong>top-heavy</strong> — 2 reaches, 1 target, 1 safety. We'd recommend adding <strong>UC Davis</strong> (~45% admit rate, strong pre-med), <strong>UC Irvine</strong> (~29%, excellent health sciences), and <strong>one more safety</strong> — either a CSU campus with a pre-health pipeline or a private university with merit scholarship potential. A balanced list of 6–8 schools gives both ambition and peace of mind.</p>
+    </div>
+  </div>
+
+  <!-- 3-YEAR TIMELINE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon teal">📅</div>
+      <div class="section-title">3-Year Opportunity Timeline</div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot now">NOW</div>
+        <div class="tl-content">
+          <div class="tl-label">Summer Before 10th Grade</div>
+          <h5>Launch Phase</h5>
+          <p>Apply to hospital volunteer programs and summer research opportunities. Transform homeless outreach into a health initiative. Start PSAT prep.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot future">📘</div>
+        <div class="tl-content">
+          <div class="tl-label">10th Grade (2026–27)</div>
+          <h5>Build Depth</h5>
+          <p>Take on leadership roles. Begin clinical volunteering. Continue AP rigor. Join HOSA or Biology Olympiad. Take the PSAT.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot future">🔬</div>
+        <div class="tl-content">
+          <div class="tl-label">Summer Before 11th Grade</div>
+          <h5>Research & Impact</h5>
+          <p>Apply to university research programs. Deepen personal project. This is the "signature summer" for college applications.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot future">🎯</div>
+        <div class="tl-content">
+          <div class="tl-label">11th Grade (2027–28)</div>
+          <h5>Peak Year</h5>
+          <p>Take SAT. Maximum leadership + impact. Begin essay brainstorming. Finalize school list. Apply to summer programs for the last time.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot future">✍️</div>
+        <div class="tl-content">
+          <div class="tl-label">Summer Before 12th Grade</div>
+          <h5>Application Season</h5>
+          <p>Write Personal Insight Questions. Finalize activity list. UC application opens August 1, due December 1.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon blue">📊</div>
+      <div class="section-title">Strengths & Opportunities</div>
+    </div>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="sc-label">Academics</div>
+        <div class="sc-strength">✅ 4.0 GPA, strong rigor, dual enrollment</div>
+        <div class="sc-growth">Plan SAT timeline; continue AP progression through senior year</div>
+      </div>
+      <div class="summary-card">
+        <div class="sc-label">Extracurriculars</div>
+        <div class="sc-strength">✅ Community-minded, diverse starting foundation</div>
+        <div class="sc-growth">Build a focused pre-med theme; add leadership; start a personal project</div>
+      </div>
+      <div class="summary-card">
+        <div class="sc-label">School List</div>
+        <div class="sc-strength">✅ Ambitious goals, clear career direction</div>
+        <div class="sc-growth">Add 2–3 target and safety schools; research financial aid options</div>
+      </div>
+      <div class="summary-card">
+        <div class="sc-label">Timeline</div>
+        <div class="sc-strength">✅ Starting in 9th grade = maximum advantage</div>
+        <div class="sc-growth">Map out a 3-year plan with milestones for each semester</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PACKAGE SECTION -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon gold">🚀</div>
+      <div class="section-title">Your Next Step</div>
+    </div>
+
+    <div style="background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius);padding:1.15rem 1.35rem;margin-bottom:1.5rem">
+      <p style="font-size:.88rem;color:var(--navy-mid);line-height:1.7">Aiden has three full years ahead — that's an enormous advantage. But three years also means hundreds of decisions: which APs, which summer programs, which ECs to drop, which to double down on. The families who see the best outcomes at UCLA and Berkeley didn't figure it out alone — they had <strong>a plan from the start and someone keeping them on track</strong>.</p>
+    </div>
+  </div>
+
+  <!-- PRICING CARDS -->
+  <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem">
+
+    <!-- ROADMAP -->
+    <div style="background:white;border:2px solid var(--teal);border-radius:var(--radius-lg);padding:0;overflow:hidden;position:relative">
+      <div style="background:linear-gradient(90deg,var(--teal),#6ee7b7);padding:6px 16px;display:flex;align-items:center;justify-content:space-between">
+        <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--navy)">✦ Recommended for Aiden</span>
+        <span style="font-size:.72rem;font-weight:600;color:var(--navy);opacity:.7">Best Value for 9th–10th Grade</span>
+      </div>
+      <div style="padding:1.5rem 1.5rem 1.25rem">
+        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:.15rem">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--navy)">UC Roadmap</h3>
+        </div>
+        <p style="font-size:.82rem;color:var(--slate);margin-bottom:1.25rem">Multi-year strategy for freshmen & sophomores — build the profile that gets in</p>
+
+        <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:.25rem">
+          <span style="font-size:2rem;font-weight:800;color:var(--navy)">$2,497</span>
+          <span style="font-size:.85rem;color:var(--slate);text-decoration:line-through">$6,500 avg</span>
+        </div>
+        <p style="font-size:.82rem;color:var(--green);font-weight:600;margin-bottom:1.25rem">or 6 payments of $416/month</p>
+
+        <div style="display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.5rem">
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--teal);flex-shrink:0">✓</span><span><strong>Kick-Off Strategy Session</strong> — 60-min deep dive into Aiden's profile</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--teal);flex-shrink:0">✓</span><span><strong>Multi-Year Strategy Map</strong> — semester-by-semester plan: courses, ECs, tests, summer programs</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--teal);flex-shrink:0">✓</span><span><strong>Pre-Med EC Development</strong> — which programs to apply to, when, and how to position them</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--teal);flex-shrink:0">✓</span><span><strong>Personal Project Launch</strong> — brainstorm session to design a health/community initiative</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--teal);flex-shrink:0">✓</span><span><strong>School List Build</strong> — reach/target/safety calibrated for pre-med programs</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--teal);flex-shrink:0">✓</span><span><strong>SAT/ACT Strategy</strong> — timeline + recommended prep approach</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--teal);flex-shrink:0">✓</span><span><strong>Quarterly Check-Ins</strong> — 4 × 30-min sessions per year to adjust the plan as Aiden grows</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--teal);flex-shrink:0">✓</span><span><strong>PIQ Essay Support</strong> — all 4 essays with deep brainstorm when application season arrives</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--teal);flex-shrink:0">✓</span><span><strong>Final Application Review</strong> — full review before submit</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--navy-mid)"><span style="color:var(--teal);flex-shrink:0">✓</span><span><strong>Unlimited Email Support</strong> — throughout the entire program</span></div>
+        </div>
+
+        <div style="text-align:center">
+          <a href="#" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#10b981,#6ee7b7);color:var(--navy);font-weight:700;font-size:.95rem;padding:.85rem 2.25rem;border-radius:100px;text-decoration:none;transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 8px 25px rgba(16,185,129,0.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">Start with a Strategy Session →</a>
+          <p style="font-size:.78rem;color:var(--slate);margin-top:.65rem">Book your $150 Strategy Session — it applies as credit toward the package</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAUNCHPAD (ALTERNATIVE) -->
+    <div style="background:white;border:1px solid var(--gray-200);border-radius:var(--radius);padding:1.15rem 1.35rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+      <div>
+        <h4 style="font-size:.9rem;font-weight:700;color:var(--navy)">UC Launchpad — $1,497 <span style="font-size:.78rem;font-weight:400;color:var(--slate)">(or 3 × $499/mo)</span></h4>
+        <p style="font-size:.8rem;color:var(--slate);margin-top:3px">Application-focused package without multi-year strategy. Best for families closer to application season.</p>
+      </div>
+      <a href="#" style="font-size:.8rem;font-weight:600;color:var(--blue);text-decoration:none;white-space:nowrap">Learn more →</a>
+    </div>
+  </div>
+
+  <!-- WHY THIS PRICE -->
+  <div style="background:linear-gradient(135deg,var(--teal-bg),rgba(20,184,166,0.02));border:1px solid var(--teal-border);border-radius:var(--radius);padding:1.25rem 1.35rem;margin-bottom:1.5rem">
+    <h4 style="font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:.65rem">Why this is the smartest investment you'll make for Aiden</h4>
+    <div style="display:flex;flex-direction:column;gap:.5rem">
+      <p style="font-size:.85rem;color:var(--navy-mid);line-height:1.65"><strong>The average family pays $6,500 for college consulting.</strong> We specialize exclusively in UC admissions — you're not paying for Ivy League overhead. Our advisors know the UC system, PIQs, holistic review, and what each campus values.</p>
+      <p style="font-size:.85rem;color:var(--navy-mid);line-height:1.65"><strong>The real math:</strong> UC tuition for California residents is ~$15,000/year. If Aiden doesn't get into a UC and goes out-of-state or private, that's $30,000–$45,000/year more — over $120,000 extra across four years. This entire program costs less than the tuition difference of <strong>a single month</strong>.</p>
+      <p style="font-size:.85rem;color:var(--navy-mid);line-height:1.65"><strong>Starting in 9th grade means the lowest cost per year.</strong> At $2,497 over 3 years, that's roughly $70/month for ongoing expert guidance through every major decision point.</p>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div style="background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius);padding:1.25rem 1.35rem;margin-bottom:1.5rem">
+    <h4 style="font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:.85rem">How to Get Started</h4>
+    <div style="display:flex;flex-direction:column;gap:.85rem">
+      <div style="display:flex;gap:.85rem;align-items:flex-start">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">1</div>
+        <div><strong style="font-size:.87rem;color:var(--navy)">Book Your Strategy Session ($150)</strong><p style="font-size:.82rem;color:var(--slate);margin-top:2px">60 minutes with your advisor. We'll walk through Aiden's full profile, answer your pre-med EC question in detail, and show you the 3-year roadmap.</p></div>
+      </div>
+      <div style="display:flex;gap:.85rem;align-items:flex-start">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">2</div>
+        <div><strong style="font-size:.87rem;color:var(--navy)">Choose Your Package</strong><p style="font-size:.82rem;color:var(--slate);margin-top:2px">If you decide to continue, your $150 applies as credit. No pressure — many families leave the Strategy Session with enough direction to get started on their own.</p></div>
+      </div>
+      <div style="display:flex;gap:.85rem;align-items:flex-start">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">3</div>
+        <div><strong style="font-size:.87rem;color:var(--navy)">Start Building the Profile</strong><p style="font-size:.82rem;color:var(--slate);margin-top:2px">Your advisor builds the semester-by-semester plan and checks in quarterly — so every course choice, summer program, and EC decision moves Aiden closer to UCLA.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- URGENCY -->
+  <div style="background:linear-gradient(135deg,#fef3c7,#fffbeb);border:1px solid #fde68a;border-radius:var(--radius);padding:1.35rem 1.5rem;margin-bottom:1.5rem">
+    <h4 style="font-size:.95rem;font-weight:700;color:#92400e;margin-bottom:.5rem;display:flex;align-items:center;gap:8px">⚡ Why Now Matters for Aiden</h4>
+    <p style="font-size:.88rem;color:#78350f;line-height:1.7"><strong>The most competitive summer research and volunteer programs open applications in the fall.</strong> Students who start planning now can apply to programs this November — a full year ahead of families who wait until 10th grade. In the pre-med world, clinical exposure and research placements are limited and competitive. Early planning = first in line.</p>
+    <p style="font-size:.88rem;color:#78350f;line-height:1.7;margin-top:.65rem">We work with a limited number of families per cycle to ensure quality. <strong>Spots for the Class of 2029 are filling.</strong></p>
+  </div>
+
+  <!-- CTA BOTTOM -->
+  <div class="cta">
+    <h3>Give Aiden a 3-Year Head Start</h3>
+    <p class="cta-sub">Start with a $150 Strategy Session — it applies as credit if you continue</p>
+    <a href="#" class="cta-btn">Book Strategy Session →</a>
+    <p class="cta-price">60 minutes · $150 (credited toward any package) · Zoom</p>
+    <p class="cta-note">Questions? Reply to this email or text us anytime. We're here to help — no pressure, no sales pitch, just honest guidance for Aiden's journey.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  This assessment was prepared by your admissions advisor based on the information you provided.<br>
+  All information is confidential. · © 2026
+</div>
+
+</body>
+</html>

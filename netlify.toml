@@ -1,0 +1,22 @@
+[build]
+  functions = "netlify/functions"
+
+# Block direct access to the dashboard HTML files
+# They can only be served through the authenticated /api/dashboard endpoint
+[[redirects]]
+  from = "/_dashboards/*"
+  to = "/404"
+  status = 404
+  force = true
+
+# Serve the portal login page cleanly
+[[redirects]]
+  from = "/portal"
+  to = "/portal/index.html"
+  status = 200
+
+# Serve the feedback page
+[[redirects]]
+  from = "/feedback"
+  to = "/feedback/index.html"
+  status = 200

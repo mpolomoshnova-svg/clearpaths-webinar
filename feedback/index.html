@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>How Was Your Strategy Session?</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:#f8fafc;color:#0f172a;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem}
+
+.wrap{max-width:520px;width:100%}
+
+.header{text-align:center;margin-bottom:2rem}
+.header .emoji{font-size:2.5rem;margin-bottom:.75rem}
+.header h1{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;margin-bottom:.35rem}
+.header p{font-size:.9rem;color:#64748b;line-height:1.6}
+
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:2rem;box-shadow:0 4px 24px rgba(0,0,0,.04)}
+
+.steps-bar{display:flex;gap:6px;margin-bottom:1.75rem}
+.steps-bar .dot{flex:1;height:4px;border-radius:100px;background:#e2e8f0;transition:background .3s}
+.steps-bar .dot.active{background:#7c3aed}
+.steps-bar .dot.done{background:#10b981}
+
+.section{display:none}
+.section.active{display:block}
+
+.nps-q{font-size:.92rem;font-weight:600;margin-bottom:1rem;text-align:center;line-height:1.5}
+.nps-row{display:flex;gap:6px;justify-content:center;margin-bottom:.5rem}
+.nps-btn{width:42px;height:42px;border-radius:10px;border:1.5px solid #e2e8f0;background:#fff;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .15s;color:#334155;display:flex;align-items:center;justify-content:center}
+.nps-btn:hover{border-color:#7c3aed;background:rgba(124,58,237,.04)}
+.nps-btn.selected{border-color:#7c3aed;background:#7c3aed;color:#fff;transform:scale(1.08);box-shadow:0 4px 12px rgba(124,58,237,.25)}
+.nps-btn.selected.detractor{background:#ef4444;border-color:#ef4444;box-shadow:0 4px 12px rgba(239,68,68,.25)}
+.nps-btn.selected.passive{background:#f59e0b;border-color:#f59e0b;box-shadow:0 4px 12px rgba(245,158,11,.25)}
+.nps-labels{display:flex;justify-content:space-between;font-size:.68rem;color:#94a3b8;margin-bottom:1.5rem;padding:0 2px}
+
+.stars-wrap{text-align:center;margin-bottom:1.25rem}
+.stars-q{font-size:.88rem;font-weight:600;margin-bottom:.65rem;color:#0f172a}
+.stars{display:inline-flex;gap:4px}
+.star{font-size:1.75rem;cursor:pointer;transition:transform .12s;opacity:.25;user-select:none}
+.star:hover{transform:scale(1.15)}
+.star.lit{opacity:1}
+
+.ta-wrap{margin-bottom:1.25rem}
+.ta-wrap label{display:block;font-size:.82rem;font-weight:600;color:#334155;margin-bottom:.4rem}
+.ta-wrap textarea{width:100%;padding:.75rem 1rem;border:1.5px solid #e2e8f0;border-radius:10px;font-size:.88rem;font-family:'Inter',sans-serif;resize:vertical;min-height:80px;outline:none;transition:border-color .2s;background:#f8fafc;line-height:1.6}
+.ta-wrap textarea:focus{border-color:#7c3aed;background:#fff}
+.ta-wrap textarea::placeholder{color:#94a3b8}
+
+.btn{width:100%;padding:.8rem;border-radius:10px;font-size:.9rem;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:all .15s;border:none}
+.btn-primary{background:linear-gradient(135deg,#7c3aed,#a78bfa);color:#fff}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(124,58,237,.3)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-secondary{background:#f1f5f9;color:#64748b;margin-top:.5rem}
+.btn-secondary:hover{background:#e2e8f0}
+
+.thankyou{text-align:center;padding:1rem 0}
+.thankyou .check{width:64px;height:64px;border-radius:50%;background:#10b981;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin:0 auto 1rem}
+.thankyou h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:.5rem}
+.thankyou p{font-size:.88rem;color:#64748b;line-height:1.6}
+
+.privacy{text-align:center;font-size:.7rem;color:#94a3b8;margin-top:1.5rem}
+
+@media(max-width:480px){
+  .nps-btn{width:36px;height:36px;font-size:.8rem;border-radius:8px}
+  .nps-row{gap:4px}
+  body{padding:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- Hidden Netlify form for detection -->
+<form name="session-feedback" data-netlify="true" hidden>
+  <input name="client_name"><input name="nps"><input name="stars"><textarea name="feedback"></textarea><input name="testimonial_permission"><input name="submitted_at">
+</form>
+
+<div class="wrap">
+  <div class="header">
+    <div class="emoji">🎓</div>
+    <h1>How Was Your Session?</h1>
+    <p>Your feedback helps us improve. It takes less than 60 seconds.</p>
+  </div>
+
+  <div class="card">
+    <div class="steps-bar">
+      <div class="dot active" id="dot1"></div>
+      <div class="dot" id="dot2"></div>
+      <div class="dot" id="dot3"></div>
+    </div>
+
+    <!-- STEP 1: NPS + Stars -->
+    <div class="section active" id="step1">
+      <p class="nps-q">How likely are you to recommend us to a friend or family member?</p>
+      <div class="nps-row" id="npsRow"></div>
+      <div class="nps-labels"><span>Not likely</span><span>Extremely likely</span></div>
+
+      <div class="stars-wrap">
+        <div class="stars-q">How would you rate your advisor?</div>
+        <div class="stars" id="starsRow"></div>
+      </div>
+
+      <button class="btn btn-primary" id="nextBtn1" disabled onclick="goStep(2)">Continue</button>
+    </div>
+
+    <!-- STEP 2: Feedback text -->
+    <div class="section" id="step2">
+      <div class="ta-wrap">
+        <label id="feedbackLabel">What stood out most about your session?</label>
+        <textarea id="feedback" placeholder="Anything you'd like to share — what was most helpful, what we could do better, or any other thoughts..."></textarea>
+      </div>
+
+      <div class="ta-wrap">
+        <label>Can we use your feedback on our website? <span style="font-weight:400;color:#94a3b8">(optional)</span></label>
+        <div style="display:flex;gap:.5rem;margin-top:.35rem">
+          <label style="display:flex;align-items:center;gap:6px;font-size:.85rem;cursor:pointer;padding:.4rem .75rem;border:1.5px solid #e2e8f0;border-radius:8px;transition:all .15s" id="permYes">
+            <input type="radio" name="perm" value="yes" style="accent-color:#7c3aed"> Yes, with my first name
+          </label>
+          <label style="display:flex;align-items:center;gap:6px;font-size:.85rem;cursor:pointer;padding:.4rem .75rem;border:1.5px solid #e2e8f0;border-radius:8px;transition:all .15s" id="permNo">
+            <input type="radio" name="perm" value="no"> Keep it private
+          </label>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" onclick="submitReview()">Submit Feedback</button>
+      <button class="btn btn-secondary" onclick="goStep(1)">← Back</button>
+    </div>
+
+    <!-- STEP 3: Thank You -->
+    <div class="section" id="step3">
+      <div class="thankyou">
+        <div class="check">✓</div>
+        <h2>Thank You!</h2>
+        <p>Your feedback means a lot to us. It helps us serve families like yours even better.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="privacy">Your responses are confidential and used to improve our service.</p>
+</div>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const clientName = urlParams.get('name') || '';
+
+let npsScore = null;
+let starRating = null;
+
+const npsRow = document.getElementById('npsRow');
+for (let i = 0; i <= 10; i++) {
+  const btn = document.createElement('button');
+  btn.className = 'nps-btn';
+  btn.textContent = i;
+  btn.onclick = () => selectNPS(i, btn);
+  npsRow.appendChild(btn);
+}
+
+const starsRow = document.getElementById('starsRow');
+for (let i = 1; i <= 5; i++) {
+  const s = document.createElement('span');
+  s.className = 'star';
+  s.textContent = '⭐';
+  s.onclick = () => selectStars(i);
+  starsRow.appendChild(s);
+}
+
+function selectNPS(score, btn) {
+  npsScore = score;
+  document.querySelectorAll('.nps-btn').forEach(b => b.classList.remove('selected','detractor','passive'));
+  btn.classList.add('selected');
+  if (score <= 6) btn.classList.add('detractor');
+  else if (score <= 8) btn.classList.add('passive');
+  checkStep1();
+}
+
+function selectStars(rating) {
+  starRating = rating;
+  document.querySelectorAll('.star').forEach((s, i) => s.classList.toggle('lit', i < rating));
+  checkStep1();
+}
+
+function checkStep1() {
+  document.getElementById('nextBtn1').disabled = !(npsScore !== null && starRating !== null);
+}
+
+function goStep(n) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('step' + n).classList.add('active');
+  for (let i = 1; i <= 3; i++) {
+    const dot = document.getElementById('dot' + i);
+    dot.classList.remove('active','done');
+    if (i < n) dot.classList.add('done');
+    if (i === n) dot.classList.add('active');
+  }
+  if (n === 2) {
+    const label = document.getElementById('feedbackLabel');
+    if (npsScore >= 9) label.textContent = "That's amazing! What stood out most about your session?";
+    else if (npsScore >= 7) label.textContent = "Thanks! What could we do to make it a 10?";
+    else label.textContent = "We appreciate your honesty. What could we have done better?";
+  }
+}
+
+function submitReview() {
+  const feedback = document.getElementById('feedback').value.trim();
+  const permRadio = document.querySelector('input[name="perm"]:checked');
+  const canUse = permRadio ? permRadio.value : 'no';
+
+  const body = new URLSearchParams({
+    'form-name': 'session-feedback',
+    client_name: clientName,
+    nps: npsScore,
+    stars: starRating,
+    feedback: feedback,
+    testimonial_permission: canUse,
+    submitted_at: new Date().toISOString()
+  });
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: body.toString()
+  }).catch(() => {});
+
+  goStep(3);
+}
+</script>
+
+</body>
+</html>
