@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Harvard vs. The Counselor — Live Panel on Your Child's Summer | ClearPaths</title>
+<meta name="description" content="Free live panel for California parents. Tuesday Apr 28, 12:00 PM PT. Harvard admissions expert Michael Torto and education consultant Megan Ballock debate what your high-schooler should actually do this summer.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Harvard vs. The Counselor — Live Panel for California Parents">
+<meta property="og:description" content="Two experts. Two perspectives. One summer to get it right. Live panel on what your child should do before senior year. Tue Apr 28, 12 PM PT.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --ink:#1e1b4b; --muted:#52526b; --paper:#ffffff; --lav:#f5f3ff; --cream:#fbf6ee;
+    --accent:#6b21a8; --accent-2:#4c1d95; --live:#dc2626; --gold:#c79a2a; --line:#e8e6f0;
+    --shadow:0 10px 30px rgba(76,29,149,.10);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  header.top{padding:18px 0;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:5}
+  .top-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .logo{font-weight:800;letter-spacing:-0.01em;color:var(--accent);font-size:20px}
+  .logo span{color:var(--gold)}
+  .top-cta{font-weight:600;font-size:14px;color:var(--accent);text-decoration:none;border:1px solid var(--accent);padding:8px 14px;border-radius:999px}
+  .top-cta:hover{background:var(--accent);color:#fff}
+
+  .hero{background:linear-gradient(180deg,#f5f3ff 0%,#fbf6ee 100%);padding:56px 0 40px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-30%;right:-10%;width:480px;height:480px;background:radial-gradient(circle,rgba(107,33,168,0.08),transparent 65%);pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;position:relative}
+
+  .live-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);color:var(--live);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px;box-shadow:var(--shadow)}
+  .live-badge .dot{width:8px;height:8px;background:var(--live);border-radius:999px;display:inline-block;animation:pulse 1.6s infinite}
+  .live-badge b{color:var(--ink);font-weight:700}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
+
+  h1{font-size:46px;line-height:1.08;letter-spacing:-0.02em;margin:16px 0 14px;font-weight:800}
+  h1 em{font-style:normal;color:var(--accent);background:linear-gradient(180deg,transparent 62%,#e9d5ff 62%);padding:0 4px}
+  .sub{color:var(--muted);font-size:18px;margin:0 0 22px;max-width:58ch}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:14px;display:flex;align-items:center;gap:8px}
+  .chip b{font-weight:700}
+  .cta-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:14px 22px;border-radius:10px;font-weight:700;font-size:16px;border:none;cursor:pointer;transition:transform .05s ease, background .15s ease}
+  .btn:hover{background:var(--accent-2)}
+  .btn:active{transform:translateY(1px)}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+
+  .hero-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);position:relative}
+  .hero-card .live-tag{position:absolute;top:12px;left:12px;background:var(--live);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;padding:4px 10px;border-radius:999px;z-index:2;display:inline-flex;align-items:center;gap:6px}
+  .hero-card .live-tag::before{content:"";width:7px;height:7px;background:#fff;border-radius:999px;animation:pulse 1.6s infinite}
+  .hero-card img{width:100%;height:auto;border-radius:10px;display:block;aspect-ratio:1/1;object-fit:cover;background:#eee}
+  .hero-card .cap{margin-top:14px;font-size:14px;color:var(--muted);line-height:1.5}
+  .hero-card .cap b{color:var(--ink)}
+
+  section{padding:56px 0}
+  section.alt{background:var(--lav);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  h2{font-size:30px;letter-spacing:-0.015em;margin:0 0 10px;font-weight:800}
+  h2 + .kicker{color:var(--muted);margin:0 0 28px;max-width:65ch}
+
+  /* "The debate" setup */
+  .debate{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .debate .side{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;position:relative}
+  .debate .side .quote{font-size:18px;font-weight:600;color:var(--ink);margin:0 0 12px;line-height:1.4}
+  .debate .side .who{font-size:13px;color:var(--accent);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+  .debate .vs{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--accent);color:#fff;font-weight:800;border-radius:999px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:14px;letter-spacing:.04em;box-shadow:var(--shadow);z-index:2;border:4px solid #fff}
+
+  /* speakers */
+  .speakers{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .speaker{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;gap:20px;align-items:flex-start}
+  .speaker img{width:120px;height:120px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#eee}
+  .speaker .meta-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  .speaker .creds{display:inline-block;background:#f5f3ff;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.04em;padding:3px 9px;border-radius:999px}
+  .speaker h3{margin:0;font-size:20px}
+  .speaker p{margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.5}
+
+  .agenda{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .agenda .box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .agenda .t{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+  .agenda h3{margin:0 0 6px;font-size:16px}
+  .agenda p{margin:0;color:var(--muted);font-size:14px}
+
+  .form-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:start}
+  .bullets{margin:0;padding-left:18px}
+  .bullets li{margin-bottom:10px}
+  .bullets li b{color:var(--ink)}
+
+  details.faq{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px;background:#fff}
+  details.faq summary{cursor:pointer;font-weight:600;list-style:none}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary::after{content:"+";float:right;font-weight:400;color:var(--muted)}
+  details.faq[open] summary::after{content:"–"}
+  details.faq p{color:var(--muted);margin:10px 0 0}
+
+  footer{padding:32px 0 48px;background:#fff;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+  footer a{color:var(--muted)}
+  .disclosure{font-size:12px;color:var(--muted);margin-top:14px;max-width:70ch}
+
+  /* 2-step form — matches main page pattern */
+  .form-card{background:#fff;border-radius:16px;padding:28px;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .form-card h2{margin:0 0 6px;font-size:24px;font-weight:800}
+  .form-card .subtitle{color:var(--muted);font-size:15px;margin:0 0 22px}
+  .toggle-label{font-size:14px;margin:0 0 10px;color:var(--muted)}
+  .toggle-group{display:flex;gap:10px;margin-bottom:20px}
+  .toggle-btn{padding:8px 20px;border:1.5px solid var(--line);border-radius:8px;background:#fff;font-size:14px;font-weight:600;color:var(--accent);cursor:pointer;transition:background .15s,border-color .15s;font-family:inherit}
+  .toggle-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .form-card .field{margin-bottom:16px}
+  .form-card .field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+  .form-card .field input,.form-card .field select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;color:var(--ink);background:#fff;appearance:none;outline:none;font-family:inherit;transition:border-color .15s}
+  .form-card .field input:focus,.form-card .field select:focus{border-color:var(--accent)}
+  .phone-row{display:flex;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .15s}
+  .phone-row:focus-within{border-color:var(--accent)}
+  .phone-flag{display:flex;align-items:center;gap:6px;padding:0 14px;border-right:1.5px solid var(--line);background:#fafafa;font-size:14px;white-space:nowrap}
+  .phone-row input{flex:1;border:none;border-radius:0;padding:12px 14px}
+  .select-wrap{position:relative}
+  .select-wrap::after{content:'▾';position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--muted)}
+  .checkbox-row{display:flex;align-items:flex-start;gap:10px;margin:18px 0 20px}
+  .checkbox-row input[type="checkbox"]{width:18px;height:18px;flex-shrink:0;accent-color:var(--accent);margin-top:2px;cursor:pointer}
+  .checkbox-row label{font-size:13px;color:var(--muted);cursor:pointer;line-height:1.45}
+  .dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+  .dot{width:36px;height:4px;border-radius:3px;background:var(--line)}
+  .dot.active{background:var(--accent)}
+  .btn-row{display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:10px}
+  .btn-row.right{justify-content:flex-end}
+  .btn-primary{background:var(--accent);color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:background .15s;font-family:inherit}
+  .btn-primary:hover{background:var(--accent-2)}
+  .btn-secondary{background:transparent;color:var(--accent);border:1.5px solid var(--accent);padding:13px 28px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
+  .privacy-note{font-size:12px;color:var(--muted);margin-top:12px}
+  .privacy-note a{color:var(--muted)}
+  .step{display:none}
+  .step.active{display:block}
+
+  @media (max-width: 880px){
+    .hero-grid,.form-wrap,.debate,.speakers{grid-template-columns:1fr}
+    .agenda{grid-template-columns:repeat(2,1fr)}
+    .debate .vs{position:static;transform:none;margin:0 auto}
+    h1{font-size:34px}
+    section{padding:40px 0}
+    .hero{padding:36px 0 28px}
+    .speaker{flex-direction:column;text-align:left}
+    .speaker img{width:88px;height:88px}
+  }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1308975481252598');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="logo" href="#">Clear<span>Paths</span></a>
+    <a class="top-cta" href="#register">Save my seat</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="live-badge"><span class="dot"></span> Live Panel · <b>California parents</b></span>
+      <h1>A Harvard insider and a family counselor <em>disagree</em> about your child's summer.</h1>
+      <p class="sub">Watch them debate — live. Two experts, two perspectives, one summer to get it right before senior year. A free 60-minute panel for California parents of 9th–11th graders.</p>
+      <div class="meta">
+        <div class="chip">📅 <b>Tuesday, April 28, 2026</b></div>
+        <div class="chip">🕛 <b>12:00 PM PT</b> · 60 min</div>
+        <div class="chip">💻 Live on Zoom · replay for registrants</div>
+        <div class="chip">🎟️ Free · seats limited</div>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="#register">Save my seat</a>
+        <a class="btn ghost" href="#speakers">Meet the panelists</a>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="Panelists">
+      <div class="live-tag">LIVE PANEL</div>
+      <img src="michael_megan.jpg" alt="Michael Torto and Megan Ballock, panelists for the ClearPaths summer admissions panel">
+      <div class="cap">
+        <b>Michael Torto</b> · Harvard '25, Admissions Counselor (Empowerly)<br>
+        <b>Megan Ballock, M.Ed.</b> · Independent education consultant
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Summer is 8 weeks away. Nobody agrees on what your child should do.</h2>
+    <p class="kicker">Your school counselor says one thing. The internet says another. Your friend whose kid got into Berkeley says a third. This panel settles it — with the people who actually read applications and build roadmaps.</p>
+    <div class="debate">
+      <div class="side">
+        <div class="who">The Harvard take</div>
+        <p class="quote">"Admissions officers want depth, not scatter. Pick one thing this summer. Go hard."</p>
+        <p style="margin:0;color:var(--muted);font-size:14px">Michael argues elite admissions reward a single, legible commitment over a busy-looking list.</p>
+      </div>
+      <div class="vs">VS</div>
+      <div class="side">
+        <div class="who">The counselor take</div>
+        <p class="quote">"Most families don't need Harvard's playbook. They need a roadmap that fits the student."</p>
+        <p style="margin:0;color:var(--muted);font-size:14px">Megan pushes back: multi-year planning, realistic school lists, and when summer programs actually pay off.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="speakers">
+  <div class="wrap">
+    <h2>Your panelists</h2>
+    <p class="kicker">Two people who will not give you the same answer — and that's the point.</p>
+    <div class="speakers">
+      <div class="speaker">
+        <img src="michael.jpeg" alt="Michael Torto">
+        <div>
+          <h3>Michael Torto</h3>
+          <div class="meta-row">
+            <span class="creds">Harvard '25</span>
+            <span class="creds">Empowerly Counselor</span>
+            <span class="creds">Founder, Ivy League Stories</span>
+          </div>
+          <p>Harvard Class of 2025. Admissions counselor at Empowerly and founder of Ivy League Stories, where he breaks down what actually works at the top ~20 US colleges. Specializes in positioning students for highly selective admissions.</p>
+        </div>
+      </div>
+      <div class="speaker">
+        <img src="Megan.jpeg" alt="Megan Ballock">
+        <div>
+          <h3>Megan Ballock, M.Ed.</h3>
+          <div class="meta-row">
+            <span class="creds">M.Ed.</span>
+            <span class="creds">Independent Consultant</span>
+            <span class="creds">Multi-year Roadmaps</span>
+          </div>
+          <p>Independent education consultant who works with California families across the full range of targets — UC, CSU, private, out-of-state. Builds multi-year admissions roadmaps that start in 9th grade and sustain through submission.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What we'll cover in 60 minutes</h2>
+    <p class="kicker">Panel format: each speaker takes a position, then they go back and forth on live parent questions.</p>
+    <div class="agenda">
+      <div class="box">
+        <div class="t">0–15 min</div>
+        <h3>The summer playbook debate</h3>
+        <p>Internship vs. volunteer vs. summer program vs. SAT prep — ranked on impact, cost, and realism.</p>
+      </div>
+      <div class="box">
+        <div class="t">15–30 min</div>
+        <h3>Reality-checking Ivy advice</h3>
+        <p>When Harvard-tier strategy applies — and when it actively hurts students aiming at UC and strong privates.</p>
+      </div>
+      <div class="box">
+        <div class="t">30–45 min</div>
+        <h3>Live parent Q&amp;A</h3>
+        <p>Submit your question at registration. The most-voted get live answers from both panelists.</p>
+      </div>
+      <div class="box">
+        <div class="t">45–60 min</div>
+        <h3>Take-home: the 1-page summer plan</h3>
+        <p>A filled-in template you can adapt for your child this week. Sent to every registrant, live or replay.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="register">
+  <div class="wrap form-wrap">
+    <div class="form-card">
+      <div style="background:linear-gradient(90deg,#f5f3ff,#ede9fe);border:1px solid #d8b4fe;border-radius:10px;padding:10px 14px;margin:0 0 16px;font-size:13px;font-weight:600;color:#4c1d95;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center">
+        <span>🎟️ Free</span><span>· Live panel</span><span>· Limited seats</span><span>· Tue Apr 28 · 12:00 PM PT</span>
+      </div>
+      <h2>Save your seat — free live panel</h2>
+      <p class="subtitle">Tuesday, April 28, 2026 · 12:00 PM PT · 60 minutes</p>
+
+      <!-- STEP 1 -->
+      <div class="step active" id="step1">
+        <p class="toggle-label">Are you a student or a guardian?</p>
+        <div class="toggle-group">
+          <button type="button" class="toggle-btn active" onclick="setRole(this,'Student')">Student</button>
+          <button type="button" class="toggle-btn" onclick="setRole(this,'Guardian')">Guardian</button>
+        </div>
+        <div class="field">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" placeholder="Enter your first name" autocomplete="given-name">
+        </div>
+        <div class="field">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" placeholder="Enter your last name" autocomplete="family-name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" autocomplete="email">
+        </div>
+        <div class="btn-row right">
+          <button type="button" class="btn-primary" onclick="goStep2()">Next</button>
+        </div>
+        <div class="dots"><div class="dot active"></div><div class="dot"></div></div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step" id="step2">
+        <div class="field">
+          <label for="phone">What is your phone number?</label>
+          <div class="phone-row">
+            <div class="phone-flag">🇺🇸 +1</div>
+            <input type="tel" id="phone" placeholder="(555) 000-0000" maxlength="14" oninput="formatPhone(this)" autocomplete="tel">
+          </div>
+        </div>
+        <div class="field">
+          <label for="state">Which state do you live in?</label>
+          <div class="select-wrap">
+            <select id="state">
+              <option value="">Select your state</option>
+              <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+              <option selected>California</option>
+              <option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option>
+              <option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option>
+              <option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+              <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option>
+              <option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+              <option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option>
+              <option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+              <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option>
+              <option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+              <option>Outside the US</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="school">What school is your child currently attending?</label>
+          <input type="text" id="school" placeholder="Enter school name">
+        </div>
+        <div class="field">
+          <label for="gradYear">What year will your child graduate from high school?</label>
+          <div class="select-wrap">
+            <select id="gradYear">
+              <option value="">High school graduation year</option>
+              <option>2027</option><option>2028</option><option>2029</option><option>2030</option><option>2031</option>
+            </select>
+          </div>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="marketing" checked>
+          <label for="marketing">I'd like to receive helpful resources, event invitations, and relevant offers from ClearPaths</label>
+        </div>
+        <div class="btn-row">
+          <button type="button" class="btn-secondary" onclick="goStep1()">Back</button>
+          <button type="button" class="btn-primary" onclick="submitForm()">Submit</button>
+        </div>
+        <p class="privacy-note">By submitting this form, you agree to the <a href="/privacy">Privacy Policy</a> of ClearPaths Admissions.</p>
+        <div class="dots"><div class="dot"></div><div class="dot active"></div></div>
+      </div>
+    </div>
+    <div>
+      <h2>Best fit for this panel</h2>
+      <ul class="bullets">
+        <li><b>California parents of 9th–11th graders</b> who feel summer planning stress.</li>
+        <li>Families torn between <b>expensive summer programs, internships, volunteering, or SAT prep</b> — and want a verdict.</li>
+        <li>Parents who've heard <b>conflicting advice</b> from schools, friends, and the internet and want the signal separated from the noise.</li>
+      </ul>
+      <h2 style="margin-top:28px;font-size:22px">A few common questions</h2>
+      <details class="faq"><summary>Will there be a replay?</summary><p>Yes. Every registrant gets the replay link within 24 hours of the live panel, plus the 1-page summer plan template.</p></details>
+      <details class="faq"><summary>Can I submit a question in advance?</summary><p>Yes. After you register, you'll get an email with a link to submit your question. The most-voted questions get answered live.</p></details>
+      <details class="faq"><summary>Is this specific to UC or Ivy+?</summary><p>Both. That's why there are two panelists — Michael's lens is Harvard-tier, Megan's lens is the full California target set (UC, CSU, private).</p></details>
+      <details class="faq"><summary>Is this a sales pitch?</summary><p>There's a brief mention of ClearPaths' one-on-one counseling at the end. The panel itself is teaching — ignore the pitch part and keep the frameworks.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 ClearPaths. Admissions counseling services. Not affiliated with Harvard University or the University of California.</div>
+    <div><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="mailto:hello@clear-paths.com">hello@clear-paths.com</a></div>
+  </div>
+  <div class="wrap"><p class="disclosure">Michael Torto and Megan Ballock appear as panel guests under signed speaking agreements. Credentials (Harvard Class of 2025; M.Ed.; Empowerly; independent consulting practice) reflect their own professional positions and do not imply affiliation, endorsement, or sponsorship by Harvard University, Empowerly, or any other institution named above. ClearPaths does not guarantee admission to any college or university.</p></div>
+</footer>
+
+<script>
+  let role = 'Student';
+
+  function setRole(btn, val) {
+    role = val;
+    document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  function goStep2() {
+    const fn = document.getElementById('firstName').value.trim();
+    const ln = document.getElementById('lastName').value.trim();
+    const em = document.getElementById('email').value.trim();
+    if (!fn || !ln || !em) { alert('Please fill in all fields.'); return; }
+    if (!/\S+@\S+\.\S+/.test(em)) { alert('Please enter a valid email.'); return; }
+    document.getElementById('step1').classList.remove('active');
+    document.getElementById('step2').classList.add('active');
+    document.getElementById('register').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function goStep1() {
+    document.getElementById('step2').classList.remove('active');
+    document.getElementById('step1').classList.add('active');
+    document.getElementById('register').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function submitForm() {
+    const params = new URLSearchParams(window.location.search);
+    const data = {
+      firstName: document.getElementById('firstName').value,
+      lastName:  document.getElementById('lastName').value,
+      email:     document.getElementById('email').value,
+      phone:     document.getElementById('phone').value,
+      state:     document.getElementById('state').value,
+      school:    document.getElementById('school').value,
+      gradYear:  document.getElementById('gradYear').value,
+      marketing: document.getElementById('marketing').checked,
+      role:      document.querySelector('.toggle-btn.active')?.textContent || '',
+      webinar_id: 'W6-PANEL-2026-04-28',
+      utm_source:   params.get('utm_source')   || '',
+      utm_medium:   params.get('utm_medium')   || '',
+      utm_campaign: params.get('utm_campaign') || '',
+      utm_content:  params.get('utm_content')  || ''
+    };
+
+    fetch('https://hook.eu1.make.com/ocb9kaampigdics4gk26tby8w4tmc9kt', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(() => {});
+    if (window.fbq) fbq('track', 'Lead');
+
+    window.location.href = 'https://chat.whatsapp.com/LhOzhPJAjYGDycl1TRT5o4';
+  }
+
+  function formatPhone(input) {
+    let val = input.value.replace(/\D/g, '').slice(0, 10);
+    if (val.length <= 3) val = val;
+    else if (val.length <= 6) val = '(' + val.slice(0,3) + ') ' + val.slice(3);
+    else val = '(' + val.slice(0,3) + ') ' + val.slice(3,6) + '-' + val.slice(6);
+    input.value = val;
+  }
+</script>
+</body>
+</html>
