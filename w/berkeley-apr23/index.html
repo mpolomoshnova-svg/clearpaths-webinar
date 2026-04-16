@@ -97,7 +97,57 @@
     section{padding:40px 0}
     .hero{padding:36px 0 28px}
   }
+/* 2-step form — matches main page pattern */
+.form-card{background:#fff;border-radius:16px;padding:28px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.form-card h2{margin:0 0 6px;font-size:24px;font-weight:800}
+.form-card .subtitle{color:var(--muted);font-size:15px;margin:0 0 22px}
+.toggle-label{font-size:14px;margin:0 0 10px;color:var(--muted)}
+.toggle-group{display:flex;gap:10px;margin-bottom:20px}
+.toggle-btn{padding:8px 20px;border:1.5px solid var(--line);border-radius:8px;background:#fff;font-size:14px;font-weight:600;color:var(--accent);cursor:pointer;transition:background .15s,border-color .15s;font-family:inherit}
+.toggle-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.form-card .field{margin-bottom:16px}
+.form-card .field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+.form-card .field input,.form-card .field select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;color:var(--ink);background:#fff;appearance:none;outline:none;font-family:inherit;transition:border-color .15s}
+.form-card .field input:focus,.form-card .field select:focus{border-color:var(--accent)}
+.phone-row{display:flex;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .15s}
+.phone-row:focus-within{border-color:var(--accent)}
+.phone-flag{display:flex;align-items:center;gap:6px;padding:0 14px;border-right:1.5px solid var(--line);background:#fafafa;font-size:14px;white-space:nowrap}
+.phone-row input{flex:1;border:none;border-radius:0;padding:12px 14px}
+.select-wrap{position:relative}
+.select-wrap::after{content:'▾';position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--muted)}
+.checkbox-row{display:flex;align-items:flex-start;gap:10px;margin:18px 0 20px}
+.checkbox-row input[type="checkbox"]{width:18px;height:18px;flex-shrink:0;accent-color:var(--accent);margin-top:2px;cursor:pointer}
+.checkbox-row label{font-size:13px;color:var(--muted);cursor:pointer;line-height:1.45}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+.dot{width:36px;height:4px;border-radius:3px;background:var(--line)}
+.dot.active{background:var(--accent)}
+.btn-row{display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:10px}
+.btn-row.right{justify-content:flex-end}
+.btn-primary{background:var(--accent);color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:background .15s;font-family:inherit}
+.btn-primary:hover{background:var(--accent-2)}
+.btn-secondary{background:transparent;color:var(--accent);border:1.5px solid var(--accent);padding:13px 28px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
+.privacy-note{font-size:12px;color:var(--muted);margin-top:12px}
+.privacy-note a{color:var(--muted)}
+.step{display:none}
+.step.active{display:block}
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1308975481252598');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -179,45 +229,92 @@
 
 <section id="register">
   <div class="wrap form-wrap">
-    <form class="reg" method="post" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field" name="webinar_w4_berkeley" novalidate>
-      <input type="hidden" name="form-name" value="webinar_w4_berkeley">
-      <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
-      <div style="background:linear-gradient(90deg,#fff7e6,#fff1d6);border:1px solid #f1d88a;border-radius:10px;padding:10px 14px;margin:-4px 0 16px;font-size:13px;font-weight:600;color:#8a5a00;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center">
+    <div class="form-card">
+      <div style="background:linear-gradient(90deg,#fff7e6,#fff1d6);border:1px solid #f1d88a;border-radius:10px;padding:10px 14px;margin:0 0 16px;font-size:13px;font-weight:600;color:#8a5a00;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center">
         <span>🎟️ Free</span><span>· Live Zoom</span><span>· Limited seats</span><span>· Thu Apr 23 · 5:00 PM PT</span>
       </div>
-      <h2 style="margin-top:0">Reserve your seat — free</h2>
-      <p style="color:var(--muted);margin-top:-4px">Thursday, April 23, 2026 · 5:00 PM PT · 60 minutes</p>
-      <div class="field">
-        <label for="first">First name</label>
-        <input id="first" name="first_name" required autocomplete="given-name">
+      <h2>Reserve your seat — free</h2>
+      <p class="subtitle">Thursday, April 23, 2026 · 5:00 PM PT · 60 minutes</p>
+
+      <!-- STEP 1 -->
+      <div class="step active" id="step1">
+        <p class="toggle-label">Are you a student or a guardian?</p>
+        <div class="toggle-group">
+          <button type="button" class="toggle-btn active" onclick="setRole(this,'Student')">Student</button>
+          <button type="button" class="toggle-btn" onclick="setRole(this,'Guardian')">Guardian</button>
+        </div>
+        <div class="field">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" placeholder="Enter your first name" autocomplete="given-name">
+        </div>
+        <div class="field">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" placeholder="Enter your last name" autocomplete="family-name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" autocomplete="email">
+        </div>
+        <div class="btn-row right">
+          <button type="button" class="btn-primary" onclick="goStep2()">Next</button>
+        </div>
+        <div class="dots"><div class="dot active"></div><div class="dot"></div></div>
       </div>
-      <div class="field">
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required autocomplete="email">
+
+      <!-- STEP 2 -->
+      <div class="step" id="step2">
+        <div class="field">
+          <label for="phone">What is your phone number?</label>
+          <div class="phone-row">
+            <div class="phone-flag">🇺🇸 +1</div>
+            <input type="tel" id="phone" placeholder="(555) 000-0000" maxlength="14" oninput="formatPhone(this)" autocomplete="tel">
+          </div>
+        </div>
+        <div class="field">
+          <label for="state">Which state do you live in?</label>
+          <div class="select-wrap">
+            <select id="state">
+              <option value="">Select your state</option>
+              <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+              <option selected>California</option>
+              <option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option>
+              <option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option>
+              <option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+              <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option>
+              <option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+              <option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option>
+              <option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+              <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option>
+              <option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+              <option>Outside the US</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="school">What school is your child currently attending?</label>
+          <input type="text" id="school" placeholder="Enter school name">
+        </div>
+        <div class="field">
+          <label for="gradYear">What year will your child graduate from high school?</label>
+          <div class="select-wrap">
+            <select id="gradYear">
+              <option value="">High school graduation year</option>
+              <option>2027</option><option>2028</option><option>2029</option><option>2030</option><option>2031</option>
+            </select>
+          </div>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="marketing" checked>
+          <label for="marketing">I'd like to receive helpful resources, event invitations, and relevant offers from ClearPaths</label>
+        </div>
+        <div class="btn-row">
+          <button type="button" class="btn-secondary" onclick="goStep1()">Back</button>
+          <button type="button" class="btn-primary" onclick="submitForm()">Submit</button>
+        </div>
+        <p class="privacy-note">By submitting this form, you agree to the <a href="/privacy">Privacy Policy</a> of ClearPaths Admissions.</p>
+        <div class="dots"><div class="dot"></div><div class="dot active"></div></div>
       </div>
-      <div class="field">
-        <label for="grade">Child's graduation year</label>
-        <select id="grade" name="grad_year" required>
-          <option value="">Select year…</option>
-          <option>2027</option>
-          <option>2028</option>
-          <option>2029</option>
-          <option>2030</option>
-          <option>2031</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="county">County (California)</label>
-        <input id="county" name="county" placeholder="e.g., Alameda, Orange, Los Angeles" required>
-      </div>
-      <input type="hidden" name="webinar_id" value="W4-BERKELEY-2026-04-23">
-      <input type="hidden" name="utm_source" value="">
-      <input type="hidden" name="utm_medium" value="">
-      <input type="hidden" name="utm_campaign" value="">
-      <input type="hidden" name="utm_content" value="">
-      <button class="btn" type="submit">Save my seat →</button>
-      <p class="consent">By registering you agree to receive the Zoom link and one reminder email for this webinar. We don't sell or share your email. Unsubscribe anytime.</p>
-    </form>
+    </div>
     <div>
       <h2>Who this is for</h2>
       <ul class="bullets">
@@ -243,14 +340,67 @@
 </footer>
 
 <script>
-// Copy UTM parameters from the landing URL into hidden form fields so the CRM sees which ad variant converted.
-(function(){
-  var params = new URLSearchParams(window.location.search);
-  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){
-    var el = document.querySelector('input[name="'+k+'"]');
-    if(el) el.value = params.get(k) || '';
-  });
-})();
+  let role = 'Student';
+
+  function setRole(btn, val) {
+    role = val;
+    document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  function goStep2() {
+    const fn = document.getElementById('firstName').value.trim();
+    const ln = document.getElementById('lastName').value.trim();
+    const em = document.getElementById('email').value.trim();
+    if (!fn || !ln || !em) { alert('Please fill in all fields.'); return; }
+    if (!/\S+@\S+\.\S+/.test(em)) { alert('Please enter a valid email.'); return; }
+    document.getElementById('step1').classList.remove('active');
+    document.getElementById('step2').classList.add('active');
+    document.getElementById('register').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function goStep1() {
+    document.getElementById('step2').classList.remove('active');
+    document.getElementById('step1').classList.add('active');
+    document.getElementById('register').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function submitForm() {
+    const params = new URLSearchParams(window.location.search);
+    const data = {
+      firstName: document.getElementById('firstName').value,
+      lastName:  document.getElementById('lastName').value,
+      email:     document.getElementById('email').value,
+      phone:     document.getElementById('phone').value,
+      state:     document.getElementById('state').value,
+      school:    document.getElementById('school').value,
+      gradYear:  document.getElementById('gradYear').value,
+      marketing: document.getElementById('marketing').checked,
+      role:      document.querySelector('.toggle-btn.active')?.textContent || '',
+      webinar_id: 'W4-BERKELEY-2026-04-23',
+      utm_source:   params.get('utm_source')   || '',
+      utm_medium:   params.get('utm_medium')   || '',
+      utm_campaign: params.get('utm_campaign') || '',
+      utm_content:  params.get('utm_content')  || ''
+    };
+
+    fetch('https://hook.eu1.make.com/ocb9kaampigdics4gk26tby8w4tmc9kt', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(() => {});
+    if (window.fbq) fbq('track', 'Lead');
+
+    window.location.href = 'https://chat.whatsapp.com/EjC35Qkf1Ex7PJsxQglLxp';
+  }
+
+  function formatPhone(input) {
+    let val = input.value.replace(/\D/g, '').slice(0, 10);
+    if (val.length <= 3) val = val;
+    else if (val.length <= 6) val = '(' + val.slice(0,3) + ') ' + val.slice(3);
+    else val = '(' + val.slice(0,3) + ') ' + val.slice(3,6) + '-' + val.slice(6);
+    input.value = val;
+  }
 </script>
 </body>
 </html>
