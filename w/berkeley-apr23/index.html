@@ -182,29 +182,28 @@
     <form class="reg" method="post" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field" name="webinar_w4_berkeley" novalidate>
       <input type="hidden" name="form-name" value="webinar_w4_berkeley">
       <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <div style="background:linear-gradient(90deg,#fff7e6,#fff1d6);border:1px solid #f1d88a;border-radius:10px;padding:10px 14px;margin:-4px 0 16px;font-size:13px;font-weight:600;color:#8a5a00;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center">
+        <span>🎟️ Free</span><span>· Live Zoom</span><span>· Limited seats</span><span>· Thu Apr 23 · 5:00 PM PT</span>
+      </div>
       <h2 style="margin-top:0">Reserve your seat — free</h2>
       <p style="color:var(--muted);margin-top:-4px">Thursday, April 23, 2026 · 5:00 PM PT · 60 minutes</p>
       <div class="field">
-        <label for="first">Parent first name</label>
+        <label for="first">First name</label>
         <input id="first" name="first_name" required autocomplete="given-name">
-      </div>
-      <div class="field">
-        <label for="last">Parent last name</label>
-        <input id="last" name="last_name" required autocomplete="family-name">
       </div>
       <div class="field">
         <label for="email">Email</label>
         <input id="email" name="email" type="email" required autocomplete="email">
       </div>
       <div class="field">
-        <label for="grade">Your child's current grade</label>
-        <select id="grade" name="grade" required>
-          <option value="">Select grade…</option>
-          <option>8th</option>
-          <option>9th (freshman)</option>
-          <option>10th (sophomore)</option>
-          <option>11th (junior)</option>
-          <option>12th (senior)</option>
+        <label for="grade">Child's graduation year</label>
+        <select id="grade" name="grad_year" required>
+          <option value="">Select year…</option>
+          <option>2027</option>
+          <option>2028</option>
+          <option>2029</option>
+          <option>2030</option>
+          <option>2031</option>
         </select>
       </div>
       <div class="field">
