@@ -141,12 +141,14 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f8fafc;color:#0f172a;m
 </div>
 
 <script>
+// Get client name from URL param (?name=Claire)
 const urlParams = new URLSearchParams(window.location.search);
 const clientName = urlParams.get('name') || '';
 
 let npsScore = null;
 let starRating = null;
 
+// Build NPS buttons 0-10
 const npsRow = document.getElementById('npsRow');
 for (let i = 0; i <= 10; i++) {
   const btn = document.createElement('button');
@@ -156,6 +158,7 @@ for (let i = 0; i <= 10; i++) {
   npsRow.appendChild(btn);
 }
 
+// Build stars 1-5
 const starsRow = document.getElementById('starsRow');
 for (let i = 1; i <= 5; i++) {
   const s = document.createElement('span');

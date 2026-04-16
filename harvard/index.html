@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClearPaths Admissions — Harvard Webinar</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1308975481252598');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --crimson: #7a1414;
+      --crimson-light: #f5e8e8;
+      --navy: #011F5B;
+      --navy-light: #e8edf5;
+      --bg: #f4efe8;
+      --text: #1a1a1a;
+      --gray: #6b6b6b;
+      --border: #d8d0c8;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--navy);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 900;
+      font-size: 18px;
+    }
+    .logo-text { font-size: 15px; font-weight: 700; line-height: 1.2; }
+    .logo-text span { display: block; font-weight: 400; font-size: 13px; color: var(--gray); }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 40px 20px 10px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 900;
+      color: var(--crimson);
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--navy-light);
+      color: var(--navy);
+      padding: 4px 16px;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .event-meta {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      color: var(--text);
+      font-size: 15px;
+      margin-bottom: 36px;
+    }
+    .event-meta span { display: flex; align-items: center; gap: 7px; }
+    .event-meta svg { flex-shrink: 0; }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 760px;
+      margin: 0 auto 60px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    .form-card h2 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
+    .form-card .subtitle { color: var(--gray); font-size: 15px; margin-bottom: 28px; }
+
+    /* Toggle */
+    .toggle-label { font-size: 15px; margin-bottom: 12px; }
+    .toggle-group { display: flex; gap: 10px; margin-bottom: 24px; }
+    .toggle-btn {
+      padding: 8px 24px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: white;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--crimson);
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+    }
+    .toggle-btn.active {
+      background: var(--crimson);
+      color: white;
+      border-color: var(--crimson);
+    }
+
+    /* Fields */
+    .field { margin-bottom: 20px; }
+    .field label { display: block; font-size: 15px; font-weight: 500; margin-bottom: 7px; }
+    .field input, .field select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-size: 15px;
+      color: var(--text);
+      background: white;
+      appearance: none;
+      outline: none;
+      transition: border-color .15s;
+    }
+    .field input:focus, .field select:focus { border-color: var(--crimson); }
+    .field input::placeholder { color: #aaa; }
+
+    /* Phone */
+    .phone-row {
+      display: flex;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color .15s;
+    }
+    .phone-row:focus-within { border-color: var(--crimson); }
+    .phone-flag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 14px;
+      border-right: 1.5px solid var(--border);
+      background: #fafafa;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    .phone-row input {
+      flex: 1;
+      border: none;
+      border-radius: 0;
+      padding: 14px 16px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    /* Select arrow */
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: var(--gray);
+    }
+
+    /* Checkbox */
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .checkbox-row input[type="checkbox"] {
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+      accent-color: var(--crimson);
+      margin-top: 2px;
+      cursor: pointer;
+    }
+    .checkbox-row label { font-size: 14px; color: var(--text); cursor: pointer; }
+
+    /* Dots */
+    .dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+    .dot { width: 40px; height: 5px; border-radius: 3px; background: var(--border); }
+    .dot.active { background: var(--crimson); }
+
+    /* Buttons */
+    .btn-row { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
+    .btn-row.right { justify-content: flex-end; }
+    .btn-primary {
+      background: var(--crimson); color: white; border: none;
+      padding: 14px 36px; border-radius: 10px;
+      font-size: 16px; font-weight: 700; cursor: pointer; transition: opacity .15s;
+    }
+    .btn-primary:hover { opacity: .88; }
+    .btn-secondary {
+      background: transparent; color: var(--crimson);
+      border: 1.5px solid var(--crimson);
+      padding: 13px 32px; border-radius: 10px;
+      font-size: 16px; font-weight: 700; cursor: pointer; transition: background .15s;
+    }
+    .btn-secondary:hover { background: var(--crimson-light); }
+
+    .privacy-note { font-size: 13px; color: var(--gray); margin-top: 14px; }
+    .privacy-note a { color: var(--gray); }
+
+    /* Steps */
+    .step { display: none; }
+    .step.active { display: block; }
+
+    /* ── INTRO TEXT ── */
+    .intro-text {
+      max-width: 820px;
+      margin: 0 auto 50px;
+      padding: 0 24px;
+    }
+    .intro-text p {
+      font-size: 16px; color: var(--gray);
+      margin-bottom: 14px; line-height: 1.75;
+    }
+    .intro-text p:last-child { margin-bottom: 0; }
+
+    /* ── BENEFITS ── */
+    .benefits {
+      max-width: 900px;
+      margin: 0 auto 70px;
+      padding: 0 24px;
+    }
+    .benefits h2 {
+      font-size: 22px; font-weight: 800;
+      color: var(--crimson); margin-bottom: 28px; line-height: 1.4;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 40px;
+    }
+    @media (max-width: 600px) { .benefits-grid { grid-template-columns: 1fr; } }
+    .benefit-item { display: flex; align-items: flex-start; gap: 14px; }
+    .check-icon {
+      width: 28px; height: 28px;
+      background: var(--crimson); border-radius: 50%;
+      flex-shrink: 0; display: flex;
+      align-items: center; justify-content: center;
+      color: white; margin-top: 1px;
+    }
+    .benefit-item p { font-size: 15px; color: var(--gray); }
+    .benefits-closing {
+      margin-top: 28px; font-size: 15px;
+      color: var(--gray); font-style: italic; line-height: 1.7;
+    }
+
+    /* ── SPEAKER ── */
+    .speaker {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (max-width: 700px) { .speaker { grid-template-columns: 1fr; } }
+    .speaker-photo {
+      position: relative; border-radius: 12px;
+      overflow: hidden; background: #c8bfb0; aspect-ratio: 4/4.2;
+    }
+    .speaker-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+    }
+    .speaker-photo-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 16px 18px;
+      background: linear-gradient(transparent, rgba(0,0,0,.72));
+      color: white;
+    }
+    .speaker-photo-caption strong { display: block; font-size: 18px; }
+    .speaker-photo-caption span { font-size: 13px; opacity: .9; }
+    .speaker-info h2 { font-size: 28px; font-weight: 800; margin-bottom: 16px; }
+    .speaker-info p { font-size: 15px; color: var(--gray); margin-bottom: 14px; line-height: 1.75; }
+    .speaker-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .speaker-tag {
+      background: var(--navy-light); color: var(--navy);
+      font-size: 12px; font-weight: 600;
+      padding: 5px 12px; border-radius: 20px;
+      text-transform: uppercase; letter-spacing: 0.03em;
+    }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: var(--navy);
+      overflow: hidden; padding: 20px 0; margin-top: 60px;
+    }
+    .ticker {
+      display: flex; gap: 0;
+      animation: scroll 32s linear infinite;
+      width: max-content;
+    }
+    .ticker-item {
+      display: flex; align-items: center;
+      white-space: nowrap; font-size: 14px; font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      padding: 0 36px; letter-spacing: 0.02em;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .ticker-item:last-child { border-right: none; }
+    .ticker-num {
+      color: #f0c040;
+      font-size: 19px; font-weight: 800;
+      margin-right: 9px; font-variant-numeric: tabular-nums;
+    }
+    .ticker-label { color: rgba(255,255,255,0.8); }
+    .ticker-dot { color: rgba(255,255,255,0.3); font-size: 10px; margin-right: 10px; }
+    @keyframes scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── HOW CLEARPATHS CAN HELP ── */
+    .help-section { background: white; padding: 72px 24px; }
+    .help-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .help-inner h2 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 900; color: var(--navy); margin-bottom: 12px;
+    }
+    .help-sub {
+      font-size: 16px; color: var(--gray);
+      max-width: 580px; margin: 0 auto 48px; line-height: 1.7;
+    }
+    .help-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; text-align: left; margin-bottom: 48px;
+    }
+    @media (max-width: 620px) { .help-grid { grid-template-columns: 1fr; } }
+    .help-card { background: var(--bg); border-radius: 14px; padding: 28px 26px; }
+    .help-icon {
+      width: 44px; height: 44px; background: var(--navy-light);
+      border-radius: 10px; display: flex;
+      align-items: center; justify-content: center;
+      color: var(--navy); margin-bottom: 16px;
+    }
+    .help-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .help-card p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+    .help-cta {
+      display: inline-block; background: var(--navy); color: white;
+      text-decoration: none; padding: 16px 40px;
+      border-radius: 10px; font-size: 16px; font-weight: 700; transition: opacity .15s;
+    }
+    .help-cta:hover { opacity: .88; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="#">
+    <div class="logo-icon">CP</div>
+    <div class="logo-text">ClearPaths<span>Admissions</span></div>
+  </a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>What Massachusetts Parents Must Know About Getting Into Harvard</h1>
+  <div class="badge">Webinar</div>
+  <div class="event-meta">
+    <span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Thursday, April 9
+    </span>
+    <span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      7:00 PM ET
+    </span>
+    <span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Zoom
+    </span>
+  </div>
+</section>
+
+<!-- FORM CARD -->
+<div class="form-card">
+  <h2>Register For This Free Event</h2>
+  <p class="subtitle">Join Racquel, Ivy League alumna and former Dartmouth Admissions Officer, to learn what it truly takes to get into Harvard and the nation's most selective universities.</p>
+
+  <!-- STEP 1 -->
+  <div class="step active" id="step1">
+    <p class="toggle-label">Are you a student or a guardian?</p>
+    <div class="toggle-group">
+      <button class="toggle-btn active" onclick="setRole(this,'Student')">Student</button>
+      <button class="toggle-btn" onclick="setRole(this,'Guardian')">Guardian</button>
+    </div>
+
+    <div class="field">
+      <label>First Name</label>
+      <input type="text" id="firstName" placeholder="Enter your first name" />
+    </div>
+    <div class="field">
+      <label>Last Name</label>
+      <input type="text" id="lastName" placeholder="Enter your last name" />
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" id="email" placeholder="Enter your email" />
+    </div>
+
+    <div class="btn-row right">
+      <button class="btn-primary" onclick="goStep2()">Next</button>
+    </div>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step" id="step2">
+    <div class="field">
+      <label>What is your phone number?</label>
+      <div class="phone-row">
+        <div class="phone-flag" style="cursor:default;">🇺🇸 +1</div>
+        <input type="tel" id="phone" placeholder="(555) 000-0000" maxlength="14" oninput="formatPhone(this)" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Which state do you live in?</label>
+      <div class="select-wrap">
+        <select id="state">
+          <option value="">Select your state</option>
+          <option selected>Massachusetts</option>
+          <option>Alabama</option>
+          <option>Alaska</option>
+          <option>Arizona</option>
+          <option>Arkansas</option>
+          <option>California</option>
+          <option>Colorado</option>
+          <option>Connecticut</option>
+          <option>Delaware</option>
+          <option>Florida</option>
+          <option>Georgia</option>
+          <option>Hawaii</option>
+          <option>Idaho</option>
+          <option>Illinois</option>
+          <option>Indiana</option>
+          <option>Iowa</option>
+          <option>Kansas</option>
+          <option>Kentucky</option>
+          <option>Louisiana</option>
+          <option>Maine</option>
+          <option>Maryland</option>
+          <option>Michigan</option>
+          <option>Minnesota</option>
+          <option>Mississippi</option>
+          <option>Missouri</option>
+          <option>Montana</option>
+          <option>Nebraska</option>
+          <option>Nevada</option>
+          <option>New Hampshire</option>
+          <option>New Jersey</option>
+          <option>New Mexico</option>
+          <option>New York</option>
+          <option>North Carolina</option>
+          <option>North Dakota</option>
+          <option>Ohio</option>
+          <option>Oklahoma</option>
+          <option>Oregon</option>
+          <option>Pennsylvania</option>
+          <option>Rhode Island</option>
+          <option>South Carolina</option>
+          <option>South Dakota</option>
+          <option>Tennessee</option>
+          <option>Texas</option>
+          <option>Utah</option>
+          <option>Vermont</option>
+          <option>Virginia</option>
+          <option>Washington</option>
+          <option>West Virginia</option>
+          <option>Wisconsin</option>
+          <option>Wyoming</option>
+          <option>Outside the US</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>What school is your child currently attending?</label>
+      <input type="text" id="school" placeholder="Enter school name" />
+    </div>
+
+    <div class="field">
+      <label>What year will your child graduate from high school?</label>
+      <div class="select-wrap">
+        <select id="gradYear">
+          <option value="">High school graduation year</option>
+          <option>2025</option>
+          <option>2026</option>
+          <option>2027</option>
+          <option>2028</option>
+          <option>2029</option>
+          <option>2030</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="checkbox-row">
+      <input type="checkbox" id="marketing" checked />
+      <label for="marketing">I'd like to receive helpful resources, event invitations, and relevant offers from ClearPaths</label>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-secondary" onclick="goStep1()">Back</button>
+      <button class="btn-primary" onclick="submitForm()">Submit</button>
+    </div>
+    <p class="privacy-note">By submitting this form, you agree to the <a href="#">Privacy Policy</a> of ClearPaths Admissions.</p>
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot active"></div>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO TEXT -->
+<section class="intro-text">
+  <p>Most Massachusetts families assume proximity to elite universities gives their child an advantage. It doesn't. In fact, students from Boston-area prep schools face some of the most competitive applicant pools in the country.</p>
+  <p>What separates the students who get in from those who don't isn't a perfect GPA or a long list of clubs. It's how their entire profile is constructed — and most families don't start thinking about that until it's already too late.</p>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <h2>Join this exclusive session to learn:</h2>
+  <div class="benefits-grid">
+    <div class="benefit-item">
+      <div class="check-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <p>Inside Ivy League's applicant review: what the admissions office actually prioritizes beyond grades and test scores</p>
+    </div>
+    <div class="benefit-item">
+      <div class="check-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <p>Why your child's high school context shapes how their application is read — and how to use that strategically</p>
+    </div>
+    <div class="benefit-item">
+      <div class="check-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <p>The difference between activities that fill a résumé and those that signal genuine leadership to Ivy readers</p>
+    </div>
+    <div class="benefit-item">
+      <div class="check-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <p>The patterns behind unexpected rejection letters — and the decisions your family can still control right now</p>
+    </div>
+    <div class="benefit-item">
+      <div class="check-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <p>Live Q&amp;A with an Ivy League insider — get real answers to your most pressing questions before application season begins</p>
+    </div>
+  </div>
+  <p class="benefits-closing">This isn't a general overview. It's a practical session led by someone who sat on the other side of the admissions table.</p>
+</section>
+
+<!-- SPEAKER -->
+<section class="speaker">
+  <div class="speaker-photo">
+    <img src="michael.jpg" alt="Michael" />
+    <div class="speaker-photo-caption">
+      <strong>Michael</strong>
+      <span>College Counselor · Harvard University</span>
+    </div>
+  </div>
+  <div class="speaker-info">
+    <h2>Meet Your Speaker</h2>
+    <p>Michael is a Harvard-educated college counselor and former professional actor who brings a rare combination of insider knowledge and storytelling expertise to the admissions process. A national speech and debate champion, his own application essay was published in <em>50 Successful Harvard Application Essays</em>.</p>
+    <p>Over four years of working with students across STEM and humanities, he has developed a signature approach: deep listening combined with storytelling techniques from his acting background to help each student find and express the authentic voice that admissions officers remember.</p>
+    <div class="speaker-tags">
+      <span class="speaker-tag">Harvard University Alumnus</span>
+      <span class="speaker-tag">National Speech & Debate Champion</span>
+      <span class="speaker-tag">4+ Years College Counseling</span>
+      <span class="speaker-tag">Published in 50 Successful Harvard Essays</span>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <div class="ticker-item"><span class="ticker-label">Harvard Alumnus · B.A. Sociology</span></div>
+    <div class="ticker-item"><span class="ticker-dot">◆</span><span class="ticker-label">National Speech & Debate Champion</span></div>
+    <div class="ticker-item"><span class="ticker-num">4+</span><span class="ticker-label">years guiding students into elite universities</span></div>
+    <div class="ticker-item"><span class="ticker-dot">◆</span><span class="ticker-label">Published · 50 Successful Harvard Application Essays</span></div>
+    <div class="ticker-item"><span class="ticker-dot">◆</span><span class="ticker-label">Specialist in MIT RSI · Yale Global Scholars · Harvard Pre-College</span></div>
+    <div class="ticker-item"><span class="ticker-dot">◆</span><span class="ticker-label">Former Professional Actor · Storytelling Expert</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><span class="ticker-label">Harvard Alumnus · B.A. Sociology</span></div>
+    <div class="ticker-item"><span class="ticker-dot">◆</span><span class="ticker-label">National Speech & Debate Champion</span></div>
+    <div class="ticker-item"><span class="ticker-num">4+</span><span class="ticker-label">years guiding students into elite universities</span></div>
+    <div class="ticker-item"><span class="ticker-dot">◆</span><span class="ticker-label">Published · 50 Successful Harvard Application Essays</span></div>
+    <div class="ticker-item"><span class="ticker-dot">◆</span><span class="ticker-label">Specialist in MIT RSI · Yale Global Scholars · Harvard Pre-College</span></div>
+    <div class="ticker-item"><span class="ticker-dot">◆</span><span class="ticker-label">Former Professional Actor · Storytelling Expert</span></div>
+  </div>
+</div>
+
+<!-- HOW CLEARPATHS CAN HELP -->
+<section class="help-section">
+  <div class="help-inner">
+    <h2>How ClearPaths Can Help</h2>
+    <p class="help-sub">We work with Massachusetts families who are serious about Ivy League admissions — building the kind of application that Harvard actually remembers.</p>
+    <div class="help-grid">
+      <div class="help-card">
+        <div class="help-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Ivy League Strategy</h3>
+        <p>We build a personalised roadmap calibrated to Harvard's specific evaluation criteria — so your child's profile is deliberately constructed, not assembled by chance.</p>
+      </div>
+      <div class="help-card">
+        <div class="help-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3>Essay Coaching</h3>
+        <p>Our counselors help your child identify the story only they can tell — and shape it into the kind of essay that stays with admissions readers long after they close the file.</p>
+      </div>
+      <div class="help-card">
+        <div class="help-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>Insider Perspective</h3>
+        <p>Our team includes a former Dartmouth Admissions Officer who evaluated thousands of applications. We know what the Ivy League looks for — because we were part of the process.</p>
+      </div>
+      <div class="help-card">
+        <div class="help-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>End-to-End Support</h3>
+        <p>From 9th grade planning through final submission, we stay with your family — tracking deadlines, strengthening materials, and making sure nothing falls through the cracks.</p>
+      </div>
+    </div>
+    <a href="#" class="help-cta" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Register for the Free Webinar</a>
+  </div>
+</section>
+
+<script>
+  let role = 'Student';
+
+  function setRole(btn, val) {
+    role = val;
+    document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  function goStep2() {
+    const fn = document.getElementById('firstName').value.trim();
+    const ln = document.getElementById('lastName').value.trim();
+    const em = document.getElementById('email').value.trim();
+    if (!fn || !ln || !em) { alert('Please fill in all fields.'); return; }
+    if (!/\S+@\S+\.\S+/.test(em)) { alert('Please enter a valid email.'); return; }
+    document.getElementById('step1').classList.remove('active');
+    document.getElementById('step2').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function goStep1() {
+    document.getElementById('step2').classList.remove('active');
+    document.getElementById('step1').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function submitForm() {
+    const data = {
+      firstName: document.getElementById('firstName').value,
+      lastName:  document.getElementById('lastName').value,
+      email:     document.getElementById('email').value,
+      phone:     document.getElementById('phone').value,
+      state:     document.getElementById('state').value,
+      school:    document.getElementById('school').value,
+      gradYear:  document.getElementById('gradYear').value,
+      role:      document.querySelector('.toggle-btn.active')?.textContent || '',
+      webinar:   'Harvard — Massachusetts'
+    };
+
+    fetch('https://hook.eu1.make.com/ocb9kaampigdics4gk26tby8w4tmc9kt', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(() => {});
+
+    fbq('track', 'Lead');
+
+    window.location.href = 'https://chat.whatsapp.com/JGNjksDQ8a9J72Y2zHCeQy?mode=gi_t';
+  }
+
+  function formatPhone(input) {
+    let val = input.value.replace(/\D/g, '').slice(0, 10);
+    if (val.length <= 3) val = val;
+    else if (val.length <= 6) val = '(' + val.slice(0,3) + ') ' + val.slice(3);
+    else val = '(' + val.slice(0,3) + ') ' + val.slice(3,6) + '-' + val.slice(6);
+    input.value = val;
+  }
+</script>
+</body>
+</html>
