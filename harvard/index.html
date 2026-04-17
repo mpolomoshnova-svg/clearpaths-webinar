@@ -243,6 +243,22 @@
     /* Steps */
     .step { display: none; }
     .step.active { display: block; }
+    .wa-note { background:#e7f7ee; border:1px solid #b6e3c7; color:#0f5c33; border-radius:10px; padding:10px 12px; font-size:13px; line-height:1.45; margin:0 0 12px; display:flex; gap:8px; align-items:flex-start; }
+    .wa-note .wa-ic { font-size:16px; flex-shrink:0; }
+    .form-error { background:#fef2f2; border:1px solid #fecaca; color:#b91c1c; border-radius:10px; padding:10px 12px; font-size:13px; margin:0 0 12px; display:none; }
+    .form-error.show { display:block; }
+    .field.err input, .field.err select { border-color:#dc2626 !important; }
+    .field.err .phone-row { border-color:#dc2626 !important; }
+    .success-card { text-align:center; padding:8px 4px; }
+    .success-card .sc-check { width:56px; height:56px; border-radius:50%; background:#10b981; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:14px; }
+    .success-card h3 { margin:0 0 8px; font-size:22px; font-weight:800; }
+    .success-card .sc-lead { color:var(--gray); font-size:15px; margin:0 0 18px; line-height:1.55; }
+    .success-card .sc-box { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; text-align:left; margin:0 0 16px; }
+    .success-card .sc-box h4 { margin:0 0 8px; font-size:15px; font-weight:700; display:flex; align-items:center; gap:8px; }
+    .success-card .sc-box ul { margin:0; padding-left:20px; font-size:13.5px; color:var(--gray); line-height:1.6; }
+    .success-card .sc-cta { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:#25D366; color:#fff; text-decoration:none; padding:14px 22px; border-radius:10px; font-weight:700; font-size:15px; width:100%; box-sizing:border-box; transition:background .15s; }
+    .success-card .sc-cta:hover { background:#1fb357; }
+    .success-card .sc-fallback { font-size:12.5px; color:var(--gray); margin-top:12px; line-height:1.5; }
 
     /* ── INTRO TEXT ── */
     .intro-text {
@@ -453,7 +469,8 @@
 
   <!-- STEP 2 -->
   <div class="step" id="step2">
-    <div class="field">
+    <div class="form-error" id="step2Error"></div>
+    <div class="field" id="phoneField">
       <label>What is your phone number?</label>
       <div class="phone-row">
         <div class="phone-flag" style="cursor:default;">🇺🇸 +1</div>
@@ -461,7 +478,7 @@
       </div>
     </div>
 
-    <div class="field">
+    <div class="field" id="stateField">
       <label>Which state do you live in?</label>
       <div class="select-wrap">
         <select id="state">
@@ -521,12 +538,12 @@
       </div>
     </div>
 
-    <div class="field">
+    <div class="field" id="schoolField">
       <label>What school is your child currently attending?</label>
       <input type="text" id="school" placeholder="Enter school name" />
     </div>
 
-    <div class="field">
+    <div class="field" id="gradYearField">
       <label>What year will your child graduate from high school?</label>
       <div class="select-wrap">
         <select id="gradYear">
@@ -546,6 +563,11 @@
       <label for="marketing">I'd like to receive helpful resources, event invitations, and relevant offers from ClearPaths</label>
     </div>
 
+    <div class="wa-note">
+      <span class="wa-ic">📱</span>
+      <span>After you submit, you'll be invited to our private WhatsApp group for registered families. That's where Racquel posts the Zoom link before the session, sends reminders, and shares the replay and Harvard-prep materials. Admin-only posts — no spam.</span>
+    </div>
+
     <div class="btn-row">
       <button class="btn-secondary" onclick="goStep1()">Back</button>
       <button class="btn-primary" onclick="submitForm()">Submit</button>
@@ -554,6 +576,26 @@
     <div class="dots">
       <div class="dot"></div>
       <div class="dot active"></div>
+    </div>
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="step" id="successStep">
+    <div class="success-card">
+      <div class="sc-check">✓</div>
+      <h3>You're registered!</h3>
+      <p class="sc-lead">Final step — join our private WhatsApp group for registered families. This is the only place the Zoom link is sent.</p>
+      <div class="sc-box">
+        <h4>📱 What happens in the group</h4>
+        <ul>
+          <li>Zoom link posted <b>30 min before</b> the session starts</li>
+          <li>1-hour and 10-min reminders so you don't miss it</li>
+          <li>Slides + replay link within 24 hours after</li>
+          <li>Admin-only posts. You'll be muted by default.</li>
+        </ul>
+      </div>
+      <a class="sc-cta" id="waJoinBtn" href="https://chat.whatsapp.com/JGNjksDQ8a9J72Y2zHCeQy?mode=gi_t" target="_blank" rel="noopener">Join WhatsApp group →</a>
+      <p class="sc-fallback">Don't use WhatsApp? We'll also email the Zoom link to the address you provided.</p>
     </div>
   </div>
 </div>
@@ -708,17 +750,54 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  function setFieldErr(fieldId, isErr) {
+    const el = document.getElementById(fieldId);
+    if (el) el.classList.toggle('err', isErr);
+  }
+
   function submitForm() {
+    const phoneDigits = document.getElementById('phone').value.replace(/\D/g,'');
+    const state    = document.getElementById('state').value;
+    const school   = document.getElementById('school').value.trim();
+    const gradYear = document.getElementById('gradYear').value;
+
+    setFieldErr('phoneField', false);
+    setFieldErr('stateField', false);
+    setFieldErr('schoolField', false);
+    setFieldErr('gradYearField', false);
+    const errBox = document.getElementById('step2Error');
+    errBox.classList.remove('show');
+
+    const errs = [];
+    if (phoneDigits.length !== 10) { setFieldErr('phoneField', true); errs.push('phone'); }
+    if (!state)    { setFieldErr('stateField', true); errs.push('state'); }
+    if (!school)   { setFieldErr('schoolField', true); errs.push('school'); }
+    if (!gradYear) { setFieldErr('gradYearField', true); errs.push('gradYear'); }
+    if (errs.length) {
+      errBox.textContent = errs.includes('phone') && errs.length === 1
+        ? 'Please enter a valid 10-digit phone number.'
+        : 'Please fill in all fields before submitting.';
+      errBox.classList.add('show');
+      errBox.scrollIntoView({ behavior:'smooth', block:'center' });
+      return;
+    }
+
+    const params = new URLSearchParams(window.location.search);
     const data = {
       firstName: document.getElementById('firstName').value,
       lastName:  document.getElementById('lastName').value,
       email:     document.getElementById('email').value,
       phone:     document.getElementById('phone').value,
-      state:     document.getElementById('state').value,
-      school:    document.getElementById('school').value,
-      gradYear:  document.getElementById('gradYear').value,
+      state:     state,
+      school:    school,
+      gradYear:  gradYear,
+      marketing: document.getElementById('marketing').checked,
       role:      document.querySelector('.toggle-btn.active')?.textContent || '',
-      webinar:   'Harvard — Massachusetts'
+      webinar:   'Harvard — Massachusetts',
+      utm_source:   params.get('utm_source')   || '',
+      utm_medium:   params.get('utm_medium')   || '',
+      utm_campaign: params.get('utm_campaign') || '',
+      utm_content:  params.get('utm_content')  || ''
     };
 
     fetch('https://hook.eu1.make.com/ocb9kaampigdics4gk26tby8w4tmc9kt', {
@@ -727,9 +806,11 @@
       body: JSON.stringify(data)
     }).catch(() => {});
 
-    fbq('track', 'Lead');
+    if (window.fbq) fbq('track', 'Lead');
 
-    window.location.href = 'https://chat.whatsapp.com/JGNjksDQ8a9J72Y2zHCeQy?mode=gi_t';
+    document.getElementById('step2').classList.remove('active');
+    document.getElementById('successStep').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function formatPhone(input) {
