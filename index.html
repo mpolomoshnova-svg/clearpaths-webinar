@@ -578,9 +578,12 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 
 </head>
-
-</head>
 <body>
+
+<!-- Hidden Netlify form — picked up at build time so submissions land in the Netlify dashboard -->
+<form name="webinar_main" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input name="firstName"><input name="lastName"><input name="fullName"><input name="email"><input name="phone"><input name="state"><input name="school"><input name="gradYear"><input name="marketing"><input name="role"><input name="utm_source"><input name="utm_medium"><input name="utm_campaign"><input name="utm_content">
+</form>
 
 <!-- HEADER -->
 <header>
@@ -986,7 +989,15 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).catch(() => {});
-    if (window.fbq) fbq('track', 'Lead');
+
+    const netlifyBody = new URLSearchParams();
+    netlifyBody.append('form-name', 'webinar_main');
+    Object.entries(data).forEach(([k, v]) => netlifyBody.append(k, String(v)));
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: netlifyBody.toString()
+    }).catch(() => {});
 
     document.getElementById('step2').classList.remove('active');
     document.getElementById('successStep').classList.add('active');
@@ -994,6 +1005,11 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
     fc.classList.remove('is-step2');
     fc.classList.add('is-success');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (window.fbq) {
+      fbq('track', 'Lead');
+      fbq('track', 'CompleteRegistration');
+    }
   }
   function formatPhone(input) {
   let val = input.value.replace(/\D/g, '').slice(0, 10);

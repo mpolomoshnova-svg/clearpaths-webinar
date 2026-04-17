@@ -421,6 +421,11 @@
 </head>
 <body>
 
+<!-- Hidden Netlify form — picked up at build time so submissions land in the Netlify dashboard -->
+<form name="webinar_harvard" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input name="firstName"><input name="lastName"><input name="fullName"><input name="email"><input name="phone"><input name="state"><input name="school"><input name="gradYear"><input name="marketing"><input name="role"><input name="webinar"><input name="utm_source"><input name="utm_medium"><input name="utm_campaign"><input name="utm_content">
+</form>
+
 <!-- HEADER -->
 <header>
   <a class="logo" href="#">
@@ -827,7 +832,14 @@
       body: JSON.stringify(data)
     }).catch(() => {});
 
-    if (window.fbq) fbq('track', 'Lead');
+    const netlifyBody = new URLSearchParams();
+    netlifyBody.append('form-name', 'webinar_harvard');
+    Object.entries(data).forEach(([k, v]) => netlifyBody.append(k, String(v)));
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: netlifyBody.toString()
+    }).catch(() => {});
 
     document.getElementById('step2').classList.remove('active');
     document.getElementById('successStep').classList.add('active');
@@ -835,6 +847,11 @@
     fc.classList.remove('is-step2');
     fc.classList.add('is-success');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (window.fbq) {
+      fbq('track', 'Lead');
+      fbq('track', 'CompleteRegistration');
+    }
   }
 
   function formatPhone(input) {
