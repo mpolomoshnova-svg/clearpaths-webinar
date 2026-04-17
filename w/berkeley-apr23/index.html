@@ -187,7 +187,7 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
         <div class="chip">🎟️ Free · seats limited</div>
       </div>
       <div class="cta-row">
-        <a class="btn" href="#register">Save my seat</a>
+        <a class="btn" href="#register">Reserve my seat</a>
         <a class="btn ghost" href="#learn">What you'll learn</a>
       </div>
     </div>
@@ -256,8 +256,8 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
       <div class="step active" id="step1">
         <p class="toggle-label">Are you a student or a guardian?</p>
         <div class="toggle-group">
-          <button type="button" class="toggle-btn active" onclick="setRole(this,'Student')">Student</button>
-          <button type="button" class="toggle-btn" onclick="setRole(this,'Guardian')">Guardian</button>
+          <button type="button" class="toggle-btn active" onclick="setRole(this,'Guardian')">Guardian</button>
+          <button type="button" class="toggle-btn" onclick="setRole(this,'Student')">Student</button>
         </div>
         <div class="field">
           <label for="firstName">First Name</label>
@@ -381,7 +381,7 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
 </footer>
 
 <script>
-  let role = 'Student';
+  let role = 'Guardian';
 
   function setRole(btn, val) {
     role = val;

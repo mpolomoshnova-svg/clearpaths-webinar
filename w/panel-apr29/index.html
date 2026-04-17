@@ -184,7 +184,7 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
 <header class="top">
   <div class="wrap top-inner">
     <a class="logo" href="#">Clear<span>Paths</span></a>
-    <a class="top-cta" href="#register">Save my seat</a>
+    <a class="top-cta" href="#register">Reserve my seat</a>
   </div>
 </header>
 
@@ -201,7 +201,7 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
         <div class="chip">🎟️ Free · seats limited</div>
       </div>
       <div class="cta-row">
-        <a class="btn" href="#register">Save my seat</a>
+        <a class="btn" href="#register">Reserve my seat</a>
         <a class="btn ghost" href="#speakers">Meet the panelists</a>
       </div>
     </div>
@@ -303,15 +303,15 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
       <div style="background:linear-gradient(90deg,#f5f3ff,#ede9fe);border:1px solid #d8b4fe;border-radius:10px;padding:10px 14px;margin:0 0 16px;font-size:13px;font-weight:600;color:#4c1d95;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center">
         <span>🎟️ Free</span><span>· Live panel</span><span>· Limited seats</span><span>· Wed Apr 29 · 1:00 PM PDT</span>
       </div>
-      <h2>Save your seat — free live panel</h2>
+      <h2>Reserve your seat — free live panel</h2>
       <p class="subtitle">Wednesday, April 29, 2026 · 12:00 PM PT · 60 minutes</p>
 
       <!-- STEP 1 -->
       <div class="step active" id="step1">
         <p class="toggle-label">Are you a student or a guardian?</p>
         <div class="toggle-group">
-          <button type="button" class="toggle-btn active" onclick="setRole(this,'Student')">Student</button>
-          <button type="button" class="toggle-btn" onclick="setRole(this,'Guardian')">Guardian</button>
+          <button type="button" class="toggle-btn active" onclick="setRole(this,'Guardian')">Guardian</button>
+          <button type="button" class="toggle-btn" onclick="setRole(this,'Student')">Student</button>
         </div>
         <div class="field">
           <label for="firstName">First Name</label>
@@ -436,7 +436,7 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
 </footer>
 
 <script>
-  let role = 'Student';
+  let role = 'Guardian';
 
   function setRole(btn, val) {
     role = val;

@@ -602,8 +602,8 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
   <div class="step active" id="step1">
     <p class="toggle-label">Are you a student or a guardian?</p>
     <div class="toggle-group">
-      <button class="toggle-btn active" onclick="setRole(this,'Student')">Student</button>
-      <button class="toggle-btn" onclick="setRole(this,'Guardian')">Guardian</button>
+      <button class="toggle-btn active" onclick="setRole(this,'Guardian')">Guardian</button>
+      <button class="toggle-btn" onclick="setRole(this,'Student')">Student</button>
     </div>
 
     <div class="field">
@@ -886,7 +886,7 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
 </section>
 
 <script>
-  let role = 'Student';
+  let role = 'Guardian';
 
   function setRole(btn, val) {
     role = val;
