@@ -146,6 +146,25 @@
 .success-card .sc-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;text-decoration:none;padding:14px 22px;border-radius:10px;font-weight:700;font-size:15px;width:100%;box-sizing:border-box;transition:background .15s}
 .success-card .sc-cta:hover{background:#1fb357}
 .success-card .sc-fallback{font-size:12.5px;color:var(--muted);margin-top:12px;line-height:1.5}
+.form-card.is-step2 > .form-bar,
+.form-card.is-step2 > h2,
+.form-card.is-step2 > .subtitle,
+.form-card.is-success > .form-bar,
+.form-card.is-success > h2,
+.form-card.is-success > .subtitle{display:none}
+@media (max-width:600px){
+  .form-card{padding:18px 16px}
+  .form-card h2{font-size:20px}
+  .form-card .subtitle{font-size:13px;margin-bottom:14px}
+  .form-card .field{margin-bottom:10px}
+  .form-card .field label{margin-bottom:4px;font-size:13px}
+  .form-card .field input,.form-card .field select{padding:10px 12px;font-size:14px}
+  .wa-note{padding:8px 10px;font-size:12.5px;margin:0 0 10px}
+  .checkbox-row{margin:10px 0}
+  .privacy-note{font-size:11.5px;margin-top:8px}
+  .success-card .sc-lead{font-size:14px;margin:0 0 14px}
+  .success-card .sc-box{padding:12px;margin:0 0 12px}
+}
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -246,7 +265,7 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
 <section id="register">
   <div class="wrap form-wrap">
     <div class="form-card">
-      <div style="background:linear-gradient(90deg,#fff7e6,#fff1d6);border:1px solid #f1d88a;border-radius:10px;padding:10px 14px;margin:0 0 16px;font-size:13px;font-weight:600;color:#8a5a00;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center">
+      <div class="form-bar" style="background:linear-gradient(90deg,#fff7e6,#fff1d6);border:1px solid #f1d88a;border-radius:10px;padding:10px 14px;margin:0 0 16px;font-size:13px;font-weight:600;color:#8a5a00;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center">
         <span>🎟️ Free</span><span>· Live Zoom</span><span>· Limited seats</span><span>· Thu Apr 23 · 5:00 PM PT</span>
       </div>
       <h2>Reserve your seat — free</h2>
@@ -337,9 +356,11 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
         <div class="success-card">
           <div class="sc-check">✓</div>
           <h3>You're registered!</h3>
-          <p class="sc-lead">Final step — join the webinar's private WhatsApp group. This is the only place the Zoom link is sent.</p>
+          <p class="sc-lead">Final step — join our private WhatsApp group. That's where the Zoom link is sent.</p>
+          <a class="sc-cta" id="waJoinBtn" href="https://chat.whatsapp.com/EjC35Qkf1Ex7PJsxQglLxp" target="_blank" rel="noopener">Join WhatsApp group →</a>
+          <p class="sc-fallback">Don't use WhatsApp? We'll email you the Zoom link too.</p>
           <div class="sc-box">
-            <h4>📱 What happens in the group</h4>
+            <h4>What happens in the group</h4>
             <ul>
               <li>Zoom link posted <b>30 min before</b> the session starts</li>
               <li>1-hour and 10-min reminders so you don't miss it</li>
@@ -347,8 +368,6 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
               <li>Admin-only posts. You'll be muted by default.</li>
             </ul>
           </div>
-          <a class="sc-cta" id="waJoinBtn" href="https://chat.whatsapp.com/EjC35Qkf1Ex7PJsxQglLxp" target="_blank" rel="noopener">Join WhatsApp group →</a>
-          <p class="sc-fallback">Don't use WhatsApp? We'll also email the Zoom link to the address you provided.</p>
         </div>
       </div>
     </div>
@@ -397,12 +416,14 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
     if (!gradYear) { document.getElementById('gradYearField').classList.add('err'); alert('Please select graduation year.'); return; }
     document.getElementById('step1').classList.remove('active');
     document.getElementById('step2').classList.add('active');
+    document.querySelector('.form-card').classList.add('is-step2');
     document.getElementById('register').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function goStep1() {
     document.getElementById('step2').classList.remove('active');
     document.getElementById('step1').classList.add('active');
+    document.querySelector('.form-card').classList.remove('is-step2');
     document.getElementById('register').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
@@ -468,6 +489,9 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
 
     document.getElementById('step2').classList.remove('active');
     document.getElementById('successStep').classList.add('active');
+    const fc = document.querySelector('.form-card');
+    fc.classList.remove('is-step2');
+    fc.classList.add('is-success');
     document.getElementById('register').scrollIntoView({ behavior:'smooth', block:'start' });
   }
 
