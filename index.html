@@ -754,25 +754,6 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <!-- SUCCESS -->
-  <div class="step" id="successStep">
-    <div class="success-card">
-      <div class="sc-check">✓</div>
-      <h3>You're registered!</h3>
-      <p class="sc-lead">Final step — join our private WhatsApp group. That's where the Zoom link is sent.</p>
-      <a class="sc-cta" id="waJoinBtn" href="https://chat.whatsapp.com/JGNjksDQ8a9J72Y2zHCeQy?mode=gi_t" target="_blank" rel="noopener">Join WhatsApp group →</a>
-      <p class="sc-fallback">Don't use WhatsApp? We'll email you the Zoom link too.</p>
-      <div class="sc-box">
-        <h4>What happens in the group</h4>
-        <ul>
-          <li>Zoom link posted <b>30 min before</b> the webinar starts</li>
-          <li>1-hour and 10-min reminders so you don't miss it</li>
-          <li>Slides + replay link within 24 hours after</li>
-          <li>Admin-only posts. You'll be muted by default.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- INTRO TEXT -->
@@ -984,8 +965,16 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
       utm_content:  params.get('utm_content')  || ''
     };
 
+    // Fire Meta Pixel events BEFORE redirect so they have a chance to dispatch
+    if (window.fbq) {
+      fbq('track', 'Lead');
+      fbq('track', 'CompleteRegistration');
+    }
+
+    // keepalive: true ensures the POST completes even after navigation
     fetch('https://hook.eu1.make.com/ocb9kaampigdics4gk26tby8w4tmc9kt', {
       method: 'POST',
+      keepalive: true,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).catch(() => {});
@@ -995,21 +984,15 @@ src="https://www.facebook.com/tr?id=1308975481252598&ev=PageView&noscript=1"
     Object.entries(data).forEach(([k, v]) => netlifyBody.append(k, String(v)));
     fetch('/', {
       method: 'POST',
+      keepalive: true,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: netlifyBody.toString()
     }).catch(() => {});
 
-    document.getElementById('step2').classList.remove('active');
-    document.getElementById('successStep').classList.add('active');
-    const fc = document.querySelector('.form-card');
-    fc.classList.remove('is-step2');
-    fc.classList.add('is-success');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    if (window.fbq) {
-      fbq('track', 'Lead');
-      fbq('track', 'CompleteRegistration');
-    }
+    // Small delay to let the pixel's beacon flush before we navigate away
+    setTimeout(() => {
+      window.location.href = 'https://chat.whatsapp.com/JGNjksDQ8a9J72Y2zHCeQy?mode=gi_t';
+    }, 200);
   }
   function formatPhone(input) {
   let val = input.value.replace(/\D/g, '').slice(0, 10);
