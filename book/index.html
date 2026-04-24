@@ -248,175 +248,31 @@
 
 <section id="intakeSection" class="intake">
   <div class="intake-head">
-    <h2>Help Us Prepare for Your Assessment</h2>
-    <p class="intake-sub">To make the most of your 30 minutes with our advisor, please take 5 minutes to fill out this short profile. The more we know before the call, the more specific and useful your assessment will be. Everything you share is confidential and only seen by your assigned advisor.</p>
+    <h2>Who should we reach out to?</h2>
+    <p class="intake-sub">Takes 20 seconds. After you pick a time, we'll ask a few quick questions about your child so your advisor can prepare.</p>
   </div>
 
-  <form id="intakeForm" name="book-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="book-intake" />
+  <form id="intakeForm" name="book-step1" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="book-step1" />
     <p style="position:absolute;left:-9999px" aria-hidden="true"><label>Don't fill this out: <input name="bot-field" /></label></p>
 
     <div class="intake-error" id="intakeError"></div>
 
-    <h3 class="group-title">About Your Family</h3>
-    <div class="form-row">
-      <div class="field">
-        <label for="parentName">Parent's name <span class="req">*</span></label>
-        <input type="text" id="parentName" name="parent_name" required autocomplete="name" />
-      </div>
-      <div class="field">
-        <label for="email">Email <span class="req">*</span></label>
-        <input type="email" id="email" name="email" required autocomplete="email" />
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="field">
-        <label for="mobile">Mobile</label>
-        <input type="tel" id="mobile" name="mobile" autocomplete="tel" />
-      </div>
-      <div class="field">
-        <label for="childName">Child's first name <span class="req">*</span></label>
-        <input type="text" id="childName" name="child_name" required />
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="field">
-        <label for="childGrade">Child's grade <span class="req">*</span></label>
-        <select id="childGrade" name="child_grade" required>
-          <option value="">Please Select</option>
-          <option>9th</option>
-          <option>10th</option>
-          <option>11th</option>
-          <option>12th</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="state">State <span class="req">*</span></label>
-        <select id="state" name="state" required>
-          <option value="">Please Select</option>
-          <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
-          <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
-          <option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option>
-          <option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option>
-          <option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
-          <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
-          <option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option>
-          <option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option>
-          <option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
-          <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
-          <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option>
-          <option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option>
-          <option>Wisconsin</option><option>Wyoming</option><option>District of Columbia</option>
-          <option>Outside the US</option>
-        </select>
-      </div>
-    </div>
-
-    <h3 class="group-title">Academics</h3>
-    <div class="form-row">
-      <div class="field">
-        <label for="gpa">Child's current unweighted GPA <span class="req">*</span></label>
-        <select id="gpa" name="gpa" required>
-          <option value="">Please Select</option>
-          <option>4.0</option>
-          <option>3.8 – 3.99</option>
-          <option>3.6 – 3.79</option>
-          <option>3.4 – 3.59</option>
-          <option>3.2 – 3.39</option>
-          <option>3.0 – 3.19</option>
-          <option>Below 3.0</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="apCount">AP or Honors classes taken or currently taking <span class="req">*</span></label>
-        <select id="apCount" name="ap_count" required>
-          <option value="">Please Select</option>
-          <option>0</option>
-          <option>1–2</option>
-          <option>3–4</option>
-          <option>5–6</option>
-          <option>7+</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="field">
-        <label for="satAct">Has your child taken the SAT or ACT? <span class="req">*</span></label>
-        <select id="satAct" name="sat_act" required>
-          <option value="">Please Select</option>
-          <option>Yes — SAT</option>
-          <option>Yes — ACT</option>
-          <option>Yes — both</option>
-          <option>Not yet but planning to</option>
-          <option>No plans</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="dualEnroll">Considering dual enrollment or community college courses? <span class="req">*</span></label>
-        <select id="dualEnroll" name="dual_enrollment" required>
-          <option value="">Please Select</option>
-          <option>Yes</option>
-          <option>No</option>
-          <option>Not sure</option>
-        </select>
-      </div>
-    </div>
-
-    <h3 class="group-title">Extracurriculars &amp; Profile</h3>
     <div class="field">
-      <label for="ecTop3">Top 3 extracurricular activities (clubs, sports, jobs, projects, volunteering, anything outside class) <span class="req">*</span></label>
-      <textarea id="ecTop3" name="ec_top3" rows="3" required placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea>
-    </div>
-    <div class="form-row">
-      <div class="field">
-        <label for="leadership">Does your child have a leadership role in any of these? <span class="req">*</span></label>
-        <select id="leadership" name="leadership" required>
-          <option value="">Please Select</option>
-          <option>Yes — multiple</option>
-          <option>Yes — one</option>
-          <option>No</option>
-          <option>Not sure</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="personalProject">Personal project, research, or independent work? <span class="req">*</span></label>
-        <select id="personalProject" name="personal_project" required>
-          <option value="">Please Select</option>
-          <option>Yes — completed</option>
-          <option>In progress</option>
-          <option>No</option>
-          <option>Not sure</option>
-        </select>
-      </div>
-    </div>
-
-    <h3 class="group-title">Goals &amp; Concerns</h3>
-    <div class="field">
-      <label for="colleges">The 3–5 colleges your child is most interested in <span class="req">*</span></label>
-      <textarea id="colleges" name="target_colleges" rows="2" required placeholder="e.g. UCLA, UC Berkeley, USC, Stanford, UC San Diego"></textarea>
+      <label for="parentName">Parent's name <span class="req">*</span></label>
+      <input type="text" id="parentName" name="parent_name" required autocomplete="name" />
     </div>
     <div class="field">
-      <label for="concern">Biggest concern about the admissions process <span class="req">*</span></label>
-      <textarea id="concern" name="biggest_concern" rows="3" required></textarea>
+      <label for="email">Email <span class="req">*</span></label>
+      <input type="email" id="email" name="email" required autocomplete="email" />
     </div>
     <div class="field">
-      <label for="question">One question you want answered on the call <span class="req">*</span></label>
-      <textarea id="question" name="main_question" rows="2" required></textarea>
-    </div>
-    <div class="field">
-      <label for="counselor">Have you worked with a college counselor or consultant before? <span class="req">*</span></label>
-      <select id="counselor" name="prior_counselor" required>
-        <option value="">Please Select</option>
-        <option>No</option>
-        <option>Yes — previously</option>
-        <option>Currently working with one</option>
-        <option>Considering it</option>
-      </select>
+      <label for="mobile">Mobile <span class="req">*</span></label>
+      <input type="tel" id="mobile" name="mobile" required autocomplete="tel" />
     </div>
 
     <button type="submit" class="intake-btn" id="intakeSubmit">Continue to booking →</button>
-    <p class="intake-privacy">Your answers are confidential and only seen by your assigned advisor.</p>
+    <p class="intake-privacy">Your answers are confidential. We'll only use these to confirm your call.</p>
   </form>
 </section>
 
@@ -505,6 +361,11 @@
   const errBox = document.getElementById('intakeError');
   const submitBtn = document.getElementById('intakeSubmit');
 
+  // Session state we keep around so we can pass name/email to /book/confirmed/
+  // if Calendly's own "redirect to external site" isn't configured.
+  let submittedData = null;
+  let redirected = false;
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     errBox.classList.remove('show');
@@ -530,6 +391,7 @@
 
     const data = {};
     fd.forEach(function (v, k) { data[k] = v; });
+    submittedData = data;
 
     // POST to Netlify Forms — keepalive so it completes even if we navigate
     const body = new URLSearchParams(fd).toString();
@@ -539,6 +401,16 @@
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body
     }).catch(function () {});
+
+    // Stash in sessionStorage so /book/confirmed/ can read it if Calendly's
+    // redirect doesn't supply invitee_email (shouldn't happen, but belt-and-braces).
+    try {
+      sessionStorage.setItem('cp_book_step1', JSON.stringify({
+        parent_name: data.parent_name || '',
+        email: data.email || '',
+        mobile: data.mobile || ''
+      }));
+    } catch (e) {}
 
     // Fire Meta Pixel events if pixel is loaded on the page
     if (window.fbq) {
@@ -564,7 +436,6 @@
         }
       });
 
-      // Optional: update hero copy to reflect current step
       const heroP = document.querySelector('.hero p');
       if (heroP) heroP.textContent = 'Step 2 of 2: pick an advisor and a time that works for you.';
 
@@ -572,6 +443,39 @@
       submitBtn.textContent = originalLabel;
       submitBtn.disabled = false;
     }, 250);
+  });
+
+  // Calendly emits postMessage events. When the user actually books a slot
+  // (`calendly.event_scheduled`), we forward to /book/confirmed/ for the
+  // progressive-profile form. This is the safety net in case the Calendly
+  // event type's own "Redirect to external site" isn't configured yet.
+  window.addEventListener('message', function (e) {
+    if (redirected) return;
+    if (!e || !e.data || typeof e.data !== 'object') return;
+    const ev = e.data.event || '';
+    if (!ev.indexOf || ev.indexOf('calendly.') !== 0) return;
+    if (ev !== 'calendly.event_scheduled') return;
+
+    // Calendly's scheduled payload includes invitee info in some plans.
+    // Fall back to what the user typed in Step 1.
+    let name = '';
+    let email = '';
+    try {
+      const payload = e.data.payload || {};
+      const invitee = payload.invitee || {};
+      name = invitee.name || '';
+      email = invitee.email || '';
+    } catch (err) {}
+    if ((!name || !email) && submittedData) {
+      name = name || submittedData.parent_name || '';
+      email = email || submittedData.email || '';
+    }
+
+    redirected = true;
+    const qs = new URLSearchParams();
+    if (name) qs.set('invitee_full_name', name);
+    if (email) qs.set('invitee_email', email);
+    window.location.href = '/book/confirmed/?' + qs.toString();
   });
 })();
 </script>
