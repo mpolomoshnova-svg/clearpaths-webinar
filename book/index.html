@@ -232,6 +232,13 @@
   #intakeForm select,
   #intakeForm textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 15px; font-family: inherit; color: var(--forest); background: var(--cream); outline: none; transition: border-color .15s, background .15s; }
   #intakeForm input:focus, #intakeForm select:focus, #intakeForm textarea:focus { border-color: var(--forest); background: #fff; }
+  #intakeForm .phone-row { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--cream); transition: border-color .15s, background .15s; }
+  #intakeForm .phone-row:focus-within { border-color: var(--forest); background: #fff; }
+  #intakeForm .phone-flag { display: flex; align-items: center; padding: 0 12px; border-right: 1px solid var(--border); background: rgba(20,52,43,0.04); font-size: 14px; color: var(--forest); white-space: nowrap; font-weight: 500; }
+  #intakeForm .phone-row input[type="tel"] { flex: 1; border: none; border-radius: 0; background: transparent; padding: 10px 12px; }
+  #intakeForm .phone-row input[type="tel"]:focus { background: transparent; }
+  #intakeForm .field.err input, #intakeForm .field.err select { border-color: #b34b3a; }
+  #intakeForm .field.err .phone-row { border-color: #b34b3a; }
   #intakeForm textarea { resize: vertical; min-height: 72px; line-height: 1.5; }
   #intakeForm select { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236B7B6E' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
   .intake-btn { display: block; width: 100%; margin-top: 18px; padding: 14px 22px; background: var(--forest); color: var(--cream); border: none; border-radius: 10px; font-size: 15px; font-weight: 500; font-family: inherit; cursor: pointer; letter-spacing: 0.02em; transition: background .15s; }
@@ -268,9 +275,12 @@
       <label for="email">Email <span class="req">*</span></label>
       <input type="email" id="email" name="email" required autocomplete="email" />
     </div>
-    <div class="field">
+    <div class="field" id="mobileField">
       <label for="mobile">Mobile <span class="req">*</span></label>
-      <input type="tel" id="mobile" name="mobile" required autocomplete="tel" />
+      <div class="phone-row">
+        <div class="phone-flag">🇺🇸 +1</div>
+        <input type="tel" id="mobile" name="mobile" placeholder="(555) 000-0000" maxlength="14" required autocomplete="tel" oninput="formatPhone(this)" />
+      </div>
     </div>
 
     <button type="submit" class="intake-btn" id="intakeSubmit">Continue to booking →</button>
@@ -309,7 +319,7 @@
     </div>
     <iframe
       class="calendly-inline-widget"
-      src="https://calendly.com/meganballock/1-1-meeting-schedule-april-13-18?month=2026-04&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1"
+      src="https://calendly.com/meganballock/1-1-meeting-schedule-april-13-18?month=2026-05&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1"
       frameborder="0" allow="fullscreen" loading="lazy">
     </iframe>
   </div>
@@ -343,7 +353,7 @@
     </div>
     <iframe
       class="calendly-inline-widget"
-      src="https://calendly.com/ivyleaguestories-info/30min?month=2026-04&date=2026-04-29&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1"
+      src="https://calendly.com/ivyleaguestories-info/30min?month=2026-05&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1"
       frameborder="0" allow="fullscreen" loading="lazy">
     </iframe>
   </div>
@@ -358,6 +368,16 @@
 </div>
 
 <script>
+// Live mask for the mobile input — must be in global scope because the
+// <input> uses an inline `oninput="formatPhone(this)"` handler.
+window.formatPhone = function (input) {
+  let val = (input.value || '').replace(/\D/g, '').slice(0, 10);
+  if (val.length <= 3) val = val;
+  else if (val.length <= 6) val = '(' + val.slice(0, 3) + ') ' + val.slice(3);
+  else val = '(' + val.slice(0, 3) + ') ' + val.slice(3, 6) + '-' + val.slice(6);
+  input.value = val;
+};
+
 (function () {
   const form = document.getElementById('intakeForm');
   const errBox = document.getElementById('intakeError');
@@ -376,6 +396,19 @@
       errBox.textContent = 'Please fill in all required fields.';
       errBox.classList.add('show');
       form.reportValidity();
+      return;
+    }
+
+    // Phone must be a valid US 10-digit number
+    const mobileEl = document.getElementById('mobile');
+    const mobileField = document.getElementById('mobileField');
+    const phoneDigits = (mobileEl.value || '').replace(/\D/g, '');
+    mobileField.classList.remove('err');
+    if (phoneDigits.length !== 10) {
+      mobileField.classList.add('err');
+      errBox.textContent = 'Please enter a valid 10-digit US phone number.';
+      errBox.classList.add('show');
+      mobileEl.focus();
       return;
     }
 
