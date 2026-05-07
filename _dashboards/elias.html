@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elias — Strategic Roadmap | Clear Paths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fdf8f1;--bg-deep:#f6ecde;--bg-card:#fefcf6;
+  --ink:#2c2a35;--ink-2:#4a4654;--ink-3:#807a8a;
+  --line:rgba(44,42,53,0.09);--line-strong:rgba(44,42,53,0.18);
+  --primary:#e07856;--primary-deep:#c9684c;--primary-soft:rgba(224,120,86,0.08);
+  --sage:#6b8c6a;--sage-deep:#4f6b4f;
+  --sun:#e8b04c;
+  --green-go:#4f6b4f;--amber:#b8860b;--red:#a8332a;--gray:#807a8a;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Plus Jakarta Sans',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);background-image:radial-gradient(ellipse 1200px 600px at 50% -100px,rgba(232,176,76,0.12),transparent 60%),radial-gradient(ellipse 800px 500px at 100% 30%,rgba(107,140,106,0.06),transparent 60%);background-attachment:fixed;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+.brand-bar{padding:18px 0;border-bottom:1px solid var(--line);background:rgba(253,248,241,0.85);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+.brand-bar-inner{display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:var(--serif);font-size:24px;font-weight:500;color:var(--primary-deep);letter-spacing:-0.01em;font-style:italic}
+.brand-meta{font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--ink-3);font-weight:500}
+.hero{padding:120px 0 100px;text-align:left;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:60px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(224,120,86,0.18) 0%,transparent 60%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:780px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:var(--primary-deep);font-weight:600;margin-bottom:32px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--primary)}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,7vw,88px);line-height:1.02;letter-spacing:-0.025em;color:var(--ink);margin-bottom:28px}
+.hero h1 em{font-style:italic;color:var(--primary)}
+.hero-sub{font-family:var(--serif);font-size:24px;line-height:1.45;color:var(--ink-2);font-weight:400;font-style:italic;max-width:600px}
+.hero-meta{margin-top:56px;display:grid;grid-template-columns:repeat(3,auto);gap:48px;font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--ink-3)}
+.hero-meta div{font-weight:500}
+.hero-meta div span{display:block;font-family:var(--serif);font-size:20px;color:var(--ink);margin-top:6px;letter-spacing:0;text-transform:none;font-weight:500;font-style:italic}
+.section{padding:88px 0;border-bottom:1px solid var(--line)}
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:var(--primary-deep);font-weight:600;margin-bottom:18px;display:inline-flex;align-items:center;gap:10px}
+.section-label::before{content:'';width:24px;height:1px;background:var(--primary)}
+.section-title{font-family:var(--serif);font-weight:500;font-size:48px;line-height:1.05;letter-spacing:-0.02em;color:var(--ink);margin-bottom:36px;max-width:760px}
+.section-title em{font-style:italic;color:var(--primary)}
+.glance-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);border-radius:4px;overflow:hidden}
+.glance-cell{padding:24px 28px;background:var(--bg-card)}
+.glance-cell .label{font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:var(--primary);font-weight:600;margin-bottom:10px}
+.glance-cell .value{font-family:var(--serif);font-size:24px;font-weight:500;color:var(--ink);line-height:1.2;letter-spacing:-0.01em}
+.prose-body{max-width:720px}
+.prose-body p{font-size:18px;line-height:1.75;color:var(--ink);margin-bottom:24px}
+.prose-body p strong{color:var(--primary-deep);font-weight:700}
+.pullquote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:32px;line-height:1.35;color:var(--primary-deep);padding:24px 0;margin:32px 0;border-top:1px solid var(--primary);border-bottom:1px solid var(--primary)}
+.realism{margin-top:36px;padding:32px 36px;background:var(--bg-deep);border-radius:6px;border-left:3px solid var(--sage)}
+.realism h4{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--sage-deep);margin-bottom:14px;font-weight:500}
+.realism p{font-size:16px;line-height:1.65;color:var(--ink-2);margin-bottom:0}
+.realism strong{color:var(--ink);font-weight:600}
+.numbered-list{list-style:none;counter-reset:item;margin-top:8px}
+.numbered-list li{counter-increment:item;padding:18px 0 18px 64px;position:relative;font-size:17px;line-height:1.65;border-top:1px solid var(--line)}
+.numbered-list li:first-child{border-top:none}
+.numbered-list li::before{content:counter(item);font-family:var(--serif);font-style:italic;font-weight:500;font-size:32px;color:var(--primary);position:absolute;left:0;top:14px;line-height:1}
+.assess-block{margin-bottom:48px}
+.assess-block:last-child{margin-bottom:0}
+.assess-title{font-family:var(--serif);font-style:italic;font-size:30px;font-weight:500;color:var(--ink);margin-bottom:8px;letter-spacing:-0.01em}
+.assess-sub{font-size:14px;color:var(--ink-3);margin-bottom:20px;font-weight:500}
+.assess-table{width:100%;border-collapse:collapse;background:var(--bg-card);border:1px solid var(--line-strong);border-radius:6px;overflow:hidden}
+.assess-table th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:0.18em;font-weight:700;color:var(--ink-3);padding:14px 20px;border-bottom:1px solid var(--line-strong);background:var(--bg-deep)}
+.assess-table td{padding:18px 20px;border-bottom:1px solid var(--line);vertical-align:top;font-size:14px;line-height:1.55}
+.assess-table tr:last-child td{border-bottom:none}
+.assess-table td:first-child{font-weight:600;color:var(--ink);width:32%}
+.assess-table td:nth-child(2){color:var(--ink-2);width:24%;font-style:italic}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em}
+.tag.go{color:var(--green-go)}.tag.warn{color:var(--amber)}.tag.stop{color:var(--red)}.tag.wait{color:var(--gray)}
+.tag::before{content:'';width:8px;height:8px;background:currentColor;border-radius:50%}
+.discovery{padding:96px 0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-deep) 100%);border-bottom:1px solid var(--line)}
+.discovery .section-title{margin-bottom:24px}
+.discovery-intro{font-family:var(--serif);font-size:24px;font-style:italic;color:var(--primary-deep);max-width:680px;margin-bottom:48px;line-height:1.45}
+.discovery-steps{counter-reset:d;list-style:none;display:grid;grid-template-columns:1fr;gap:0}
+.discovery-steps li{counter-increment:d;padding:32px 0 32px 96px;position:relative;border-top:1px solid var(--line-strong)}
+.discovery-steps li:last-child{border-bottom:1px solid var(--line-strong)}
+.discovery-steps li::before{content:counter(d);font-family:var(--serif);font-style:italic;font-weight:500;font-size:64px;color:var(--primary);position:absolute;left:0;top:18px;line-height:1;letter-spacing:-0.04em}
+.discovery-steps li h4{font-family:var(--serif);font-style:italic;font-size:26px;font-weight:500;color:var(--ink);margin-bottom:10px;letter-spacing:-0.01em}
+.discovery-steps li p{font-size:16px;line-height:1.7;color:var(--ink-2)}
+.discovery-final{margin-top:36px;padding:32px 36px;background:var(--primary);color:white;border-radius:6px}
+.discovery-final p{font-family:var(--serif);font-size:24px;font-style:italic;line-height:1.45;color:white;font-weight:500}
+.discovery-final strong{color:white;font-weight:700;font-style:normal;font-family:var(--sans)}
+.tl-block{display:grid;grid-template-columns:200px 1fr;gap:48px;padding:32px 0;border-top:1px solid var(--line-strong)}
+.tl-block:last-child{border-bottom:1px solid var(--line-strong)}
+.tl-when{padding-top:6px}
+.tl-when .tl-label{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--primary);font-weight:500;line-height:1.1;letter-spacing:-0.015em}
+.tl-when .tl-date{font-size:12px;color:var(--ink-3);margin-top:8px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500}
+.tl-list{list-style:none}
+.tl-list li{padding:9px 0 9px 24px;position:relative;font-size:16px;line-height:1.6;color:var(--ink)}
+.tl-list li::before{content:'';position:absolute;left:0;top:18px;width:8px;height:8px;border-radius:50%;background:var(--sage)}
+.tl-list li strong{color:var(--primary-deep);font-weight:700}
+.urgency{padding:96px 0;background:var(--ink);color:#fdf8f1;position:relative;overflow:hidden}
+.urgency::before{content:'';position:absolute;top:-40%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,176,76,0.15) 0%,transparent 60%);pointer-events:none}
+.urgency-inner{position:relative;z-index:1}
+.urgency .section-label{color:var(--sun)}
+.urgency .section-label::before{background:var(--sun)}
+.urgency h2{font-family:var(--serif);font-weight:500;font-size:44px;line-height:1.1;letter-spacing:-0.02em;color:#fdf8f1;margin-bottom:36px;max-width:780px}
+.urgency h2 em{font-style:italic;color:var(--sun)}
+.urgency-list{list-style:none;counter-reset:u}
+.urgency-list li{counter-increment:u;padding:32px 0 32px 96px;position:relative;border-top:1px solid rgba(253,248,241,0.15);font-size:17px;line-height:1.7;color:rgba(253,248,241,0.85)}
+.urgency-list li:last-child{border-bottom:1px solid rgba(253,248,241,0.15)}
+.urgency-list li::before{content:counter(u);font-family:var(--serif);font-style:italic;font-weight:500;font-size:64px;color:var(--sun);position:absolute;left:0;top:24px;line-height:1;letter-spacing:-0.04em}
+.urgency-list li strong{color:#fdf8f1;font-weight:600}
+.urgency-tag{margin-top:40px;font-family:var(--serif);font-style:italic;font-size:24px;color:var(--sun);max-width:680px;line-height:1.4}
+.options-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.option{border:1px solid var(--line-strong);background:var(--bg-card);padding:40px 44px;position:relative;border-radius:8px;transition:transform 0.25s ease}
+.option.recommended{border:2px solid var(--primary);background:linear-gradient(180deg,var(--bg-card) 0%,#fcefdf 100%);box-shadow:0 16px 40px rgba(224,120,86,0.12)}
+.option-tag{position:absolute;top:-13px;left:36px;background:var(--primary);color:white;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;padding:7px 14px;border-radius:20px}
+.option-num{font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:var(--primary-deep);font-weight:700;margin-bottom:8px}
+.option h3{font-family:var(--serif);font-size:36px;font-weight:500;color:var(--ink);margin-bottom:6px;line-height:1.1;letter-spacing:-0.02em}
+.option .price{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--primary);margin-bottom:20px}
+.option .who{font-style:italic;font-size:15px;color:var(--ink-3);border-left:2px solid var(--line-strong);padding-left:14px;margin-bottom:24px}
+.option ul{list-style:none}
+.option li{padding:11px 0 11px 24px;position:relative;font-size:15px;line-height:1.6;color:var(--ink-2);border-top:1px solid var(--line)}
+.option li:first-child{border-top:none}
+.option li::before{content:'';position:absolute;left:0;top:20px;width:10px;height:1.5px;background:var(--primary)}
+.closing h3{font-family:var(--serif);font-style:italic;font-size:32px;font-weight:500;color:var(--ink);margin-bottom:24px;letter-spacing:-0.015em}
+.bring-list{list-style:none;counter-reset:b}
+.bring-list li{counter-increment:b;padding:16px 0 16px 56px;position:relative;border-top:1px solid var(--line);font-size:16px;line-height:1.55;color:var(--ink-2)}
+.bring-list li:first-child{border-top:none}
+.bring-list li::before{content:counter(b);position:absolute;left:0;top:14px;font-family:var(--serif);font-style:italic;font-weight:500;font-size:24px;color:var(--primary);line-height:1}
+footer{padding:56px 0;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--ink-3)}
+footer .brand-foot{font-family:var(--serif);font-style:italic;font-size:20px;font-weight:500;color:var(--primary-deep);margin-bottom:8px}
+@media (prefers-reduced-motion:no-preference){.hero h1,.hero-sub,.hero-meta,.eyebrow{animation:rise 0.8s ease-out backwards}.eyebrow{animation-delay:0s}.hero h1{animation-delay:0.1s}.hero-sub{animation-delay:0.25s}.hero-meta{animation-delay:0.4s}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (max-width:720px){.wrap{padding:0 22px}.hero{padding:80px 0 64px}.hero-meta{grid-template-columns:1fr;gap:18px}.glance-grid{grid-template-columns:1fr}.tl-block{grid-template-columns:1fr;gap:8px}.section-title{font-size:32px}.urgency h2{font-size:30px}.pullquote{font-size:24px;padding:16px 0}.option{padding:30px 24px}.option-tag{left:24px}.urgency-list li{padding:28px 0 28px 72px}.urgency-list li::before{font-size:48px}.discovery-steps li{padding-left:72px}.discovery-steps li::before{font-size:48px}.assess-table{font-size:13px}.assess-table th,.assess-table td{padding:12px 14px}}
+@media print{body{background:white}.brand-bar{position:static}section{page-break-inside:avoid}.urgency,.discovery-final{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.cta-section{padding:96px 0;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--bg) 0%,#faeede 100%);position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:-200px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,176,76,0.12) 0%,transparent 60%);pointer-events:none}
+.cta-section .wrap{position:relative;z-index:1}
+.cta-box{background:var(--bg-card);border:1px solid var(--line-strong);padding:52px 56px;max-width:780px;border-radius:12px;box-shadow:0 24px 60px rgba(224,120,86,0.1)}
+.cta-intro{font-size:18px;line-height:1.75;color:var(--ink);margin-bottom:36px;max-width:640px}
+.cta-intro strong{color:var(--primary-deep);font-weight:700}
+.cta-included-label{font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:var(--primary-deep);font-weight:600;margin-bottom:18px;display:inline-flex;align-items:center;gap:10px}
+.cta-included-label::before{content:'';width:24px;height:1px;background:var(--primary)}
+.cta-list{list-style:none;margin-bottom:40px;counter-reset:c}
+.cta-list li{counter-increment:c;padding:14px 0 14px 44px;position:relative;font-size:15px;line-height:1.6;color:var(--ink);border-top:1px solid var(--line)}
+.cta-list li:first-child{border-top:none}
+.cta-list li::before{content:counter(c);font-family:var(--serif);font-style:italic;font-weight:500;font-size:24px;color:var(--primary);position:absolute;left:0;top:12px;line-height:1}
+.cta-meta{display:flex;align-items:baseline;gap:18px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.cta-price{font-family:var(--serif);font-size:52px;font-weight:500;color:var(--primary-deep);letter-spacing:-0.025em;line-height:1}
+.cta-duration{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--ink-3)}
+.cta-button{display:inline-flex;align-items:center;gap:14px;background:var(--primary);color:white;padding:22px 38px;font-family:var(--sans);font-size:14px;font-weight:600;text-decoration:none;border:none;border-radius:50px;transition:all 0.3s cubic-bezier(0.2,0.9,0.3,1);cursor:pointer;letter-spacing:0.04em;box-shadow:0 8px 20px rgba(224,120,86,0.25)}
+.cta-button:hover{background:var(--primary-deep);transform:translateY(-2px);box-shadow:0 16px 32px rgba(224,120,86,0.35)}
+.cta-button .arrow{font-size:18px;transition:transform 0.3s ease;display:inline-block}
+.cta-button:hover .arrow{transform:translateX(5px)}
+.cta-trust{margin-top:22px;font-size:13px;color:var(--ink-3);font-style:italic}
+@media (max-width:720px){.cta-box{padding:36px 24px;border-radius:8px}.cta-button{padding:20px 28px;font-size:13px;width:100%;justify-content:center}.cta-price{font-size:38px}}
+</style>
+</head>
+<body>
+
+<div class="brand-bar"><div class="wrap brand-bar-inner"><div class="brand">Clear Paths</div><div class="brand-meta">Confidential · Prepared for the Kelly Family</div></div></div>
+
+<header class="hero"><div class="wrap hero-inner">
+<div class="eyebrow">Strategic Roadmap · May 2026</div>
+<h1>The most valuable seat<em>in the room.</em></h1>
+<p class="hero-sub">A first read on Elias's profile, the four years ahead, and what to do in the next 60 days. Based on the intake form you submitted ahead of your 1:1 with Megan.</p>
+<div class="hero-meta">
+<div>For<span>Soraya</span></div>
+<div>Student<span>Elias</span></div>
+<div>Class of<span>2030</span></div>
+</div>
+</div></header>
+
+<section class="section"><div class="wrap">
+<div class="section-label">At a Glance</div>
+<div class="glance-grid">
+<div class="glance-cell"><div class="label">Grade</div><div class="value">Rising 9th — Fall 2026</div></div>
+<div class="glance-cell"><div class="label">State</div><div class="value">California</div></div>
+<div class="glance-cell"><div class="label">Application Window</div><div class="value">Aug 2029 · ~3.5 yrs</div></div>
+<div class="glance-cell"><div class="label">Stated Interests</div><div class="value">Baseball · Music · Visual Arts</div></div>
+<div class="glance-cell"><div class="label">Leadership</div><div class="value">One role established</div></div>
+<div class="glance-cell"><div class="label">Personal Project</div><div class="value">None yet — by design</div></div>
+</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<div class="section-label">The Honest Read</div>
+<h2 class="section-title">You're sitting in the most <em>valuable seat</em> in college admissions, and most families don't know it.</h2>
+<div class="prose-body">
+<p>A rising 9th grader has <strong>everything that families with juniors and seniors would pay any amount to have back: time.</strong> Four years to build instead of patch. Four years to test interests and pivot without consequence. Four years to develop a story instead of construct one in a panic.</p>
+<p>The flip side: <strong>what you decide in the next 60 days will quietly shape the next four years</strong> — math placement, world language sequence, art electives, summer plans, friend group, identity-formation. By the time most families think to call a college consultant (junior year), 70% of these foundational decisions have been made by default — not by design.</p>
+<p>You also asked exactly the right question:</p>
+<div class="pullquote">"How do you help younger students explore and discover their academic passions?"</div>
+<p>The answer is structural, not magical. We'll get to it below.</p>
+<div class="realism">
+<h4>A reality check up front.</h4>
+<p>The schools on your list — UCLA, Berkeley, Brown, Northwestern, Vanderbilt — are all <strong>single-digit to low-double-digit acceptance schools</strong> for out-of-state private (Brown, Northwestern, Vanderbilt all 5–7%) or hyper-competitive in-state (UCLA, Berkeley 8–11%). They are reach schools for almost everyone, including students with perfect transcripts. We can build seriously toward them, but the work also requires building a list of 12–15 schools where Elias will <strong>thrive</strong> and be <strong>admitted</strong>. We'll do that together.</p>
+</div>
+</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<div class="section-label">Profile Assessment</div>
+<h2 class="section-title">Where he stands today.</h2>
+
+<div class="assess-block">
+<h3 class="assess-title">Academics — The Reset Year</h3>
+<p class="assess-sub">Middle school doesn't follow him. High school is the clean slate.</p>
+<table class="assess-table">
+<thead><tr><th>Metric</th><th>Profile</th><th>Read</th></tr></thead>
+<tbody>
+<tr><td>Middle school GPA</td><td>3.4 – 3.59</td><td><span class="tag warn">Doesn't follow</span> The pattern this suggests is what we work on.</td></tr>
+<tr><td>Honors / Advanced</td><td>3 – 4</td><td><span class="tag go">Strong</span> Good signal he's prepared for advanced 9th tracks.</td></tr>
+<tr><td>Math placement</td><td>Unknown</td><td><span class="tag stop">Critical</span> The single most important academic decision in the next 60 days.</td></tr>
+<tr><td>World language</td><td>Unknown</td><td><span class="tag warn">Decided this summer</span> Affects 4-year transcript.</td></tr>
+<tr><td>SAT / ACT</td><td>Planning</td><td><span class="tag wait">Not yet</span> PSAT 8/9 in fall is sufficient.</td></tr>
+<tr><td>Dual Enrollment</td><td>Not sure</td><td><span class="tag wait">Later</span> Junior / senior year option.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="assess-block">
+<h3 class="assess-title">Extracurriculars — Three Real Threads</h3>
+<p class="assess-sub">Recognizable archetype: the multi-domain creative.</p>
+<table class="assess-table">
+<thead><tr><th>Metric</th><th>Profile</th><th>Read</th></tr></thead>
+<tbody>
+<tr><td>Baseball</td><td>Club + middle school</td><td><span class="tag go">Sustained</span> Keep going.</td></tr>
+<tr><td>Band / Guitar</td><td>Active</td><td><span class="tag go">Pillar candidate</span> Music can become a serious commitment.</td></tr>
+<tr><td>Visual Arts</td><td>Active</td><td><span class="tag go">Identity marker</span> Visual identity present from young age.</td></tr>
+<tr><td>Leadership</td><td>One role</td><td><span class="tag go">Strongest single signal</span> in his intake.</td></tr>
+<tr><td>Personal project</td><td>None yet</td><td><span class="tag wait">Normal for rising 9th</span> Aim to launch one by end of 9th.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="prose-body" style="margin-top:36px">
+<p>The combination — baseball + music + visual art + leadership — sounds scattered, but it's actually a recognizable archetype: <strong>the multi-domain creative.</strong> Schools like Brown, Northwestern, Vanderbilt explicitly prize students who think across disciplines (Brown's open curriculum exists for this exact student). UCLA and Berkeley are harder fits for this profile because UC apps reward depth in clearly-defined academic interests.</p>
+<p>The work over four years isn't to <em>narrow</em> him down. It's to <strong>let him go deep in 1–2 of these threads</strong> while keeping the others as identity markers.</p>
+</div>
+</div></section>
+
+<section class="discovery"><div class="wrap">
+<div class="section-label">Your Question, Answered</div>
+<h2 class="section-title">How we actually help younger students discover passions.</h2>
+<p class="discovery-intro">We do not "give" 9th graders passions. No consultant can. What we do is structural.</p>
+<ol class="discovery-steps">
+<li>
+<h4>Map the surface area.</h4>
+<p>What's he actually drawn to when nobody is grading him? Where does he lose track of time? What does he choose when he's bored? This is a 4-week structured exercise, not a survey.</p>
+</li>
+<li>
+<h4>Force exposure.</h4>
+<p>Most kids don't know what a research economist does, or what an industrial designer does, or what a data journalist does, because nobody told them. We curate exposure across 8–12 fields in 9th grade.</p>
+</li>
+<li>
+<h4>Run small experiments.</h4>
+<p>A 4-week project is not a passion — it's a test. We run 3–4 of them in 9th and 10th grade. The ones that survive are real. The ones that die were curiosity, not direction.</p>
+</li>
+<li>
+<h4>Watch what survives 6 months.</h4>
+<p>Real interests have inertia. If he's still doing it in February when nobody is making him, that's the spike.</p>
+</li>
+<li>
+<h4>Then double down.</h4>
+<p>From 11th grade on, the work is depth — leadership, projects, public output, mentorship — not breadth.</p>
+</li>
+</ol>
+<div class="discovery-final"><p>This process is impossible to start in junior year. It's why families with juniors and seniors are paying $15K+ to construct retroactively what 9th-grade families build organically. <strong>You're starting at exactly the right time.</strong></p></div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<div class="section-label">Roadmap</div>
+<h2 class="section-title">What has to happen.</h2>
+
+<div class="tl-block">
+<div class="tl-when"><div class="tl-label">Next 60 days</div><div class="tl-date">May–July 2026</div></div>
+<ul class="tl-list">
+<li><strong>Math placement decision</strong> — the single foundational call. Standard track puts him at AP Calc senior year; one year ahead opens AP Stats / Multivariable senior. Worth fighting for if his math is solid.</li>
+<li>World language sequence — commit to one language for 4 years if possible</li>
+<li>Confirm visual art / music elective in 9th grade schedule</li>
+<li>Build a summer 2026 plan that introduces him to one new discipline</li>
+<li>Establish baseline GPA expectation conversation as a family</li>
+</ul>
+</div>
+<div class="tl-block">
+<div class="tl-when"><div class="tl-label">9th Grade</div><div class="tl-date">Aug 2026 – Jun 2027</div></div>
+<ul class="tl-list">
+<li>Strong fall — early grades anchor the next four years</li>
+<li>Run 2–3 structured "interest experiments" (small projects, 4–6 weeks each)</li>
+<li>Continue baseball + music + visual art — don't drop any yet</li>
+<li>Identify and apply to summer 2027 program</li>
+<li>First leadership role expansion in school clubs</li>
+</ul>
+</div>
+<div class="tl-block">
+<div class="tl-when"><div class="tl-label">10th Grade</div><div class="tl-date">Aug 2027 – Jun 2028</div></div>
+<ul class="tl-list">
+<li>2–3 APs (depending on school policy)</li>
+<li>Survivor interest from 9th becomes Project #1 with public output</li>
+<li>PSAT 10 in October</li>
+<li>Summer 2028: first significant external placement</li>
+</ul>
+</div>
+<div class="tl-block">
+<div class="tl-when"><div class="tl-label">11th Grade</div><div class="tl-date">Aug 2028 – Jun 2029</div></div>
+<ul class="tl-list">
+<li>4–5 APs, peak rigor</li>
+<li>SAT / ACT testing complete by spring</li>
+<li>Project #1 mature, leadership role established</li>
+<li>Begin final school list construction</li>
+</ul>
+</div>
+<div class="tl-block">
+<div class="tl-when"><div class="tl-label">Application Year</div><div class="tl-date">2029–2030</div></div>
+<ul class="tl-list">
+<li>Submit November 2029 (UC) and January 2030 (Common App)</li>
+<li>Senior year peak rigor maintained</li>
+</ul>
+</div>
+</div></section>
+
+<section class="urgency"><div class="wrap urgency-inner">
+<div class="section-label">Why The Next 60 Days Matter</div>
+<h2>Three reasons this is <em>not</em> a "you can wait" situation — even with four years of runway.</h2>
+<ol class="urgency-list">
+<li><strong>Math placement closes by mid-summer at most California schools.</strong> Once his 9th-grade math is set, every subsequent year of math is determined by it. Top targets like UCLA / Berkeley / Brown / Northwestern want students who reach AP Calc by senior year minimum; the strongest applicants reach it by junior year.</li>
+<li><strong>High school identity calcifies in 9th grade.</strong> Whether he's "the baseball kid," "the artistic kid," or "the smart kid" gets decided socially in the first six weeks of 9th grade — and that identity shapes which clubs he joins, who his friends are, and which opportunities he pursues. We can be intentional about this.</li>
+<li><strong>The interest-discovery process takes six months minimum.</strong> If we want to know by end of 9th grade what direction he's pulling toward, we have to start the structured exercises this summer. Starting in 10th grade compresses the runway by half.</li>
+</ol>
+<div class="urgency-tag">This is the lowest-stress, highest-leverage moment in his entire admissions arc. The window is real, and it's narrow at the front end.</div>
+</div></section>
+
+<section class="cta-section"><div class="wrap">
+<div class="section-label">Your Next Step</div>
+<h2 class="section-title">Book your 1:1 strategy session with Megan.</h2>
+<div class="cta-box">
+<p class="cta-intro">A focused session to map Elias's 9th grade roadmap and the four years ahead. By the end of the call you'll have a clear plan — and if longer-term partnership makes sense for your family, <strong>we'll shape the right engagement together based on what we learn on the call.</strong></p>
+<div class="cta-included-label">Included in your session</div>
+<ul class="cta-list">
+<li>Pre-call review of his current course offerings, target schools, and family context</li>
+<li>60-minute 1:1 strategy session with Megan</li>
+<li>Written 9th grade roadmap + summer 2026 plan delivered after the call</li>
+<li>Math placement guidance + realistic target school recalibration</li>
+<li>Suggested 9th grade EC structure + first leadership opportunities</li>
+</ul>
+<div class="cta-meta">
+<span class="cta-price">$297</span>
+<span class="cta-duration">60-minute 1:1 with Megan</span>
+</div>
+<a href="https://buy.stripe.com/28E00j5iS39dgA0dEPeEq1A" target="_blank" rel="noopener noreferrer" class="cta-button">
+Reserve Your Session
+<span class="arrow">→</span>
+</a>
+<p class="cta-trust">Secure checkout via Stripe · Opens in a new window</p>
+</div>
+</div></section>
+
+<section class="section closing" style="border-bottom:none"><div class="wrap">
+<h3>What to bring to the call with Megan</h3>
+<ol class="bring-list">
+<li>Elias's middle-school transcript (or best summary)</li>
+<li>The high school's 9th-grade course catalog or course-request form</li>
+<li>A list of activities he's done — sports, lessons, classes, camps</li>
+<li>His own answer to: "What do you do when nobody's making you do anything?"</li>
+<li>A sense of which option above resonates most</li>
+</ol>
+</div></section>
+
+<footer><div class="wrap">
+<div class="brand-foot">Clear Paths College Consulting</div>
+<div>Prepared from your intake submission of April 29, 2026 · Confidential · clear-paths.com</div>
+</div></footer>
+
+</body>
+</html>

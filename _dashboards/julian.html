@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Julian's College Pathway — Strategic Assessment | Clear Paths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf6ef;--bg-deep:#f0e9dc;--bg-card:#fefbf4;
+  --ink:#2a2521;--ink-2:#4a443d;--ink-3:#7a7268;
+  --line:rgba(42,37,33,0.1);--line-strong:rgba(42,37,33,0.22);
+  --primary:#b65d3f;--primary-deep:#9c4a30;--primary-soft:rgba(182,93,63,0.08);
+  --navy:#1e2d44;--navy-deep:#13202f;
+  --sage:#6b7847;
+  --green-go:#4d6b3a;--amber:#a87b1f;--red:#a8332a;--gray:#7a7268;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Manrope',-apple-system,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-size:16px;line-height:1.65;color:var(--ink);background:var(--bg);background-image:linear-gradient(rgba(30,45,68,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(30,45,68,0.018) 1px,transparent 1px);background-size:24px 24px;background-attachment:fixed;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+.fig{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:var(--primary);font-weight:500}
+.brand-bar{border-bottom:1px solid var(--line-strong);padding:14px 0;background:rgba(250,246,239,0.92);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+.brand-bar-inner{display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:var(--serif);font-size:22px;color:var(--navy-deep);letter-spacing:-0.01em;font-style:italic}
+.brand-meta{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:var(--ink-3)}
+.hero{padding:90px 0 72px;border-bottom:1px solid var(--line-strong);position:relative}
+.hero-fig{margin-bottom:32px;display:flex;align-items:center;gap:14px}
+.hero-fig::after{content:'';flex:1;height:1px;background:var(--line-strong);max-width:240px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,6.5vw,84px);line-height:0.96;letter-spacing:-0.02em;color:var(--ink);margin-bottom:24px}
+.hero h1 em{font-style:italic;color:var(--primary);display:block}
+.hero-sub{font-size:19px;color:var(--ink-2);max-width:560px;line-height:1.5}
+.hero-meta{margin-top:48px;display:grid;grid-template-columns:repeat(3,auto);gap:48px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--ink-3)}
+.hero-meta div span{display:block;color:var(--ink);font-size:14px;margin-top:6px;letter-spacing:0;text-transform:none;font-family:var(--sans);font-weight:600}
+.section{padding:72px 0;border-bottom:1px solid var(--line-strong);position:relative}
+.section-fig{margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.section-fig::after{content:'';flex:1;height:1px;background:var(--line-strong);max-width:200px}
+.section-title{font-family:var(--serif);font-weight:400;font-size:42px;line-height:1.05;letter-spacing:-0.015em;color:var(--ink);margin-bottom:36px;max-width:760px}
+.section-title em{font-style:italic;color:var(--primary)}
+.glance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line-strong);background:var(--bg-card)}
+.glance-cell{padding:24px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative}
+.glance-cell:nth-child(3n){border-right:none}
+.glance-cell:nth-last-child(-n+3){border-bottom:none}
+.glance-cell .label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:var(--primary);margin-bottom:10px;font-weight:500}
+.glance-cell .value{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.2;color:var(--ink);letter-spacing:-0.01em}
+.prose-body{max-width:720px}
+.prose-body p{font-size:18px;line-height:1.7;color:var(--ink);margin-bottom:22px}
+.prose-body p strong{color:var(--navy-deep);font-weight:700}
+.specimen{margin:36px 0;padding:28px 32px;border:1px solid var(--line-strong);background:var(--bg-card);font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.4;color:var(--ink);position:relative}
+.specimen::before{content:'SPECIMEN';position:absolute;top:-9px;left:24px;background:var(--bg);padding:0 10px;font-family:var(--mono);font-size:9px;font-style:normal;color:var(--primary);letter-spacing:0.2em;font-weight:600}
+.numbered-list{list-style:none;counter-reset:item}
+.numbered-list li{counter-increment:item;padding:16px 0 16px 60px;position:relative;font-size:17px;line-height:1.6;border-top:1px solid var(--line)}
+.numbered-list li:first-child{border-top:none}
+.numbered-list li::before{content:'0' counter(item);font-family:var(--mono);font-weight:600;font-size:12px;color:var(--primary);position:absolute;left:0;top:18px;letter-spacing:0.1em}
+.assess-block{margin-bottom:48px}
+.assess-block:last-child{margin-bottom:0}
+.assess-title{font-family:var(--serif);font-size:28px;font-style:italic;color:var(--navy-deep);margin-bottom:6px;letter-spacing:-0.01em}
+.assess-num{font-family:var(--mono);font-size:10px;color:var(--primary);text-transform:uppercase;letter-spacing:0.2em;margin-bottom:18px;display:block;font-weight:500}
+.assess-table{width:100%;border-collapse:collapse;background:var(--bg-card);border:1px solid var(--line-strong)}
+.assess-table th{text-align:left;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.16em;font-weight:600;color:var(--ink-3);padding:14px 18px;border-bottom:1px solid var(--line-strong);background:var(--bg-deep)}
+.assess-table td{padding:18px;border-bottom:1px solid var(--line);vertical-align:top;font-size:14px;line-height:1.5}
+.assess-table tr:last-child td{border-bottom:none}
+.assess-table td:first-child{font-weight:600;color:var(--ink);width:32%}
+.assess-table td:nth-child(2){color:var(--ink-2);width:24%;font-family:var(--mono);font-size:13px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;font-family:var(--sans);text-transform:uppercase;letter-spacing:0.06em}
+.tag.go{color:var(--green-go)}.tag.warn{color:var(--amber)}.tag.stop{color:var(--red)}.tag.wait{color:var(--gray)}
+.tag::before{content:'';width:6px;height:6px;background:currentColor}
+.cognitive{margin-top:36px;padding:32px;background:var(--navy);color:#f0e9dc;border:1px solid var(--navy-deep)}
+.cognitive-fig{font-family:var(--mono);font-size:10px;color:#d68a6a;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:14px;font-weight:600}
+.cognitive h4{font-family:var(--serif);font-style:italic;font-size:24px;font-weight:400;margin-bottom:18px;color:#f8f3e8}
+.cognitive p{font-size:15px;line-height:1.65;color:rgba(240,233,220,0.85);margin-bottom:14px}
+.cognitive p:last-child{margin-bottom:0}
+.cognitive p strong{color:#f8f3e8}
+.spike{padding:96px 0;background:linear-gradient(180deg,var(--primary-deep) 0%,#7a3920 100%);color:#fdf6ec;position:relative;overflow:hidden}
+.spike::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 15% 20%,rgba(253,246,236,0.07),transparent 35%),repeating-linear-gradient(45deg,transparent 0 24px,rgba(253,246,236,0.025) 24px 25px);pointer-events:none}
+.spike-inner{position:relative;z-index:1}
+.spike .fig{color:#f5c2a8}
+.spike h2{font-family:var(--serif);font-weight:400;font-size:48px;line-height:1.05;letter-spacing:-0.02em;margin:20px 0 32px;color:#fdf6ec;max-width:800px}
+.spike h2 em{font-style:italic;color:#f5c2a8}
+.spike p{font-size:18px;line-height:1.7;color:rgba(253,246,236,0.85);max-width:720px;margin-bottom:18px}
+.spike p strong{color:#fdf6ec}
+.spike-thesis{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.45;color:#fdf6ec;border-left:3px solid #f5c2a8;padding:20px 0 20px 28px;margin:32px 0;max-width:740px}
+.spike-schools{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;max-width:720px;list-style:none}
+.spike-schools li{padding:14px 0;border-top:1px solid rgba(253,246,236,0.18);font-size:15px;color:#fdf6ec;line-height:1.5}
+.spike-schools li strong{font-family:var(--serif);font-style:italic;font-size:18px;display:block;margin-bottom:2px;color:#f5c2a8;font-weight:400}
+.spike-fork{margin-top:36px;padding:24px 28px;border:1px solid rgba(253,246,236,0.25);font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.5;color:#fdf6ec;max-width:720px}
+.spike-fork strong{font-style:normal;color:#f5c2a8;font-weight:400}
+.privilege-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+.priv-col{padding:28px;border:1px solid var(--line-strong);background:var(--bg-card)}
+.priv-col h4{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;margin-bottom:18px}
+.priv-col.bad h4{color:var(--red)}
+.priv-col.good h4{color:var(--green-go)}
+.priv-col ul{list-style:none}
+.priv-col li{padding:10px 0 10px 24px;position:relative;font-size:14px;line-height:1.55;color:var(--ink-2);border-top:1px solid var(--line)}
+.priv-col li:first-child{border-top:none}
+.priv-col.bad li::before{content:'×';position:absolute;left:0;top:8px;color:var(--red);font-weight:700;font-size:18px}
+.priv-col.good li::before{content:'✓';position:absolute;left:0;top:10px;color:var(--green-go);font-weight:700;font-size:14px}
+.privilege-callout{margin-top:28px;padding:24px 28px;background:var(--bg-deep);border-left:3px solid var(--primary);font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.55;color:var(--ink)}
+.privilege-callout strong{color:var(--primary-deep);font-style:normal;font-weight:700;font-family:var(--sans)}
+.tl-block{display:grid;grid-template-columns:180px 1fr;gap:36px;padding:24px 0;border-top:1px solid var(--line-strong)}
+.tl-block:last-child{border-bottom:1px solid var(--line-strong)}
+.tl-when{padding-top:4px}
+.tl-when .tl-label{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--primary);letter-spacing:-0.01em;line-height:1.1}
+.tl-when .tl-date{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:6px;letter-spacing:0.1em;text-transform:uppercase}
+.tl-list{list-style:none}
+.tl-list li{padding:8px 0 8px 24px;position:relative;font-size:15px;line-height:1.55;color:var(--ink)}
+.tl-list li::before{content:'';position:absolute;left:0;top:16px;width:10px;height:1.5px;background:var(--navy)}
+.urgency{padding:96px 0;background:var(--navy);color:#f0e9dc}
+.urgency .fig{color:#d68a6a}
+.urgency h2{font-family:var(--serif);font-weight:400;font-style:italic;font-size:42px;line-height:1.1;color:#fdf6ec;margin:20px 0 36px;letter-spacing:-0.015em;max-width:800px}
+.urgency-list{list-style:none;counter-reset:u}
+.urgency-list li{counter-increment:u;padding:28px 0 28px 84px;position:relative;border-top:1px solid rgba(253,246,236,0.15);font-size:17px;line-height:1.65;color:rgba(253,246,236,0.85)}
+.urgency-list li:last-child{border-bottom:1px solid rgba(253,246,236,0.15)}
+.urgency-list li::before{content:'0' counter(u);position:absolute;left:0;top:32px;font-family:var(--mono);font-weight:600;font-size:14px;color:#f5c2a8;letter-spacing:0.1em}
+.urgency-list li strong{color:#fdf6ec;font-weight:600}
+.options-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.option{border:1px solid var(--line-strong);background:var(--bg-card);padding:36px 40px;position:relative}
+.option.recommended{border:1px solid var(--primary);box-shadow:6px 6px 0 var(--primary-soft);background:linear-gradient(180deg,var(--bg-card) 0%,#f8eedc 100%)}
+.option-tag{position:absolute;top:-12px;left:36px;background:var(--primary);color:#fdf6ec;font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.18em;padding:6px 12px}
+.option-num{font-family:var(--mono);font-size:10px;color:var(--primary);text-transform:uppercase;letter-spacing:0.2em;font-weight:600;margin-bottom:8px}
+.option h3{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--navy-deep);margin-bottom:6px;line-height:1.1;letter-spacing:-0.015em}
+.option .price{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--primary);margin-bottom:18px}
+.option .who{font-size:14px;color:var(--ink-3);font-style:italic;border-left:2px solid var(--line-strong);padding-left:14px;margin-bottom:24px}
+.option ul{list-style:none}
+.option li{padding:11px 0 11px 22px;position:relative;font-size:14px;line-height:1.55;color:var(--ink-2);border-top:1px solid var(--line)}
+.option li:first-child{border-top:none}
+.option li::before{content:'+';position:absolute;left:0;top:11px;color:var(--primary);font-weight:700}
+.closing h3{font-family:var(--serif);font-size:30px;font-style:italic;color:var(--navy-deep);margin-bottom:24px;letter-spacing:-0.01em;font-weight:400}
+.bring-list{list-style:none;counter-reset:b}
+.bring-list li{counter-increment:b;padding:14px 0 14px 56px;position:relative;border-top:1px solid var(--line);font-size:16px;line-height:1.5;color:var(--ink-2)}
+.bring-list li:first-child{border-top:none}
+.bring-list li::before{content:'0' counter(b);position:absolute;left:0;top:16px;font-family:var(--mono);font-size:11px;color:var(--primary);font-weight:600;letter-spacing:0.1em}
+footer{padding:48px 0;border-top:1px solid var(--line-strong);text-align:center;font-size:13px;color:var(--ink-3)}
+footer .brand-foot{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--navy-deep);margin-bottom:6px}
+@media (prefers-reduced-motion:no-preference){.hero h1,.hero-sub,.hero-meta{animation:rise 0.7s ease-out backwards}.hero-sub{animation-delay:0.15s}.hero-meta{animation-delay:0.3s}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (max-width:720px){.wrap{padding:0 22px}.hero{padding:64px 0 48px}.hero-meta{grid-template-columns:1fr;gap:18px}.glance-grid{grid-template-columns:1fr 1fr}.glance-cell:nth-child(3n){border-right:1px solid var(--line)}.glance-cell:nth-child(2n){border-right:none}.glance-cell:nth-last-child(-n+3){border-bottom:1px solid var(--line)}.glance-cell:nth-last-child(-n+2){border-bottom:none}.glance-cell:last-child{border-bottom:none}.tl-block{grid-template-columns:1fr;gap:6px}.section-title{font-size:30px}.spike h2{font-size:32px}.spike-schools{grid-template-columns:1fr}.privilege-grid{grid-template-columns:1fr}.urgency h2{font-size:28px}.option{padding:28px 22px}.option-tag{left:22px}.urgency-list li{padding:24px 0 24px 56px}.specimen{font-size:18px;padding:20px 22px}.assess-table{font-size:13px}.assess-table th,.assess-table td{padding:12px 14px}}
+@media print{body{background:white}.brand-bar{position:static}section{page-break-inside:avoid}.spike,.urgency,.cognitive{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.cta-section{padding:80px 0;border-bottom:1px solid var(--line-strong);background:var(--bg-deep);position:relative}
+.cta-section::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(30,45,68,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(30,45,68,0.025) 1px,transparent 1px);background-size:24px 24px;pointer-events:none;opacity:0.6}
+.cta-section .wrap{position:relative;z-index:1}
+.cta-box{background:var(--bg-card);border:1px solid var(--line-strong);padding:44px 52px;max-width:780px;position:relative;box-shadow:8px 8px 0 var(--primary-soft);margin-top:24px}
+.cta-box::before{content:'BOOKING';position:absolute;top:-9px;left:36px;background:var(--bg-deep);padding:0 12px;font-family:var(--mono);font-size:10px;color:var(--primary);letter-spacing:0.22em;font-weight:600}
+.cta-intro{font-size:17px;line-height:1.7;color:var(--ink);margin-bottom:32px;max-width:640px}
+.cta-intro strong{color:var(--navy-deep);font-weight:700}
+.cta-included-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:var(--primary);font-weight:600;margin-bottom:14px}
+.cta-list{list-style:none;margin-bottom:36px;counter-reset:c}
+.cta-list li{counter-increment:c;padding:12px 0 12px 44px;position:relative;font-size:14px;line-height:1.55;color:var(--ink);border-top:1px solid var(--line)}
+.cta-list li:first-child{border-top:none}
+.cta-list li::before{content:'0' counter(c);font-family:var(--mono);font-weight:600;font-size:11px;color:var(--primary);position:absolute;left:0;top:14px;letter-spacing:0.1em}
+.cta-meta{display:flex;align-items:baseline;gap:18px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.cta-price{font-family:var(--serif);font-size:48px;font-weight:400;color:var(--navy-deep);letter-spacing:-0.02em;line-height:1}
+.cta-duration{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--ink-3)}
+.cta-button{display:inline-flex;align-items:center;gap:14px;background:var(--primary);color:#fdf6ec;padding:20px 38px;font-family:var(--mono);font-size:11px;font-weight:600;text-decoration:none;border:1px solid var(--primary);transition:all 0.25s ease;text-transform:uppercase;letter-spacing:0.18em;cursor:pointer}
+.cta-button:hover{background:var(--navy-deep);border-color:var(--navy-deep);transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--primary-soft)}
+.cta-button .arrow{font-family:var(--sans);font-size:18px;transition:transform 0.25s ease;display:inline-block;letter-spacing:0}
+.cta-button:hover .arrow{transform:translateX(4px)}
+.cta-trust{margin-top:20px;font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:0.16em;text-transform:uppercase}
+@media (max-width:720px){.cta-box{padding:36px 22px;box-shadow:none}.cta-button{padding:18px 22px;font-size:10px;width:100%;justify-content:center;letter-spacing:0.14em}.cta-price{font-size:36px}}
+</style>
+</head>
+<body>
+
+<div class="brand-bar"><div class="wrap brand-bar-inner"><div class="brand">Clear Paths</div><div class="brand-meta">FILE 2026.05 — MOROZOFF FAMILY · CONFIDENTIAL</div></div></div>
+
+<header class="hero"><div class="wrap">
+<div class="hero-fig"><span class="fig">Strategic Assessment · May 2026</span></div>
+<h1>Two students,<em>one transcript.</em></h1>
+<p class="hero-sub">Based on the intake form you submitted ahead of your 1:1 with Megan. A first read on the profile, the hidden spike, and what to do in the next 60 days.</p>
+<div class="hero-meta">
+<div>For<span>Cari</span></div>
+<div>Student<span>Julian Morozoff</span></div>
+<div>Class of<span>2028 · 10th Grade</span></div>
+</div>
+</div></header>
+
+<section class="section"><div class="wrap">
+<div class="section-fig"><span class="fig">Fig. 01 — At a Glance</span></div>
+<div class="glance-grid">
+<div class="glance-cell"><div class="label">Grade</div><div class="value">10th · Sophomore</div></div>
+<div class="glance-cell"><div class="label">State</div><div class="value">California</div></div>
+<div class="glance-cell"><div class="label">Application Window</div><div class="value">Aug 2027 · ~16 mo.</div></div>
+<div class="glance-cell"><div class="label">Stated Interests</div><div class="value">Engineering · Product Design · Ceramics</div></div>
+<div class="glance-cell"><div class="label">Stated EC Profile</div><div class="value">Baseball · Flag Football</div></div>
+<div class="glance-cell"><div class="label">Cognitive Profile</div><div class="value">Gifted · ADHD</div></div>
+</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<div class="section-fig"><span class="fig">Fig. 02 — The Honest Read</span></div>
+<h2 class="section-title">Julian's intake reads like <em>two different students.</em></h2>
+<div class="prose-body">
+<p>Academically, he's a <strong>strong sophomore</strong> — 3.8–3.99 GPA, 3–4 APs already, gifted-tested. That's the top decile of his cohort. He has the raw academic equipment for UC Berkeley, UCLA, Georgia Tech.</p>
+<p>Outside the classroom, his profile is mostly invisible. <strong>Two team sports and no leadership, no project, no clear direction.</strong> That's the gap, and you named it precisely: <em>"help him hone in on activities that will let him shine, not looking overly privileged."</em></p>
+<p>But buried in your booking confirmation is the most important signal in this entire intake:</p>
+<div class="specimen">"Son interested in engineering, product design, and ceramics (weird combo!)"</div>
+<p>That's not a weird combo. <strong>That's a profile.</strong></p>
+<p>Engineering + product design + ceramics is the resume of an industrial designer. Cooper Union, RISD, Carnegie Mellon's Design + Engineering, MIT's Mechanical + Design track, Olin, Stanford's Product Design major, Georgia Tech ID. These are real schools with real programs <strong>actively looking</strong> for students who think across that intersection. And almost no high school sophomore has clarity on this path — which is exactly why it's a spike opportunity.</p>
+<p>The work over the next 12 months isn't "help him stand out." It's: <strong>test the hypothesis that he's an industrial-design-curious engineer, and if it's true, build the evidence that he is.</strong></p>
+</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<div class="section-fig"><span class="fig">Fig. 03 — Profile Assessment</span></div>
+<h2 class="section-title">Where he stands today.</h2>
+
+<div class="assess-block">
+<span class="assess-num">03.A</span>
+<h3 class="assess-title">Academics</h3>
+<table class="assess-table">
+<thead><tr><th>Metric</th><th>Profile</th><th>Read</th></tr></thead>
+<tbody>
+<tr><td>Unweighted GPA</td><td>3.8 – 3.99</td><td><span class="tag go">Strong</span> Within range for UCLA, Berkeley, Georgia Tech.</td></tr>
+<tr><td>AP / Honors</td><td>3 – 4</td><td><span class="tag go">Solid</span> Junior year should hit 5–6.</td></tr>
+<tr><td>SAT / ACT</td><td>Planning</td><td><span class="tag wait">Sequenced</span> Diagnostic this summer; PSAT October; SAT spring 2027.</td></tr>
+<tr><td>Dual Enrollment</td><td>None</td><td><span class="tag warn">Optional</span> Could be a vehicle for design / engineering exposure (Cabrillo, De Anza, Foothill).</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="assess-block">
+<span class="assess-num">03.B</span>
+<h3 class="assess-title">Extracurriculars</h3>
+<table class="assess-table">
+<thead><tr><th>Metric</th><th>Profile</th><th>Read</th></tr></thead>
+<tbody>
+<tr><td>Athletics</td><td>Baseball, flag football</td><td><span class="tag warn">Generic</span> Fine as participation, not differentiating.</td></tr>
+<tr><td>Leadership</td><td>None</td><td><span class="tag stop">Critical gap</span> Junior year must show at least one role.</td></tr>
+<tr><td>Personal project</td><td>None</td><td><span class="tag stop">Highest leverage</span> The single biggest fix in his profile.</td></tr>
+<tr><td>Eng. / design exposure</td><td>None recorded</td><td><span class="tag stop">Despite stated interest</span> No project, no club, no class.</td></tr>
+<tr><td>Ceramics</td><td>Stated interest</td><td><span class="tag wait">Verify</span> Class? Studio? Etsy? Need level.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="cognitive">
+<div class="cognitive-fig">03.C — Working-Style Note</div>
+<h4>Gifted + ADHD changes the strategy more than most consultants will admit.</h4>
+<p><strong>Gifted + ADHD ("twice exceptional") students typically respond poorly to volume-based prep</strong> — more APs, more activities, more pressure. They thrive on interest-anchored intensity: one project they care about deeply, with structured external accountability.</p>
+<p><strong>Paralysis under stress is the strongest argument against a "load up the resume" approach.</strong> It also makes timeline-driven tasks (essays, applications) the highest-risk parts of the process. We plan around this from day one.</p>
+<p>The "engineering + design + ceramics" interest is <strong>the natural lever for intrinsic motivation.</strong> Building a profile around it isn't just admissions strategy — it's the only path that won't break him in junior year.</p>
+</div>
+</div></section>
+
+<section class="spike"><div class="wrap spike-inner">
+<div class="fig">Fig. 04 — The Spike Hypothesis</div>
+<h2>The <em>industrial designer</em> hidden in plain sight.</h2>
+<div class="spike-thesis">"Julian is an engineering-curious student drawn to making physical objects. Ceramics is hand-craft. Product design is intent. Engineering is structure. He's not three different students — he's one student who hasn't been shown that those three things are the same field."</div>
+<p>If this hypothesis is right, his profile transforms in a single year. Schools that fit this lens:</p>
+<ul class="spike-schools">
+<li><strong>Olin College</strong>Engineering + design fusion (small, hands-on, cohort-based)</li>
+<li><strong>Carnegie Mellon</strong>Design + Mechanical Engineering, IDeATe program</li>
+<li><strong>RISD / Brown Dual Degree</strong>Fine art + engineering</li>
+<li><strong>Stanford</strong>Product Design major</li>
+<li><strong>Georgia Tech</strong>Industrial Design (already on his list)</li>
+<li><strong>Cooper Union</strong>Engineering with art-school proximity</li>
+<li><strong>MIT</strong>Mechanical + Design</li>
+</ul>
+<div class="spike-fork">If the hypothesis is <strong>wrong</strong> — if ceramics is just a fun elective and engineering is just "what smart kids say" — we find that out in the next 60 days through structured discovery and pivot to a clean pure-engineering profile (UCLA / Berkeley / Georgia Tech / UCSB engineering). Either way, we know in 60 days, not 18 months from now during essay-writing panic.</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<div class="section-fig"><span class="fig">Fig. 05 — On "Not Looking Overly Privileged"</span></div>
+<h2 class="section-title">You named the worry. Here's what defuses it.</h2>
+<div class="prose-body" style="margin-bottom:8px"><p>This is a real concern at UCLA / Berkeley / private competitive schools. The pattern that triggers it vs the pattern that defuses it:</p></div>
+<div class="privilege-grid">
+<div class="priv-col bad">
+<h4>Triggers the read</h4>
+<ul>
+<li>Multi-week summer programs at brand-name universities ($8–15K) with no follow-on</li>
+<li>International "service trips" with no local equivalent</li>
+<li>Expensive sports + instrument + tutoring + prep — all at once</li>
+<li>No paid work, no entrepreneurial work, no scrappy work</li>
+</ul>
+</div>
+<div class="priv-col good">
+<h4>Defuses the read</h4>
+<ul>
+<li>Self-launched projects (built or made something, even small)</li>
+<li>Local engagement (school, neighborhood, community)</li>
+<li>Sustained depth in one or two areas, not breadth in many</li>
+<li>Visible work product — portfolio, GitHub, Etsy, exhibition</li>
+<li>Some form of work or service that involves discomfort, not just achievement</li>
+</ul>
+</div>
+</div>
+<div class="privilege-callout">For Julian: <strong>a maker portfolio beats a fancy summer program.</strong> A small Etsy ceramics shop beats a $12K STEM camp. A GitHub repo beats a college-name lanyard.</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+<div class="section-fig"><span class="fig">Fig. 06 — Roadmap</span></div>
+<h2 class="section-title">What has to happen.</h2>
+
+<div class="tl-block">
+<div class="tl-when"><div class="tl-label">Next 30 days</div><div class="tl-date">May–June 2026</div></div>
+<ul class="tl-list">
+<li>Test the engineering + design + ceramics hypothesis with structured discovery exercises</li>
+<li>Junior year course request — must include AP Physics, AP Calc track, AP English, plus at least one design / studio / engineering elective</li>
+<li>Identify summer 2026 placement: maker-space mentorship, RISD / Cooper Union / CMU pre-college, or self-directed project</li>
+<li>Diagnostic SAT / ACT to set baseline</li>
+</ul>
+</div>
+<div class="tl-block">
+<div class="tl-when"><div class="tl-label">Summer 2026</div><div class="tl-date">June–August</div></div>
+<ul class="tl-list">
+<li>Launch Project #1 — small, finishable, documented (e.g., design + 3D-print + glaze a series of objects with a public IG / portfolio)</li>
+<li>Pre-college program only if design / engineering specific — not generic "leadership" camps</li>
+<li>Begin organized SAT prep (gifted+ADHD profiles often score high with light targeted prep)</li>
+</ul>
+</div>
+<div class="tl-block">
+<div class="tl-when"><div class="tl-label">Junior Year</div><div class="tl-date">Aug 2026–Jun 2027</div></div>
+<ul class="tl-list">
+<li>5–6 APs / Honors with a deliberate slate</li>
+<li>Found or join a maker club / robotics / engineering team — must hold a real role by spring</li>
+<li>Continue Project #1 to maturity OR launch Project #2 of larger scope</li>
+<li>SAT Feb and June; PSAT October (NMSQT consideration)</li>
+<li>Establish stress-management protocol before junior spring</li>
+</ul>
+</div>
+<div class="tl-block">
+<div class="tl-when"><div class="tl-label">Application Year</div><div class="tl-date">Jul–Nov 2027</div></div>
+<ul class="tl-list">
+<li>Final school list: 12 schools split across reach / match / safety with specific design + engineering fit</li>
+<li>UC application Nov 30; Common App Jan 1–15</li>
+<li>Portfolio (if pursuing design schools) typically due January</li>
+</ul>
+</div>
+</div></section>
+
+<section class="urgency"><div class="wrap">
+<div class="fig">Fig. 07 — Why Now</div>
+<h2>Three real deadlines, all in the next eight weeks.</h2>
+<ol class="urgency-list">
+<li><strong>Junior year course requests close in May / early June.</strong> A junior year that includes a design / engineering elective vs one that doesn't is the single most-watched signal on his transcript. This decision is made in the next four weeks and cannot be undone in fall.</li>
+<li><strong>Summer 2026 is his only summer to test and prove the spike hypothesis.</strong> Junior summer is too late to "discover" something — by then it has to look like 18 months of consistent depth.</li>
+<li><strong>For a gifted+ADHD student, the project anchor needs to exist before junior-year stress arrives.</strong> Students with this profile who enter junior year <em>with</em> a passion project keep their grades and emotional regulation. Students who enter without one tend to lose both.</li>
+</ol>
+</div></section>
+
+<section class="cta-section"><div class="wrap">
+<div class="section-fig"><span class="fig">Fig. 09 — Your Next Step</span></div>
+<h2 class="section-title">Book your 1:1 strategy session with Megan.</h2>
+<div class="cta-box">
+<p class="cta-intro">A focused session to test the engineering + design + ceramics hypothesis and lock in the next 60 days. By the end of the call you'll have a clear roadmap — and if longer-term partnership makes sense for your family, <strong>we'll shape the right engagement together based on what we learn about Julian on the call.</strong></p>
+<div class="cta-included-label">Included in your session</div>
+<ul class="cta-list">
+<li>Pre-call: Julian completes a structured 45-minute interest-mapping exercise</li>
+<li>90-minute 1:1 strategy session with Megan</li>
+<li>Written hypothesis test result + curated school list with design + engineering fit scores</li>
+<li>Recommended summer 2026 placement options + suggested first project</li>
+<li>2-week follow-up email check-in to keep momentum</li>
+</ul>
+<div class="cta-meta">
+<span class="cta-price">$297</span>
+<span class="cta-duration">90-minute 1:1 with Megan</span>
+</div>
+<a href="https://buy.stripe.com/28E00j5iS39dgA0dEPeEq1A" target="_blank" rel="noopener noreferrer" class="cta-button">
+Reserve Your Session
+<span class="arrow">→</span>
+</a>
+<p class="cta-trust">Secure checkout via Stripe · Opens in a new window</p>
+</div>
+</div></section>
+
+<section class="section closing" style="border-bottom:none"><div class="wrap">
+<h3>What to bring to the call with Megan</h3>
+<ol class="bring-list">
+<li>Julian's current transcript or best-estimate grades</li>
+<li>Any prior projects he's done — drawings, builds, ceramics, code, anything</li>
+<li>His own description of what "engineering, product design, ceramics" means to him (in his words)</li>
+<li>Course offerings at his school for 11th grade (counselor's PDF if available)</li>
+<li>A sense of which option above resonates most</li>
+</ol>
+</div></section>
+
+<footer><div class="wrap">
+<div class="brand-foot">Clear Paths College Consulting</div>
+<div>Prepared from your intake submission of April 29, 2026 · Confidential · clear-paths.com</div>
+</div></footer>
+
+</body>
+</html>

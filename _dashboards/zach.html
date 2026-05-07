@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zach's College Pathway — Strategic Assessment | Clear Paths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1e6;--bg-deep:#ede5d3;--bg-card:#fcf8ef;
+  --ink:#1a1a1a;--ink-2:#3d3d3d;--ink-3:#6b6b6b;
+  --line:rgba(26,26,26,0.1);--line-strong:rgba(26,26,26,0.25);
+  --primary:#2d4a2b;--primary-deep:#1f3220;--primary-soft:rgba(45,74,43,0.08);
+  --accent:#c0563f;--accent-soft:rgba(192,86,63,0.1);
+  --green-go:#2d6a4f;--amber:#b8860b;--red:#a8332a;--gray:#6b6b6b;
+  --serif:'Fraunces',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-size:17px;line-height:1.65;color:var(--ink);background:var(--bg);background-image:radial-gradient(ellipse at top left,rgba(45,74,43,0.04),transparent 50%),radial-gradient(ellipse at bottom right,rgba(192,86,63,0.03),transparent 50%);background-attachment:fixed;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+.brand-bar{border-bottom:1px solid var(--line);padding:18px 0;background:rgba(246,241,230,0.85);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+.brand-bar-inner{display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:var(--serif);font-weight:700;font-size:18px;letter-spacing:-0.01em;color:var(--primary-deep)}
+.brand-meta{font-size:12px;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink-3)}
+.hero{padding:80px 0 60px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:24px}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(42px,6vw,72px);line-height:1.04;letter-spacing:-0.025em;color:var(--primary-deep);margin-bottom:20px;font-variation-settings:'opsz' 144}
+.hero h1 em{font-style:italic;color:var(--accent);font-weight:400}
+.hero-sub{font-size:19px;color:var(--ink-2);max-width:580px;line-height:1.5}
+.hero-meta{display:flex;gap:24px;margin-top:32px;font-size:13px;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.08em;flex-wrap:wrap}
+.hero-meta strong{color:var(--ink);font-weight:600}
+.glance{padding:56px 0;border-bottom:1px solid var(--line)}
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:0.22em;color:var(--accent);font-weight:700;margin-bottom:16px}
+.section-title{font-family:var(--serif);font-weight:500;font-size:36px;line-height:1.1;letter-spacing:-0.02em;color:var(--primary-deep);margin-bottom:32px;font-variation-settings:'opsz' 96}
+.glance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;border-top:1px solid var(--line-strong);border-left:1px solid var(--line-strong)}
+.glance-cell{border-right:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);padding:20px 24px;background:var(--bg-card)}
+.glance-cell .label{font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:var(--ink-3);margin-bottom:8px;font-weight:600}
+.glance-cell .value{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--primary-deep);letter-spacing:-0.01em;line-height:1.2}
+.prose{padding:64px 0;border-bottom:1px solid var(--line)}
+.prose-body{max-width:680px}
+.prose-body p{font-size:18px;line-height:1.7;color:var(--ink);margin-bottom:24px}
+.prose-body p strong{color:var(--primary-deep);font-weight:600}
+.pullquote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:26px;line-height:1.4;color:var(--primary-deep);border-left:3px solid var(--accent);padding:16px 0 16px 28px;margin:32px 0;font-variation-settings:'opsz' 72}
+.numbered-list{list-style:none;counter-reset:item;margin-top:8px}
+.numbered-list li{counter-increment:item;padding:14px 0 14px 56px;position:relative;font-size:17px;line-height:1.6;border-top:1px solid var(--line)}
+.numbered-list li:first-child{border-top:none}
+.numbered-list li::before{content:counter(item,decimal-leading-zero);font-family:var(--serif);font-weight:500;font-size:14px;color:var(--accent);position:absolute;left:0;top:14px;letter-spacing:0.05em}
+.assessment{padding:64px 0;border-bottom:1px solid var(--line)}
+.assess-block{margin-bottom:48px}
+.assess-block:last-child{margin-bottom:0}
+.assess-title{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--primary-deep);margin-bottom:20px;letter-spacing:-0.01em}
+.assess-table{width:100%;border-collapse:collapse;background:var(--bg-card);border:1px solid var(--line-strong)}
+.assess-table th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.14em;font-weight:700;color:var(--ink-3);padding:14px 20px;border-bottom:1px solid var(--line-strong);background:var(--bg-deep)}
+.assess-table td{padding:18px 20px;border-bottom:1px solid var(--line);vertical-align:top;font-size:15px;line-height:1.5}
+.assess-table tr:last-child td{border-bottom:none}
+.assess-table td:first-child{font-weight:600;color:var(--primary-deep);width:32%}
+.assess-table td:nth-child(2){color:var(--ink-2);width:24%}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500}
+.tag.go{color:var(--green-go)}.tag.warn{color:var(--amber)}.tag.stop{color:var(--red)}.tag.wait{color:var(--gray)}
+.tag::before{content:'';width:8px;height:8px;border-radius:50%;background:currentColor}
+.spike{padding:80px 0;background:linear-gradient(180deg,var(--primary) 0%,var(--primary-deep) 100%);color:#f6f1e6;position:relative;overflow:hidden}
+.spike::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 80% 30%,rgba(192,86,63,0.18),transparent 50%);pointer-events:none}
+.spike-inner{position:relative;z-index:1}
+.spike .section-label{color:#c0563f}
+.spike h2{font-family:var(--serif);font-size:42px;font-weight:500;line-height:1.1;letter-spacing:-0.02em;margin-bottom:32px;color:#fcf8ef}
+.spike h2 em{font-style:italic;color:#e8a075}
+.spike p{font-size:18px;line-height:1.7;color:rgba(252,248,239,0.85);max-width:680px;margin-bottom:20px}
+.spike p strong{color:#fcf8ef}
+.thesis{font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.5;color:#fcf8ef;border-left:3px solid #c0563f;padding:20px 0 20px 32px;margin:32px 0;max-width:720px}
+.qa{padding:64px 0;border-bottom:1px solid var(--line)}
+.qa-item{margin-bottom:48px}
+.qa-item:last-child{margin-bottom:0}
+.qa-q{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--primary-deep);margin-bottom:16px;font-style:italic}
+.qa-q::before{content:'Q.';font-style:normal;color:var(--accent);font-weight:700;margin-right:12px;letter-spacing:0.05em}
+.qa-a{font-size:17px;line-height:1.7;color:var(--ink-2)}
+.qa-a strong{color:var(--primary-deep);font-weight:600}
+.qa-a p{margin-bottom:14px}
+.qa-a ul{margin:14px 0 14px 20px}
+.qa-a ul li{margin-bottom:8px}
+.recruit-table{width:100%;border-collapse:collapse;background:var(--bg-card);border:1px solid var(--line-strong);margin-top:20px;font-size:14px}
+.recruit-table th,.recruit-table td{padding:12px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.recruit-table th{font-size:11px;text-transform:uppercase;letter-spacing:0.14em;font-weight:700;color:var(--ink-3);background:var(--bg-deep);border-bottom:1px solid var(--line-strong)}
+.recruit-table td:first-child{font-weight:600;color:var(--primary-deep);width:14%}
+.recruit-table td:nth-child(2){width:32%}
+.recruit-table tr:last-child td{border-bottom:none}
+.timeline{padding:64px 0;border-bottom:1px solid var(--line)}
+.tl-block{display:grid;grid-template-columns:160px 1fr;gap:32px;padding:24px 0;border-top:1px solid var(--line-strong)}
+.tl-block:last-child{border-bottom:1px solid var(--line-strong)}
+.tl-when{font-family:var(--serif);font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);padding-top:4px}
+.tl-when span{display:block;font-size:13px;color:var(--ink-3);margin-top:4px;font-weight:500;letter-spacing:0.04em}
+.tl-list{list-style:none}
+.tl-list li{padding:8px 0 8px 22px;position:relative;font-size:16px;line-height:1.55;color:var(--ink)}
+.tl-list li::before{content:'';position:absolute;left:0;top:16px;width:8px;height:1.5px;background:var(--primary)}
+.urgency{padding:80px 0;background:var(--bg-deep);border-top:2px solid var(--accent);border-bottom:2px solid var(--accent)}
+.urgency h2{font-family:var(--serif);font-size:38px;font-weight:500;line-height:1.1;letter-spacing:-0.02em;color:var(--primary-deep);margin-bottom:36px;font-variation-settings:'opsz' 96;max-width:720px}
+.urgency-list{counter-reset:urg;list-style:none}
+.urgency-list li{counter-increment:urg;padding:24px 0 24px 72px;position:relative;border-top:1px solid var(--line-strong);font-size:17px;line-height:1.6}
+.urgency-list li:last-child{border-bottom:1px solid var(--line-strong)}
+.urgency-list li::before{content:counter(urg);position:absolute;left:0;top:24px;font-family:var(--serif);font-weight:600;font-size:38px;color:var(--accent);line-height:1;letter-spacing:-0.03em}
+.urgency-list li strong{color:var(--primary-deep);font-weight:600}
+.urgency-final{margin-top:36px;padding:24px 28px;background:var(--primary);color:#fcf8ef;font-family:var(--serif);font-style:italic;font-size:20px;border-radius:2px}
+.counselor{padding:56px 0;border-bottom:1px solid var(--line)}
+.counselor-card{border:1px solid var(--line-strong);background:var(--bg-card);padding:36px}
+.counselor h3{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--primary-deep);margin-bottom:16px;letter-spacing:-0.01em}
+.counselor p{font-size:16px;line-height:1.65;color:var(--ink-2);margin-bottom:14px}
+.counselor ul{margin:8px 0 14px 24px}
+.counselor li{font-size:15px;color:var(--ink-2);line-height:1.55;margin-bottom:6px}
+.options{padding:80px 0;border-bottom:1px solid var(--line)}
+.options-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.option{border:1px solid var(--line-strong);background:var(--bg-card);padding:36px 40px;position:relative;transition:transform 0.2s ease,box-shadow 0.2s ease}
+.option.recommended{border:2px solid var(--primary);background:linear-gradient(180deg,var(--bg-card) 0%,#f3eedc 100%);box-shadow:0 12px 30px rgba(45,74,43,0.08)}
+.option-tag{position:absolute;top:-13px;left:36px;background:var(--primary);color:#fcf8ef;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;padding:6px 14px;border-radius:2px}
+.option-num{font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);font-weight:700;margin-bottom:8px}
+.option h3{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--primary-deep);margin-bottom:6px;line-height:1.2;letter-spacing:-0.015em}
+.option .price{font-family:var(--serif);font-size:18px;color:var(--accent);font-weight:500;font-style:italic;margin-bottom:18px}
+.option .who{font-size:15px;color:var(--ink-3);font-style:italic;border-left:2px solid var(--line-strong);padding-left:14px;margin-bottom:24px}
+.option ul{list-style:none}
+.option li{padding:10px 0 10px 22px;position:relative;font-size:15px;line-height:1.55;color:var(--ink-2);border-top:1px solid var(--line)}
+.option li:first-child{border-top:none}
+.option li::before{content:'+';position:absolute;left:0;top:10px;color:var(--primary);font-weight:700}
+.closing{padding:64px 0}
+.closing h3{font-family:var(--serif);font-size:26px;font-weight:500;color:var(--primary-deep);margin-bottom:24px;letter-spacing:-0.01em}
+.bring-list{list-style:none;counter-reset:b}
+.bring-list li{counter-increment:b;padding:14px 0 14px 56px;position:relative;border-top:1px solid var(--line);font-size:16px;line-height:1.5;color:var(--ink-2)}
+.bring-list li:first-child{border-top:none}
+.bring-list li::before{content:counter(b,decimal-leading-zero);position:absolute;left:0;top:14px;font-family:var(--serif);font-weight:500;color:var(--accent);font-size:14px;letter-spacing:0.05em}
+footer{padding:48px 0;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--ink-3)}
+footer .brand-foot{font-family:var(--serif);font-size:14px;color:var(--primary-deep);font-weight:600;margin-bottom:6px}
+@media (prefers-reduced-motion:no-preference){.hero h1,.hero-sub,.hero-meta{animation:rise 0.7s ease-out backwards}.hero-sub{animation-delay:0.12s}.hero-meta{animation-delay:0.24s}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (max-width:720px){.wrap{padding:0 22px}.hero{padding:56px 0 40px}.hero-meta{flex-direction:column;gap:8px}.glance-grid{grid-template-columns:1fr 1fr}.tl-block{grid-template-columns:1fr;gap:8px}.tl-when{padding-top:0}.section-title{font-size:28px}.urgency h2{font-size:28px}.spike h2{font-size:30px}.option{padding:28px 22px}.option-tag{left:22px}.urgency-list li{padding:20px 0 20px 56px}.urgency-list li::before{font-size:30px}.pullquote{font-size:21px;padding-left:20px}.assess-table{font-size:13px}.assess-table th,.assess-table td{padding:12px 14px}.recruit-table{font-size:12px}}
+@media print{body{background:white}.brand-bar{position:static}.spike,.urgency-final{print-color-adjust:exact;-webkit-print-color-adjust:exact}section{page-break-inside:avoid}}
+.cta-section{padding:80px 0;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--bg) 0%,var(--bg-deep) 100%)}
+.cta-box{background:var(--bg-card);border:1px solid var(--line-strong);padding:48px 56px;max-width:780px;position:relative}
+.cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+.cta-intro{font-size:18px;line-height:1.65;color:var(--ink-2);margin-bottom:32px;max-width:640px}
+.cta-intro strong{color:var(--primary-deep);font-weight:600}
+.cta-included-label{font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);font-weight:700;margin-bottom:14px}
+.cta-list{list-style:none;margin-bottom:36px}
+.cta-list li{padding:12px 0 12px 28px;position:relative;font-size:15px;line-height:1.55;color:var(--ink);border-top:1px solid var(--line)}
+.cta-list li:first-child{border-top:none}
+.cta-list li::before{content:'';position:absolute;left:0;top:20px;width:14px;height:1.5px;background:var(--primary)}
+.cta-list li:first-child::before{top:8px}
+.cta-meta{display:flex;align-items:baseline;gap:18px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.cta-price{font-family:var(--serif);font-size:42px;font-weight:500;color:var(--primary-deep);letter-spacing:-0.02em;font-variation-settings:'opsz' 96;line-height:1}
+.cta-duration{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink-3);font-weight:400}
+.cta-button{display:inline-flex;align-items:center;gap:14px;background:var(--accent);color:#fcf8ef;padding:20px 36px;font-family:var(--sans);font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--accent);transition:all 0.25s ease;text-transform:uppercase;letter-spacing:0.16em;cursor:pointer}
+.cta-button:hover{background:var(--primary-deep);border-color:var(--primary-deep);transform:translateY(-1px);box-shadow:0 8px 20px rgba(45,74,43,0.15)}
+.cta-button .arrow{font-size:18px;transition:transform 0.25s ease;display:inline-block;letter-spacing:0}
+.cta-button:hover .arrow{transform:translateX(4px)}
+.cta-trust{margin-top:18px;font-size:12px;color:var(--ink-3);letter-spacing:0.04em}
+@media (max-width:720px){.cta-box{padding:32px 24px}.cta-button{padding:18px 22px;font-size:12px;width:100%;justify-content:center;letter-spacing:0.12em}.cta-price{font-size:32px}}
+</style>
+</head>
+<body>
+<div class="brand-bar"><div class="wrap brand-bar-inner"><div class="brand">Clear Paths</div><div class="brand-meta">Confidential · Prepared for the Varghese Family</div></div></div>
+
+<header class="hero"><div class="wrap">
+<div class="eyebrow">Strategic Assessment · May 2026</div>
+<h1>Zach's College <em>Pathway</em></h1>
+<p class="hero-sub">Based on the intake form you submitted ahead of your 1:1 session with Megan. A first read on the profile, the timeline, and what to do next.</p>
+<div class="hero-meta">
+<div><strong>For</strong> &nbsp; Sharon</div>
+<div><strong>Student</strong> &nbsp; Zach Varghese</div>
+<div><strong>Class of</strong> &nbsp; 2028</div>
+</div>
+</div></header>
+
+<section class="glance"><div class="wrap">
+<div class="section-label">At a Glance</div>
+<div class="glance-grid">
+<div class="glance-cell"><div class="label">Grade</div><div class="value">10th · Sophomore</div></div>
+<div class="glance-cell"><div class="label">State</div><div class="value">California</div></div>
+<div class="glance-cell"><div class="label">Application Window</div><div class="value">Aug 2027 — ~16 mo.</div></div>
+<div class="glance-cell"><div class="label">Athletic Track</div><div class="value">NCAA D1 / D3 Soccer</div></div>
+<div class="glance-cell"><div class="label">Academic Interest</div><div class="value">Business / Real Estate</div></div>
+<div class="glance-cell"><div class="label">School Context</div><div class="value">1:1 Private</div></div>
+</div>
+</div></section>
+
+<section class="prose"><div class="wrap">
+<div class="section-label">The Honest Read</div>
+<h2 class="section-title">Two timelines, one summer.</h2>
+<div class="prose-body">
+<p>Zach has something <strong>most sophomores don't</strong>: a real, articulated direction. Real estate at fifteen is unusual. Most students his age are still trying to figure out what "interests" means. He's already taken meetings with agents and has a plan to enroll at De Anza. That's already a story.</p>
+<p>He also has the harder profile to build for — a <strong>dual-track recruit</strong>: an NCAA athlete who also wants a business pathway at academically rigorous schools. These two timelines collide between summer 2026 and fall 2027, and the families that win this game start the choreography now.</p>
+<p style="margin-top:32px"><strong>Three things will define Zach's outcome over the next 18 months:</strong></p>
+<ol class="numbered-list">
+<li>Whether his summer 2026 ID camps are <strong>the right ones</strong> for the schools that fit his academic and athletic profile.</li>
+<li>Whether his junior-year transcript shows clear <strong>academic rigor</strong> to coaches and admissions readers — 1–2 APs is light for his target list; junior year needs 4+.</li>
+<li>Whether his soccer + service + real-estate threads get <strong>structured into a single narrative</strong> before applications open, instead of three separate bullet points.</li>
+</ol>
+</div>
+</div></section>
+
+<section class="assessment"><div class="wrap">
+<div class="section-label">Profile Assessment</div>
+<h2 class="section-title">Where he stands today.</h2>
+
+<div class="assess-block">
+<h3 class="assess-title">Academics</h3>
+<table class="assess-table">
+<thead><tr><th>Metric</th><th>Profile</th><th>Read</th></tr></thead>
+<tbody>
+<tr><td>Unweighted GPA</td><td>3.6 – 3.79</td><td><span class="tag warn">Solid</span> Within range for UC Santa Cruz, Cal Poly, Denison, Occidental, Santa Clara, Babson. Below median for Tufts, U Chicago, NYU.</td></tr>
+<tr><td>AP / Honors</td><td>1 – 2</td><td><span class="tag stop">Light</span> Junior year course load is the most-watched signal. Needs 4+ APs / Honors in 11th.</td></tr>
+<tr><td>SAT / ACT</td><td>Planning</td><td><span class="tag wait">Sequenced</span> Diagnostic by August. PSAT October 2026. SAT February + June 2027.</td></tr>
+<tr><td>Dual Enrollment</td><td>Yes — De Anza planned</td><td><span class="tag go">Excellent</span> A real estate or business course is a direct narrative anchor.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="assess-block">
+<h3 class="assess-title">Athletics — NCAA Recruit Track</h3>
+<table class="assess-table">
+<thead><tr><th>Metric</th><th>Profile</th><th>Read</th></tr></thead>
+<tbody>
+<tr><td>Sport / Level</td><td>Club soccer (MLS-affiliated)</td><td><span class="tag go">Strong start</span> Need to verify exact tier (ECNL / MLS Next / NPL).</td></tr>
+<tr><td>D1 Recruit Window</td><td>Opens June 15, 2026</td><td><span class="tag stop">~6 weeks out</span> Coaches build watchlists this month.</td></tr>
+<tr><td>Summer ID camps</td><td>Already planned</td><td><span class="tag wait">Validate</span> Wrong camp = wasted summer.</td></tr>
+<tr><td>Highlight film</td><td>Status unknown</td><td><span class="tag stop">Critical</span> Should be on coaches' desks before June 15.</td></tr>
+<tr><td>NCAA Eligibility Center</td><td>Not yet registered</td><td><span class="tag warn">Easy miss</span> Register start of junior year.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="assess-block">
+<h3 class="assess-title">Extracurriculars + Differentiation</h3>
+<table class="assess-table">
+<thead><tr><th>Metric</th><th>Profile</th><th>Read</th></tr></thead>
+<tbody>
+<tr><td>Service</td><td>Young Men's Service League — food insecurity</td><td><span class="tag go">Strong Tier 2</span> Multi-year, family-anchored, specific cause.</td></tr>
+<tr><td>Career interest</td><td>Real estate (agent meetings, De Anza class)</td><td><span class="tag go">Spike candidate</span> Most 10th graders cannot articulate this.</td></tr>
+<tr><td>Other</td><td>Cooking, thrifting / street fashion</td><td><span class="tag warn">Useful color</span> For Personal Insight prompts; not pillars.</td></tr>
+<tr><td>Leadership</td><td>None reported</td><td><span class="tag stop">Junior-year priority</span> Soccer captain, service league lead, or self-launched project.</td></tr>
+<tr><td>Personal project</td><td>Not yet</td><td><span class="tag warn">Obvious lane</span> Real estate × food insecurity (housing access, food-desert mapping).</td></tr>
+</tbody>
+</table>
+</div>
+</div></section>
+
+<section class="spike"><div class="wrap spike-inner">
+<div class="section-label">The Spike</div>
+<h2>Where he could <em>stand out.</em></h2>
+<p>Most applicants on his target list have <strong>soccer + volunteering</strong>. That combination is generic. Zach has the rare ingredient: a documented business interest that connects to his service work.</p>
+<p>The connecting thesis we'd build:</p>
+<div class="thesis">"Zach is interested in real estate as a vehicle for community impact — specifically how housing access intersects with the food insecurity work he's done with Young Men's Service League. He's pursuing this through coursework at De Anza, mentorship from working agents, and a self-directed project on [specific topic]."</div>
+<p>That's a story Babson, Santa Clara, U Denver, even Tufts can engage with. Without it, he's a soccer player with okay grades and one club.</p>
+</div></section>
+
+<section class="qa"><div class="wrap">
+<div class="section-label">Your Specific Questions</div>
+<h2 class="section-title">Two questions, addressed directly.</h2>
+
+<div class="qa-item">
+<div class="qa-q">Will his 1:1 private school be viewed as a handicap?</div>
+<div class="qa-a">
+<p>Short answer: <strong>No, if framed correctly. Yes, if not addressed.</strong></p>
+<p>Admissions readers at competitive schools see "non-traditional school" and look for context. The story you've already articulated — discipline-based ADHD management, recovery from injury without surgery, flexibility for elite athletic training — is genuinely compelling. It becomes an asset when:</p>
+<ul>
+<li>The school counselor letter explicitly addresses the school's structure and rigor.</li>
+<li>The Common App "Additional Information" section explains the academic environment (courses available, grading scale).</li>
+<li>One Personal Insight or supplemental essay touches on the agency the environment gave him.</li>
+</ul>
+<p>It becomes a problem if the application doesn't address it and reviewers fill in the gaps themselves.</p>
+</div>
+</div>
+
+<div class="qa-item">
+<div class="qa-q">NCAA recruitment timing — what's the backup?</div>
+<div class="qa-a">
+<p>Realistic outcomes for a club soccer player aiming at his target list:</p>
+<table class="recruit-table">
+<thead><tr><th>Tier</th><th>Schools on his list</th><th>Recruit role</th></tr></thead>
+<tbody>
+<tr><td>D1</td><td>UC Santa Barbara, Cal Poly, GA Tech</td><td>Walk-on to recruited; rare without elite ECNL / MLS Next standing</td></tr>
+<tr><td>D1 / D3</td><td>NYU, U Chicago, Tufts</td><td>NYU and U Chicago men's soccer are D3 — recruitable with right coach contact</td></tr>
+<tr><td>D3</td><td>Claremont (CMS), Occidental, Babson, Denison</td><td>Strongest realistic recruit fit for D3 LACs</td></tr>
+<tr><td>D1 only</td><td>Santa Clara</td><td>High bar — admissions support unlikely without recruit slot</td></tr>
+</tbody>
+</table>
+<p style="margin-top:16px"><strong>Club soccer at the college level IS a real backup</strong> — and at schools like Chicago, NYU, Babson, that's where most "soccer kids" end up. Building a D1 + D3 + club-track strategy in parallel is the smart play.</p>
+</div>
+</div>
+</div></section>
+
+<section class="timeline"><div class="wrap">
+<div class="section-label">Roadmap</div>
+<h2 class="section-title">What has to happen.</h2>
+
+<div class="tl-block">
+<div class="tl-when">Next 30 Days<span>May–June 2026</span></div>
+<ul class="tl-list">
+<li>Validate summer ID camps already on the calendar — confirm fit-school targeting</li>
+<li>Build / refresh highlight film — ready for coaches by June 15</li>
+<li>Draft initial coach outreach email template (15–20 schools, prioritized)</li>
+<li>Junior year course request submitted — must include 4+ APs / Honors</li>
+<li>Begin SAT diagnostic prep</li>
+</ul>
+</div>
+<div class="tl-block">
+<div class="tl-when">Summer 2026<span>June–August</span></div>
+<ul class="tl-list">
+<li>Attend ID camps strategically (3–4 well-chosen, not 6+ scattered)</li>
+<li>Send personalized coach emails the week of June 15</li>
+<li>Complete Columbia College Business Program (already planned)</li>
+<li>Launch real-estate-meets-service-work passion project</li>
+<li>De Anza enrollment for fall</li>
+</ul>
+</div>
+<div class="tl-block">
+<div class="tl-when">Junior Year<span>Aug 2026–Jun 2027</span></div>
+<ul class="tl-list">
+<li>4+ APs / Honors, especially Math + History + one science</li>
+<li>SAT in Feb and June; PSAT in October (NMSQT eligible)</li>
+<li>Continue club soccer; pursue captaincy or leadership role</li>
+<li>Continue Young Men's Service League with deeper role</li>
+<li>Coach contact and visits scale up after June 15</li>
+<li>Begin Personal Insight Question drafts (May / June 2027)</li>
+</ul>
+</div>
+<div class="tl-block">
+<div class="tl-when">Application Year<span>Jul–Nov 2027</span></div>
+<ul class="tl-list">
+<li>Finalize school list with recruit and academic data</li>
+<li>UC application due Nov 30, 2027</li>
+<li>Common App + supplements due Jan 1–15, 2028</li>
+<li>NLI signing (D1) or Likely Letter (D3 LAC) timing</li>
+</ul>
+</div>
+</div></section>
+
+<section class="urgency"><div class="wrap">
+<div class="section-label">Why Now</div>
+<h2>This isn't "you should start sometime." It's three real deadlines compressed into one summer.</h2>
+<ol class="urgency-list">
+<li><strong>June 15, 2026 — D1 coaches can begin contacting him.</strong> Coaches build their watchlists in May. If his name and film aren't in front of them by then, he loses six months of momentum.</li>
+<li><strong>Junior year course requests are due to school counselors in May / early June.</strong> A 4-AP junior year vs a 2-AP junior year is decided in the next four weeks. Unfixable in the fall.</li>
+<li><strong>The next three months are when he can launch a passion project that shows 18 months of depth.</strong> Starting in junior fall = 6 months of depth — visibly thinner.</li>
+</ol>
+<div class="urgency-final">Every week of delay cuts the runway, not the workload.</div>
+</div></section>
+
+<section class="counselor"><div class="wrap">
+<div class="counselor-card">
+<h3>A note on working with an existing counselor</h3>
+<p>You mentioned Zach is currently working with a counselor. We're not in the business of asking families to switch advisors — most families benefit from continuity. What we offer is <strong>specialized layering</strong> for situations our generalist colleagues don't touch every day:</p>
+<ul>
+<li>NCAA recruitment strategy (timing, camp selection, coach outreach, eligibility)</li>
+<li>Business / Econ pathway architecture (Babson, Stern, Haas, Ross — different entry strategies)</li>
+<li>Spike narrative construction for non-traditional profiles (1:1 schools, ADHD, athletics)</li>
+</ul>
+<p>Many of our families work with us alongside their existing counselor as a specialist layer. We can also do a single second-opinion session if that's the right scope.</p>
+</div>
+</div></section>
+
+<section class="cta-section"><div class="wrap">
+<div class="section-label">Your Next Step</div>
+<h2 class="section-title">Book your 1:1 strategy session with Megan.</h2>
+<div class="cta-box">
+<p class="cta-intro">A focused session to map Zach's NCAA recruitment timeline, business pathway, and the next 18 months. By the end of the call you'll have a clear roadmap — and if longer-term partnership makes sense for your family, <strong>we'll shape the right engagement together based on what we learn on the call.</strong></p>
+<div class="cta-included-label">Included in your session</div>
+<ul class="cta-list">
+<li>Pre-call review of Zach's profile, target schools, and current ID camp plan</li>
+<li>90-minute 1:1 strategy session with Megan</li>
+<li>Written 18-month NCAA + admissions playbook delivered after the call</li>
+<li>Coach outreach email template + ID camp validation checklist</li>
+<li>Specialized layering recommendations (compatible with your existing counselor)</li>
+</ul>
+<div class="cta-meta">
+<span class="cta-price">$297</span>
+<span class="cta-duration">90-minute 1:1 with Megan</span>
+</div>
+<a href="https://buy.stripe.com/28E00j5iS39dgA0dEPeEq1A" target="_blank" rel="noopener noreferrer" class="cta-button">
+Reserve Your Session
+<span class="arrow">→</span>
+</a>
+<p class="cta-trust">Secure checkout via Stripe · Opens in a new window</p>
+</div>
+</div></section>
+
+<section class="closing"><div class="wrap">
+<h3>What to bring to the call with Megan</h3>
+<ol class="bring-list">
+<li>Zach's current transcript or best estimate of grades</li>
+<li>The list of summer ID camps he's already registered for</li>
+<li>His club soccer team and exact level (ECNL, MLS Next, NPL?)</li>
+<li>A rough sense of comfort with the three options above</li>
+</ol>
+</div></section>
+
+<footer><div class="wrap">
+<div class="brand-foot">Clear Paths College Consulting</div>
+<div>Prepared from your intake submission of April 29, 2026 · Confidential · clear-paths.com</div>
+</div></footer>
+
+</body>
+</html>
